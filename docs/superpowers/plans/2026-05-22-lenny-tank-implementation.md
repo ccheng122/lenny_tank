@@ -13,10 +13,12 @@
 **Tech Stack:**
 - Next.js 16 (App Router) + TypeScript + Tailwind — Replit Agent has strong defaults here
 - Anthropic SDK (Claude Haiku 4.5 at runtime, Sonnet 4.6 for one-time character sheets)
-- OpenAI Embeddings (`text-embedding-3-small`)
+- **Ollama** (`nomic-embed-text`, 768-dim) for Phase 0 embeddings — runs locally, no API cost
 - `@vercel/og` for share-card PNG generation
 - Vercel-style serverless functions (Next.js route handlers)
 - Deploy: Replit
+
+**Open consideration — runtime embeddings for free-text scenarios:** Ollama runs locally and Replit can't reach it. The plan defers this until Phase 3: for curated scenarios we use pre-computed embeddings shipped with the repo (no runtime embedding call); for free-text scenarios the MVP either restricts the path or uses Voyage AI's free tier as the runtime embedding service. We'll decide at Task 3.1.
 
 **Reference:** See spec at `docs/superpowers/specs/2026-05-22-lenny-tank-design.md`.
 
@@ -50,9 +52,11 @@ echo '{}' > data/scenarios.json
 
 ```bash
 npm init -y
-npm install @anthropic-ai/sdk openai gray-matter dotenv
+npm install @anthropic-ai/sdk gray-matter dotenv
 npm install -D typescript tsx @types/node
 ```
+
+We use `fetch` directly to call Ollama's HTTP API — no SDK needed. Anthropic SDK stays for character-sheet generation.
 
 - [ ] **Step 3: Create `tsconfig.json`**
 
@@ -77,7 +81,9 @@ npm install -D typescript tsx @types/node
 `.env.example`:
 ```
 ANTHROPIC_API_KEY=sk-ant-...
-OPENAI_API_KEY=sk-...
+# Ollama runs locally; OLLAMA_HOST defaults to http://localhost:11434
+# Set OLLAMA_HOST only if Ollama is bound to a non-default address.
+OLLAMA_HOST=http://localhost:11434
 ```
 
 Append to `.gitignore`:
@@ -211,7 +217,18 @@ git commit -m "Phase 0.2: chunk transcripts into 500-word segments"
 
 ---
 
-### Task 0.3: Generate embeddings for all chunks
+### Task 0.3: Generate embeddings for all chunks (Ollama, runs locally)
+
+**Prerequisite:** Install Ollama (https://ollama.com/download) and pull the embeddings model:
+```bash
+ollama pull nomic-embed-text
+ollama serve &  # if not already running as a service
+```
+
+Verify Ollama is reachable:
+```bash
+curl http://localhost:11434/api/version  # should return JSON with version
+```
 
 **Files:**
 - Create: `scripts/embed-chunks.ts`
@@ -225,25 +242,29 @@ Create `scripts/embed-chunks.ts`:
 import fs from 'node:fs';
 import path from 'node:path';
 import 'dotenv/config';
-import OpenAI from 'openai';
 
 const ROOT = path.join(__dirname, '..');
 const CHUNKS_DIR = path.join(ROOT, 'data/chunks');
-const BATCH_SIZE = 64;
+const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
+const MODEL = 'nomic-embed-text';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
-async function embedBatch(texts: string[]): Promise<number[][]> {
-  const res = await openai.embeddings.create({
-    model: 'text-embedding-3-small',
-    input: texts,
+async function embedOne(text: string): Promise<number[]> {
+  const res = await fetch(`${OLLAMA_HOST}/api/embeddings`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: MODEL, prompt: text }),
   });
-  return res.data.map(d => d.embedding);
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Ollama error ${res.status}: ${errText}`);
+  }
+  const data = await res.json() as { embedding: number[] };
+  return data.embedding;
 }
 
 async function main() {
   const files = fs.readdirSync(CHUNKS_DIR).filter(f => f.endsWith('.json'));
-  console.log(`Embedding ${files.length} guest files`);
+  console.log(`Embedding ${files.length} guest files via Ollama (${MODEL})`);
 
   for (const file of files) {
     const filepath = path.join(CHUNKS_DIR, file);
@@ -255,12 +276,9 @@ async function main() {
       continue;
     }
 
-    for (let i = 0; i < chunks.length; i += BATCH_SIZE) {
-      const batch = chunks.slice(i, i + BATCH_SIZE);
-      const embeddings = await embedBatch(batch.map((c: any) => c.text));
-      for (let j = 0; j < batch.length; j++) {
-        chunks[i + j].embedding = embeddings[j];
-      }
+    // Ollama's /api/embeddings is one-at-a-time; process sequentially.
+    for (let i = 0; i < chunks.length; i++) {
+      chunks[i].embedding = await embedOne(chunks[i].text);
     }
 
     fs.writeFileSync(filepath, JSON.stringify(chunks, null, 2));
@@ -275,13 +293,13 @@ main().catch(err => {
 });
 ```
 
-- [ ] **Step 2: Run it**
+- [ ] **Step 2: Run it** (you run this when ready; subagents skip execution)
 
 ```bash
 npx tsx scripts/embed-chunks.ts
 ```
 
-Expected: 50 lines like `boris-cherny.json: 38 chunks embedded`. Takes 1–3 minutes total. If it errors midway, re-run — the script skips already-embedded files.
+Expected: 50 lines like `boris-cherny.json: 38 chunks embedded`. Takes 5–20 minutes depending on your hardware (Ollama embeds one-at-a-time, ~50-200ms per chunk). If it errors midway, re-run — the script skips already-embedded files.
 
 - [ ] **Step 3: Verify**
 
@@ -289,7 +307,7 @@ Expected: 50 lines like `boris-cherny.json: 38 chunks embedded`. Takes 1–3 min
 node -e "const c = require('./data/chunks/boris-cherny.json'); console.log('chunks:', c.length, 'embedding dims:', c[0].embedding.length);"
 ```
 
-Expected: `chunks: 38 embedding dims: 1536`
+Expected: `chunks: 38 embedding dims: 768`
 
 - [ ] **Step 4: Check file sizes**
 
@@ -297,13 +315,13 @@ Expected: `chunks: 38 embedding dims: 1536`
 du -sh data/chunks/
 ```
 
-Expected: somewhere in the 50–150 MB range (embeddings are big). If above 200 MB, consider truncating chunks per file before committing.
+Expected: somewhere in the 25–75 MB range (768-dim vectors are half the size of OpenAI's 1536-dim). If above 100 MB, consider truncating chunks per file before committing.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/embed-chunks.ts data/chunks/
-git commit -m "Phase 0.3: generate OpenAI embeddings for chunks"
+git commit -m "Phase 0.3: generate Ollama embeddings for chunks"
 ```
 
 ---
@@ -633,7 +651,7 @@ Generated by Phase 0 scripts. Imported by the Replit Lenny Tank app.
 - `chunks/{slug}.json` — embedded transcript chunks (~500 words each). See `index.ts:Chunk`.
 - `scenarios.json` — 25 curated scenario cards across 5 buckets. See `index.ts:ScenarioDeck`.
 
-All chunks use OpenAI `text-embedding-3-small` (1536-dim).
+All chunks use Ollama `nomic-embed-text` (768-dim), generated locally.
 
 ## Regenerating
 
