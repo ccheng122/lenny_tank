@@ -217,6 +217,84 @@ git commit -m "Phase 0.2: chunk transcripts into 500-word segments"
 
 ---
 
+### Task 0.2-fix: Make the chunker robust to single-newline transcripts
+
+**Why:** at least one transcript (`ravi-mehta.md`) uses single newlines between speaker turns instead of blank lines, so the `\n\n+` splitter sees the whole body as one paragraph and emits a single oversized chunk. Any chunk where (raw split produces < 5 chunks OR any chunk exceeds 2× `targetWords`) should be sub-split.
+
+**Files:**
+- Modify: `scripts/chunk-transcripts.ts`
+- Regenerate: `data/chunks/{slug}.json`
+
+- [ ] **Step 1: Replace `chunkText` with a 2-pass splitter**
+
+```typescript
+function chunkText(text: string, targetWords: number): string[] {
+  // Pass 1: split on blank-line paragraphs.
+  const paragraphs = text.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+  const coarse: string[] = [];
+  let current = '';
+  for (const para of paragraphs) {
+    const proposed = current ? `${current}\n\n${para}` : para;
+    if (proposed.split(/\s+/).length > targetWords && current) {
+      coarse.push(current);
+      current = para;
+    } else {
+      current = proposed;
+    }
+  }
+  if (current) coarse.push(current);
+
+  // Pass 2: any coarse chunk exceeding 2× target gets sub-split on single newlines.
+  const finalChunks: string[] = [];
+  for (const chunk of coarse) {
+    if (chunk.split(/\s+/).length <= targetWords * 2) {
+      finalChunks.push(chunk);
+      continue;
+    }
+    const lines = chunk.split(/\n+/).map(l => l.trim()).filter(Boolean);
+    let inner = '';
+    for (const line of lines) {
+      const proposed = inner ? `${inner}\n${line}` : line;
+      if (proposed.split(/\s+/).length > targetWords && inner) {
+        finalChunks.push(inner);
+        inner = line;
+      } else {
+        inner = proposed;
+      }
+    }
+    if (inner) finalChunks.push(inner);
+  }
+
+  return finalChunks;
+}
+```
+
+- [ ] **Step 2: Delete stale chunks and re-run**
+
+```bash
+rm data/chunks/*.json
+npx tsx scripts/chunk-transcripts.ts
+```
+
+Expected: `ravi-mehta` now produces > 1 chunk (something in the 25-50 range). Other files should be unchanged (the second pass is a no-op when chunks are already small).
+
+- [ ] **Step 3: Verify ravi-mehta specifically**
+
+```bash
+node -e "console.log(require('./data/chunks/ravi-mehta.json').length)"
+```
+
+Expected: at least 20.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add scripts/chunk-transcripts.ts data/chunks/
+git commit -m "Phase 0.2-fix: sub-split oversized chunks on single newlines"
+```
+
+---
+
 ### Task 0.3: Generate embeddings for all chunks (Ollama, runs locally)
 
 **Prerequisite:** Install Ollama (https://ollama.com/download) and pull the embeddings model:
@@ -322,6 +400,183 @@ Expected: somewhere in the 25–75 MB range (768-dim vectors are half the size o
 ```bash
 git add scripts/embed-chunks.ts data/chunks/
 git commit -m "Phase 0.3: generate Ollama embeddings for chunks"
+```
+
+---
+
+### Task 0.3.5: Verify embedding quality
+
+**Why:** Ollama's `nomic-embed-text` is smaller than OpenAI's model. Before depending on it for the demo, run a smoke test to confirm retrieval returns sensible results (right guests dominate for known queries).
+
+**Files:**
+- Create: `scripts/verify-embeddings.ts`
+
+- [ ] **Step 1: Write the verification script**
+
+```typescript
+import fs from 'node:fs';
+import path from 'node:path';
+import 'dotenv/config';
+
+const ROOT = path.join(__dirname, '..');
+const CHUNKS_DIR = path.join(ROOT, 'data/chunks');
+const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
+const MODEL = 'nomic-embed-text';
+
+interface ChunkWithEmbedding {
+  id: string;
+  slug: string;
+  text: string;
+  guest: string;
+  episode_title: string;
+  embedding: number[];
+}
+
+const TEST_QUERIES: { query: string; expectedGuests: string[] }[] = [
+  {
+    query: 'How do I improve user retention?',
+    expectedGuests: ['elena-verna-40', 'albert-cheng', 'jason-cohen', 'amol-avasare'],
+  },
+  {
+    query: 'Our AI feature hallucinates — how do we evaluate it?',
+    expectedGuests: ['hamel-husain--shreya-shankar', 'cat-wu', 'asha-sharma', 'claire-vo-openclaw'],
+  },
+  {
+    query: 'I need to have a hard performance conversation with an employee',
+    expectedGuests: ['molly-graham', 'rachel-lockett', 'ben-horowitz', 'matt-macinnis'],
+  },
+  {
+    query: 'How do I find product-market fit early on?',
+    expectedGuests: ['eric-ries-2', 'melanie-perkins', 'grant-lee', 'brian-halligan'],
+  },
+  {
+    query: 'Should I become a manager or stay an individual contributor?',
+    expectedGuests: ['sam-lessin', 'nikhyl-singhal-2', 'keith-rabois'],
+  },
+];
+
+function cosine(a: number[], b: number[]): number {
+  let dot = 0, na = 0, nb = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    na += a[i] * a[i];
+    nb += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb));
+}
+
+async function embed(text: string): Promise<number[]> {
+  const res = await fetch(`${OLLAMA_HOST}/api/embeddings`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: MODEL, prompt: text }),
+  });
+  if (!res.ok) throw new Error(`Ollama error ${res.status}: ${await res.text()}`);
+  const data = await res.json() as { embedding: number[] };
+  return data.embedding;
+}
+
+function loadAllChunks(): ChunkWithEmbedding[] {
+  const files = fs.readdirSync(CHUNKS_DIR).filter(f => f.endsWith('.json'));
+  const all: ChunkWithEmbedding[] = [];
+  for (const file of files) {
+    const chunks = JSON.parse(fs.readFileSync(path.join(CHUNKS_DIR, file), 'utf-8'));
+    all.push(...chunks);
+  }
+  if (all.length === 0 || !all[0].embedding) {
+    throw new Error('No embeddings found. Run `npx tsx scripts/embed-chunks.ts` first.');
+  }
+  return all;
+}
+
+function topK(queryEmb: number[], chunks: ChunkWithEmbedding[], k: number): { chunk: ChunkWithEmbedding; score: number }[] {
+  const scored = chunks.map(c => ({ chunk: c, score: cosine(queryEmb, c.embedding) }));
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, k);
+}
+
+async function runSelfRetrieval(chunks: ChunkWithEmbedding[]) {
+  console.log('\n=== Sanity check: self-retrieval ===');
+  const samples = [chunks[0], chunks[Math.floor(chunks.length / 2)], chunks[chunks.length - 1]];
+  let passed = 0;
+  for (const sample of samples) {
+    const queryEmb = await embed(sample.text.slice(0, 1500));
+    const top = topK(queryEmb, chunks, 3);
+    const found = top.some(t => t.chunk.id === sample.id);
+    console.log(`  ${found ? '✅' : '❌'} ${sample.id} → top-3: ${top.map(t => t.chunk.id).join(', ')}`);
+    if (found) passed++;
+  }
+  console.log(`Self-retrieval: ${passed}/${samples.length} found themselves in top-3`);
+}
+
+async function runTopicalQueries(chunks: ChunkWithEmbedding[]) {
+  console.log('\n=== Topical relevance: hand-curated queries ===');
+  for (const test of TEST_QUERIES) {
+    console.log(`\nQuery: "${test.query}"`);
+    console.log(`Expecting dominant guests from: ${test.expectedGuests.join(', ')}`);
+    const queryEmb = await embed(test.query);
+    const top = topK(queryEmb, chunks, 5);
+    const topGuests = new Set(top.map(t => t.chunk.slug));
+    const matches = test.expectedGuests.filter(g => topGuests.has(g));
+    console.log(`  ${matches.length >= 2 ? '✅' : '⚠️ '} ${matches.length}/${test.expectedGuests.length} expected guests in top-5`);
+    for (const t of top) {
+      const snippet = t.chunk.text.replace(/\s+/g, ' ').slice(0, 100);
+      const flag = test.expectedGuests.includes(t.chunk.slug) ? '✓' : ' ';
+      console.log(`    ${flag} [${t.score.toFixed(3)}] ${t.chunk.guest}: ${snippet}...`);
+    }
+  }
+}
+
+async function runCustomQuery(query: string, chunks: ChunkWithEmbedding[]) {
+  console.log(`\n=== Custom query: "${query}" ===`);
+  const queryEmb = await embed(query);
+  const top = topK(queryEmb, chunks, 5);
+  for (const t of top) {
+    const snippet = t.chunk.text.replace(/\s+/g, ' ').slice(0, 150);
+    console.log(`  [${t.score.toFixed(3)}] ${t.chunk.guest} (${t.chunk.episode_title}): ${snippet}...`);
+  }
+}
+
+async function main() {
+  const chunks = loadAllChunks();
+  console.log(`Loaded ${chunks.length} chunks across ${new Set(chunks.map(c => c.slug)).size} guests`);
+
+  const customQuery = process.argv.find(a => a.startsWith('--query='))?.replace('--query=', '');
+  if (customQuery) {
+    await runCustomQuery(customQuery, chunks);
+    return;
+  }
+
+  await runSelfRetrieval(chunks);
+  await runTopicalQueries(chunks);
+}
+
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+- [ ] **Step 2: Run it** (after embeddings exist)
+
+```bash
+npx tsx scripts/verify-embeddings.ts
+```
+
+Expected output:
+- Self-retrieval: 3/3 pass
+- Topical: ideally 4/5 queries hit ≥2 expected guests in top-5. If under 2/5 queries pass, embedding quality is concerning — consider switching to OpenAI or Voyage AI for embeddings.
+
+For one-off exploration:
+```bash
+npx tsx scripts/verify-embeddings.ts --query="how to ship AI features fast"
+```
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add scripts/verify-embeddings.ts
+git commit -m "Phase 0.3.5: embedding-quality verification script"
 ```
 
 ---
