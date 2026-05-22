@@ -19,22 +19,43 @@ interface Chunk {
 }
 
 function chunkText(text: string, targetWords: number): string[] {
+  // Pass 1: split on blank-line paragraphs.
   const paragraphs = text.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
-  const chunks: string[] = [];
+  const coarse: string[] = [];
   let current = '';
-
   for (const para of paragraphs) {
     const proposed = current ? `${current}\n\n${para}` : para;
-    const wordCount = proposed.split(/\s+/).length;
-    if (wordCount > targetWords && current) {
-      chunks.push(current);
+    if (proposed.split(/\s+/).length > targetWords && current) {
+      coarse.push(current);
       current = para;
     } else {
       current = proposed;
     }
   }
-  if (current) chunks.push(current);
-  return chunks;
+  if (current) coarse.push(current);
+
+  // Pass 2: any coarse chunk exceeding 2× target gets sub-split on single newlines.
+  const finalChunks: string[] = [];
+  for (const chunk of coarse) {
+    if (chunk.split(/\s+/).length <= targetWords * 2) {
+      finalChunks.push(chunk);
+      continue;
+    }
+    const lines = chunk.split(/\n+/).map(l => l.trim()).filter(Boolean);
+    let inner = '';
+    for (const line of lines) {
+      const proposed = inner ? `${inner}\n${line}` : line;
+      if (proposed.split(/\s+/).length > targetWords && inner) {
+        finalChunks.push(inner);
+        inner = line;
+      } else {
+        inner = proposed;
+      }
+    }
+    if (inner) finalChunks.push(inner);
+  }
+
+  return finalChunks;
 }
 
 function main() {
