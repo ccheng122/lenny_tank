@@ -12,33 +12,66 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const SYSTEM_PROMPT = `You are analyzing a podcast transcript to build a "character sheet" for the guest. Your output will be used to generate in-voice persona responses to product/career scenarios, so capture what makes this person distinctive.
 
-Output strict JSON matching this schema:
-{
-  "persona_summary": "one paragraph (3-5 sentences) capturing their worldview, what they advocate for, and their general vibe",
-  "core_frameworks": ["3-5 concise items, each a framework or principle they emphasize"],
-  "signature_phrases": ["3-7 distinctive phrases or vocabulary they use repeatedly"],
-  "pushes_back_on": ["3-5 things they explicitly criticize, dismiss, or warn against"],
-  "speaking_style": "one sentence on tone, pacing, and how they argue (e.g. 'direct, contrarian, uses concrete examples', 'measured and analogical')"
-}
+Be specific. Avoid generic startup-advice platitudes. Quote distinctive language where possible.
 
-Be specific. Avoid generic startup-advice platitudes. Quote distinctive language where possible.`;
+Call the submit_character_sheet tool with the analyzed character sheet.`;
 
+const CHARACTER_SHEET_TOOL = {
+  name: 'submit_character_sheet',
+  description: 'Submit the analyzed character sheet for this podcast guest.',
+  input_schema: {
+    type: 'object' as const,
+    properties: {
+      persona_summary: {
+        type: 'string',
+        description: 'One paragraph (3-5 sentences) capturing their worldview, what they advocate for, and their general vibe.',
+      },
+      core_frameworks: {
+        type: 'array',
+        items: { type: 'string' },
+        description: '3-5 frameworks or principles they emphasize.',
+      },
+      signature_phrases: {
+        type: 'array',
+        items: { type: 'string' },
+        description: '3-7 distinctive phrases or vocabulary they use repeatedly.',
+      },
+      pushes_back_on: {
+        type: 'array',
+        items: { type: 'string' },
+        description: '3-5 things they explicitly criticize, dismiss, or warn against.',
+      },
+      speaking_style: {
+        type: 'string',
+        description: "One sentence on tone, pacing, and how they argue (e.g. 'direct, contrarian, uses concrete examples', 'measured and analogical').",
+      },
+    },
+    required: ['persona_summary', 'core_frameworks', 'signature_phrases', 'pushes_back_on', 'speaking_style'],
+  },
+};
+
+// Use Anthropic's tool_use to force the model into a schema-validated response,
+// rather than parsing free-form text for JSON. Eliminates the unescaped-quote
+// failure mode (cat-wu, claire-vo-openclaw, marc-andreessen on first pass).
 async function buildSheet(slug: string, body: string, fm: any) {
   const truncated = body.slice(0, 60000);
   const res = await anthropic.messages.create({
     model: 'claude-sonnet-4-6',
     max_tokens: 1500,
     system: SYSTEM_PROMPT,
+    tools: [CHARACTER_SHEET_TOOL],
+    tool_choice: { type: 'tool', name: 'submit_character_sheet' },
     messages: [{
       role: 'user',
       content: `Guest: ${fm.guest ?? slug}\nEpisode: ${fm.title ?? slug}\n\nTranscript:\n${truncated}`,
     }],
   });
 
-  const text = res.content[0].type === 'text' ? res.content[0].text : '';
-  const jsonMatch = text.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) throw new Error(`No JSON in response for ${slug}: ${text.slice(0, 200)}`);
-  return JSON.parse(jsonMatch[0]);
+  const toolBlock = res.content.find(b => b.type === 'tool_use');
+  if (!toolBlock || toolBlock.type !== 'tool_use') {
+    throw new Error(`No tool_use response for ${slug}: stop_reason=${res.stop_reason}`);
+  }
+  return toolBlock.input as Record<string, unknown>;
 }
 
 async function main() {
