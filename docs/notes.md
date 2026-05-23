@@ -17,7 +17,44 @@ You'll see three sections. Here's what to look at in each, with red flags called
 
 ### 1. Self-retrieval section
 
-Output looks like:
+#### What self-retrieval is
+
+The simplest possible smoke test for an embedding system. The mechanic:
+1. Take a chunk of text already in the database (e.g., chunk #15 from Jenny Wen's episode)
+2. Send that text through the embedding model fresh → get a query vector
+3. Use that query vector to search through ALL embeddings in the dataset
+4. Check: does the original chunk appear in the top-3 results?
+
+It should, because we just searched for its own text. If a chunk can't find ITSELF in the database that contains it, nothing else will work.
+
+**Analogy:** publish a blog post, then Google the exact title. If your own post doesn't show up, search isn't broken at the "is this relevant?" level — it's broken at the "is this thing even plugged in?" level.
+
+#### Purpose: catch plumbing failures before they hide as quality failures
+
+Self-retrieval is fast, cheap, and catches a specific class of bug — **the system runs without errors but produces silently broken output.** That's the worst kind of bug: it doesn't crash, it just emits garbage that looks like real results. Specifically it catches:
+
+1. **Embeddings weren't actually generated.** Chunks have empty/zero/placeholder vectors. Script runs, math runs, results come back — all meaningless (zero vectors are equidistant from each other).
+2. **Wrong model used for chunks vs. query.** Chunks embedded with `nomic-embed-text` but the verify script accidentally uses another model. Two unrelated vector spaces.
+3. **Dimension mismatch.** Chunks are 768-dim, query is 1536-dim. Cosine math returns nonsense.
+4. **Vectors loaded as strings.** A JSON parsing bug stores `"0.123"` instead of `0.123`. Math silently fails.
+5. **Ollama returning the wrong model's output** — e.g., `nomic-embed-text` wasn't pulled and Ollama fell back to a different default.
+
+Without this check, you'd discover the bug much later — like when judge reactions are about random unrelated topics.
+
+#### What self-retrieval does NOT tell you
+
+It only checks "the plumbing works." It does NOT check whether embeddings are *meaningful*. The model could be terrible at semantic understanding (can't tell "retention" ≈ "churn") and self-retrieval would still pass. That's what the topical-queries section (below) tests.
+
+#### Why 3 chunks (first, middle, last) and not just 1
+
+Testing 3 chunks spread across the dataset confirms the behavior is consistent across files and positions. If 3/3 pass, an arbitrary chunk would also pass.
+
+#### Why "top-3" and not "is it #1"
+
+Embedding models can have small nondeterminism — running the same text twice doesn't always produce *exactly* the same vector. The original chunk should still be very close, but might occasionally land at #2 behind a nearly-identical paragraph from the same episode. Top-3 is forgiving enough to handle minor variation while still being a meaningful threshold.
+
+#### Output looks like
+
 ```
 === Sanity check: self-retrieval ===
   ✅ caitlin-kalinowski-0 → top-3: caitlin-kalinowski-0, ...
@@ -27,7 +64,11 @@ Self-retrieval: 3/3 found themselves in top-3
 ```
 
 **Pass bar:** 3/3.
-**If you see < 3/3:** something is fundamentally broken (embeddings not generated, dimension mismatch, or the script can't read the data). Don't proceed — debug before anything else. Most likely: embeddings weren't actually generated, or were generated with a different model and the vectors don't line up.
+**If you see < 3/3:** something is fundamentally broken (one of the 5 failure modes above). Don't proceed — debug before anything else. Most likely: embeddings weren't actually generated, or were generated with a different model and the vectors don't line up.
+
+#### TL;DR
+
+**Self-retrieval = "if I search the database for a thing that's in the database, do I find it?"** A 5-second sanity check that prevents 5 hours of downstream debugging.
 
 ### 2. Topical-queries section
 
