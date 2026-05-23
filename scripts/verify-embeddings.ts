@@ -95,6 +95,8 @@ async function runSelfRetrieval(chunks: ChunkWithEmbedding[]) {
 
 async function runTopicalQueries(chunks: ChunkWithEmbedding[]) {
   console.log('\n=== Topical relevance: hand-curated queries ===');
+  const top1Scores: number[] = [];
+  let passedQueries = 0;
   for (const test of TEST_QUERIES) {
     console.log(`\nQuery: "${test.query}"`);
     console.log(`Expecting dominant guests from: ${test.expectedGuests.join(', ')}`);
@@ -102,13 +104,34 @@ async function runTopicalQueries(chunks: ChunkWithEmbedding[]) {
     const top = topK(queryEmb, chunks, 5);
     const topGuests = new Set(top.map(t => t.chunk.slug));
     const matches = test.expectedGuests.filter(g => topGuests.has(g));
-    console.log(`  ${matches.length >= 2 ? '✅' : '⚠️ '} ${matches.length}/${test.expectedGuests.length} expected guests in top-5`);
+    const passed = matches.length >= 2;
+    if (passed) passedQueries++;
+    top1Scores.push(top[0].score);
+    console.log(`  ${passed ? '✅' : '⚠️ '} ${matches.length}/${test.expectedGuests.length} expected guests in top-5`);
     for (const t of top) {
       const snippet = t.chunk.text.replace(/\s+/g, ' ').slice(0, 100);
       const flag = test.expectedGuests.includes(t.chunk.slug) ? '✓' : ' ';
       console.log(`    ${flag} [${t.score.toFixed(3)}] ${t.chunk.guest}: ${snippet}...`);
     }
   }
+
+  const sorted = [...top1Scores].sort((a, b) => a - b);
+  const median = sorted.length % 2 === 0
+    ? (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2
+    : sorted[Math.floor(sorted.length / 2)];
+  const min = sorted[0];
+  const max = sorted[sorted.length - 1];
+  const mean = top1Scores.reduce((s, v) => s + v, 0) / top1Scores.length;
+
+  console.log('\n=== Summary ===');
+  console.log(`Topical pass rate: ${passedQueries}/${TEST_QUERIES.length} queries had ≥2 expected guests in top-5 (target ≥4/5)`);
+  console.log(`Top-1 cosine across ${TEST_QUERIES.length} queries:`);
+  console.log(`  median: ${median.toFixed(3)} (target ≥0.5)`);
+  console.log(`  mean:   ${mean.toFixed(3)}`);
+  console.log(`  min:    ${min.toFixed(3)}`);
+  console.log(`  max:    ${max.toFixed(3)}`);
+  const overallPass = passedQueries >= 4 && median >= 0.5;
+  console.log(`\nOverall: ${overallPass ? '🟢 PASS — embeddings ready to depend on' : '🟡 BELOW BAR — consider regenerating with prefixes or switching model'}`);
 }
 
 async function runCustomQuery(query: string, chunks: ChunkWithEmbedding[]) {
