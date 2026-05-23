@@ -49,11 +49,15 @@ function cosine(a: number[], b: number[]): number {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 
+// All embed() calls in this script are for QUERIES (self-retrieval, topical,
+// custom). Chunks are pre-embedded by embed-chunks.ts using the
+// "search_document: " prefix. The "search_query: " prefix here pairs with that.
+// See docs/notes.md for the why.
 async function embed(text: string): Promise<number[]> {
   const res = await fetch(`${OLLAMA_HOST}/api/embeddings`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: MODEL, prompt: text }),
+    body: JSON.stringify({ model: MODEL, prompt: 'search_query: ' + text }),
   });
   if (!res.ok) throw new Error(`Ollama error ${res.status}: ${await res.text()}`);
   const data = await res.json() as { embedding: number[] };

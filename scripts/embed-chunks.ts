@@ -7,11 +7,14 @@ const CHUNKS_DIR = path.join(ROOT, 'data/chunks');
 const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
 const MODEL = 'nomic-embed-text';
 
+// nomic-embed-text expects role-tagged input: "search_document: ..." for chunks
+// being indexed, "search_query: ..." for queries. The model uses the prefix to
+// switch into the right mode of vector space. See docs/notes.md for the why.
 async function embedOne(text: string): Promise<number[]> {
   const res = await fetch(`${OLLAMA_HOST}/api/embeddings`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: MODEL, prompt: text }),
+    body: JSON.stringify({ model: MODEL, prompt: 'search_document: ' + text }),
   });
   if (!res.ok) {
     const errText = await res.text();

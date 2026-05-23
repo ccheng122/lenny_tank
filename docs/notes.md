@@ -134,3 +134,102 @@ After running, write these down:
 - **Median top-1 cosine** across the 5 topical queries (target ≥0.5)
 
 If all three are green → ship it. If any is red → use one of the escape hatches above before generating character sheets.
+
+---
+
+## How nomic prefixes improve retrieval quality
+
+_2026-05-23_
+
+### What an embedding model is doing (zoomed out)
+
+An embedding model takes a piece of text and turns it into a list of numbers (a "vector") — for nomic-embed-text, that's 768 numbers per text. The job of that vector is to place the text at a specific location in an imaginary 768-dimensional space.
+
+The key rule of that space: **texts with similar meaning land near each other**, and texts with different meanings land far apart. You find related text by computing distance (cosine similarity) between vectors.
+
+The model knows what "similar" means because it was trained on billions of text pairs that were labeled (by humans or other systems) as related or not. It learned patterns about which words and structures and topics should land close together.
+
+### The asymmetry problem
+
+There are different KINDS of "related." Compare:
+
+| Type | Example |
+|---|---|
+| **Query** | "How do I improve user retention?" |
+| **Document/answer** | "Well, the way we think about it at Duolingo is you need to find your aha moment..." |
+| **Topic statement** | "User retention is the percentage of users who return..." |
+
+The query and the answer are **related** but **linguistically very different**. The query is short, "how do I" structure, ends with a question mark. The answer is conversational, has a specific perspective, is long.
+
+If you embed both into the SAME vector space using the SAME rules, the model is essentially being asked to "find similar text" — but you actually want "find an answer to this question." Those are different jobs.
+
+### How prefixes solve it
+
+nomic-embed-text was specifically trained with text labeled by its role. During training, the model saw pairs like:
+
+```
+INPUT 1: "search_query: How do I improve user retention?"
+INPUT 2: "search_document: Well, the way we think about it at Duolingo..."
+TRAINER: "These two should be CLOSE TOGETHER even though they look different."
+```
+
+So the model learned: **when I see `search_query:` at the start, embed this as if it's a question looking for answers. When I see `search_document:`, embed this as if it's a candidate answer.**
+
+It uses the prefix as a switch — same model weights, but two different "modes." One for queries, one for documents.
+
+### Analogy
+
+Think of a librarian:
+- **Without prefixes:** you walk up and say something. The librarian doesn't know if you're asking a question, recommending a book, or returning one. They make a best guess.
+- **With prefixes:** you walk up and say "I have a question" first. Now the librarian knows to look for books that ANSWER your question, not books that say similar things back.
+
+The librarian is the same person and has the same information. The prefix just tells them which mode to operate in.
+
+### What changes in your code
+
+Two tiny edits, no math changes, no new dependencies:
+
+**`embed-chunks.ts`** (embedding chunks as documents):
+```typescript
+// Before:
+prompt: chunk.text
+
+// After:
+prompt: 'search_document: ' + chunk.text
+```
+
+**`verify-embeddings.ts` and any runtime retrieval code** (embedding user queries):
+```typescript
+// Before:
+prompt: queryText
+
+// After:
+prompt: 'search_query: ' + queryText
+```
+
+### Why this typically helps the numbers
+
+Without prefixes, "How do I improve user retention?" matched Albert Cheng's chunk at cosine 0.765. With prefixes, the same pair would likely score 0.85-0.90+. The model is now using its "match question to answer" mode rather than its generic "match text to text" mode.
+
+Concrete benefits beyond bigger numbers:
+
+1. **Cleaner score gaps.** Currently "AI evals" has a 0.007 gap between top-1 and top-5 (very flat). With prefixes, the relevant chunks pull ahead more clearly because the model is more confident about Q→A matching.
+2. **Better behavior on borderline queries.** A query that's ambiguous-in-isolation becomes clearer when the model knows it's a question.
+3. **Free-text scenarios benefit most.** User-typed scenarios are more "questiony" than the curated cards — that's exactly where prefixes pay off.
+
+### Cost / benefit
+
+| What | Cost |
+|---|---|
+| Code change | ~2 lines, ~30 seconds |
+| Re-embed all chunks (old embeddings used no prefix; must regenerate) | 5-20 min compute, free (Ollama is local) |
+| Redeploy | Few minutes |
+| Risk | Very low. Revert the diff and you're back to before. |
+
+### When to do it vs. skip
+
+**Do it now if:** your current pass rate is barely meeting the bars, your free-text retrieval feels off, or you're already regenerating embeddings for another reason (e.g., adding new transcripts).
+
+**Skip if:** your pass bars are comfortably met and you're trying to move fast to character sheets and Replit work.
+
+It's a marginal improvement, not a transformational one. Above-bar embeddings without prefixes will produce a working demo; the prefixes just give you more headroom.
