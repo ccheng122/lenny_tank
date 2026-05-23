@@ -142,6 +142,24 @@ Companion docs:
 
 **Why fix:** If one transcript has this format, others might too as the archive grows. Better to make the tool robust than to maintain a list of "broken" files. The fix is small (~15 lines) and idempotent.
 
+### 15. Embedding-quality pass bars: self-retrieval 3/3, topical ≥4/5, median top-1 cosine ≥0.5
+
+**Choice:** Three numeric thresholds the `verify-embeddings.ts` output must clear before we proceed to character-sheet generation and runtime work.
+
+**Alternatives considered:** No bars at all (eyeball it). Single bar (just top-1 cosine). Stricter bars (5/5 topical, 0.6+ cosine).
+
+**Why these specific numbers — they're heuristic, not derived from a paper:**
+
+| Bar | Why |
+|---|---|
+| **Self-retrieval 3/3** | Not really a choice — if a chunk can't find itself in the database it lives in, retrieval is plumbed wrong. Anything less means investigate before anything else. Acceptable failure rate is zero for "system works at all." |
+| **Topical pass rate ≥4/5** (≥2 expected guests in top-5 per query) | 5/5 is too strict because the "expected guests" list is itself a heuristic — the model can legitimately surface defensible matches that weren't on my list (e.g., Jenny Wen on manager-vs-IC). 3/5 is too loose because 40% off-topic retrieval at demo time means judge reactions will frequently feel disconnected from the user's situation. 4/5 = "most queries clearly work, one allowed to be debatable." |
+| **Median top-1 cosine ≥0.5** | For nomic-embed-text: 0.7+ is strong, 0.5-0.7 is working but noisy, <0.5 means the model is genuinely struggling to find the topic. 0.5 is the "minimum acceptable signal level." 0.6 would be better but might fail on legitimately hard queries; 0.4 risks shipping retrieval that's barely functioning. |
+
+**Calibration:** these bars target "demo-able Lenny Tank quality." A legal-search system would need 5/5 with strict relevance grading. A "show me anything related" app could tolerate 3/5. **Trust your demo experience over the numbers** — the bars predict demo quality, they aren't the goal themselves.
+
+**Easy to revisit if:** demos consistently surface off-topic reactions despite the bars being met (raise the bars), or you find yourself rejecting embeddings that actually produce fine demos (lower them).
+
 ---
 
 ## Quality checkpoints (verify-as-you-go)
