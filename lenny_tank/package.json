@@ -1,0 +1,33 @@
+{
+  "name": "lennys-newsletterpodcastdata",
+  "version": "1.0.0",
+  "description": "A comprehensive archive of [Lenny's Podcast](https://www.lennyspodcast.com) transcripts and [Lenny's Newsletter](https://www.lennysnewsletter.com) posts, in AI-friendly markdown, to inspire you to build something with this unique dataset.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LennysNewsletter/lennys-newsletterpodcastdata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LennysNewsletter/lennys-newsletterpodcastdata/issues"
+  },
+  "homepage": "https://github.com/LennysNewsletter/lennys-newsletterpodcastdata#readme",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
+    "dotenv": "^17.4.2",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}

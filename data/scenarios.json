@@ -1,0 +1,312 @@
+{
+  "growth": [
+    {
+      "id": "retention-cliff",
+      "title": "The Retention Cliff",
+      "setup": "You're a PM at a B2C AI app. Day-1 activation is 70%, but only 12% of users return after week 2. Leadership wants to launch a referral program. Marketing wants more paid acquisition spend.",
+      "suggested_moves": [
+        "Pause growth spend; fix the leaky bucket first",
+        "Ship the referral program anyway — momentum matters",
+        "Dig into the week-2 cohort to understand who churns and why"
+      ],
+      "judge_bench": ["elena-verna-40", "albert-cheng", "jason-cohen", "amol-avasare", "ethan-smith"],
+      "themes": ["retention", "growth-levers", "cohorts"]
+    },
+    {
+      "id": "freemium-trap",
+      "title": "The Freemium Trap",
+      "setup": "You're the growth lead at a B2B SaaS. 80% of users are on the free tier. Paid conversion has been stuck at 1.8% for 6 months despite shipping 4 'upsell-driving' features. Sales wants to remove the free tier entirely.",
+      "suggested_moves": [
+        "Kill the free tier — force conversions",
+        "Make the free tier more generous to win community love, then upsell on team features",
+        "Stop shipping upsell features; re-interview free users about what they would actually pay for"
+      ],
+      "judge_bench": ["elena-verna-40", "albert-cheng", "jason-cohen", "amol-avasare", "ethan-smith"],
+      "themes": ["monetization", "freemium", "pricing"]
+    },
+    {
+      "id": "seo-cliff-aeo",
+      "title": "Google Sent the Traffic, ChatGPT Took It",
+      "setup": "You're the head of marketing at a 40-person SaaS. SEO drove 60% of signups for 3 years; it's down 45% YoY as ChatGPT and Perplexity eat the funnel. The CEO wants you to 'just figure out the AI SEO thing' next quarter.",
+      "suggested_moves": [
+        "Go all-in on AEO — rewrite content to be cited by LLMs",
+        "Abandon search; double down on community, podcast sponsorships, and word-of-mouth channels",
+        "Run a 6-week test that splits effort 50/50 between AEO and a paid + lifecycle revival"
+      ],
+      "judge_bench": ["elena-verna-40", "albert-cheng", "jason-cohen", "amol-avasare", "ethan-smith"],
+      "themes": ["channel-mix", "AEO", "SEO-decay"]
+    },
+    {
+      "id": "viral-but-shallow",
+      "title": "Viral But Shallow",
+      "setup": "You're a growth IC on a consumer app. A TikTok moment drove 400K signups in 10 days. D7 retention on that cohort is 4%, vs. 22% for organic signups. The CEO wants to spend $200K replicating the moment.",
+      "suggested_moves": [
+        "Pour money into replicating the viral loop — top of funnel is everything",
+        "Block the spend; re-onboard the existing 400K with a tailored flow before adding more",
+        "Treat the viral cohort as a lost cause; reinvest the budget in your highest-retaining channel"
+      ],
+      "judge_bench": ["elena-verna-40", "albert-cheng", "jason-cohen", "amol-avasare", "ethan-smith"],
+      "themes": ["virality", "acquisition-quality", "channel-economics"]
+    },
+    {
+      "id": "two-personas-one-product",
+      "title": "Two Personas, One Product",
+      "setup": "You're the head of growth at a productivity tool. Analytics show two distinct personas: solo creators (50% of MAU, low willingness to pay) and small teams (15% of MAU, 80% of revenue). Engineering wants to pick one and unify the roadmap.",
+      "suggested_moves": [
+        "Pick teams — kill creator-only features and focus the roadmap on the payers",
+        "Pick creators — they're the volume and the word-of-mouth engine into teams",
+        "Resist the pick; ship a clearer in-product split (creator mode vs team mode) and segment growth motions"
+      ],
+      "judge_bench": ["elena-verna-40", "albert-cheng", "jason-cohen", "amol-avasare", "ethan-smith"],
+      "themes": ["segmentation", "ICP", "roadmap-focus"]
+    }
+  ],
+  "shipping-ai": [
+    {
+      "id": "demo-or-delay",
+      "title": "Demo or Delay",
+      "setup": "Your AI feature works 70% of the time. Leadership wants it in the keynote demo next week. Your eval suite is half-built and shows clear failure modes.",
+      "suggested_moves": [
+        "Ship it for the keynote — fix issues after",
+        "Push back hard; refuse to demo until evals look good",
+        "Demo with a narrow scope that hides the failure modes"
+      ],
+      "judge_bench": ["cat-wu", "boris-cherny", "asha-sharma", "hamel-husain--shreya-shankar", "claire-vo-openclaw"],
+      "themes": ["evals", "shipping-velocity", "AI-quality"]
+    },
+    {
+      "id": "agent-or-feature",
+      "title": "Agent or Feature?",
+      "setup": "You're a PM on a workflow tool. The CEO read a thread about agents and wants you to ship an 'autonomous agent' that does the whole job. Your two top users say they'd rather have a great copilot — they want to stay in the loop. You have 8 weeks.",
+      "suggested_moves": [
+        "Build the autonomous agent — bet on where the puck is going",
+        "Ship the great copilot users asked for; add 'agent mode' as an opt-in later",
+        "Run a 2-week prototype of both and let usage decide which to invest in"
+      ],
+      "judge_bench": ["cat-wu", "boris-cherny", "asha-sharma", "hamel-husain--shreya-shankar", "claire-vo-openclaw"],
+      "themes": ["agents-vs-copilots", "human-in-loop", "product-bets"]
+    },
+    {
+      "id": "model-swap-regression",
+      "title": "The Model Swap Regression",
+      "setup": "You're the eng lead. You upgraded your backbone model and shipped to all users. Eval scores went up 8% overall. But your three biggest customers say the tone has changed and one is threatening to churn ($1.2M ARR). Your CTO says 'evals don't lie.'",
+      "suggested_moves": [
+        "Roll back the model swap; trust the customers over the eval delta",
+        "Hold the swap; ship a system-prompt patch to recover the old tone for those accounts",
+        "Hold the swap; invest in better tone/style evals before any future model change"
+      ],
+      "judge_bench": ["cat-wu", "boris-cherny", "asha-sharma", "hamel-husain--shreya-shankar", "claire-vo-openclaw"],
+      "themes": ["evals", "model-upgrades", "customer-trust"]
+    },
+    {
+      "id": "designer-vibes-builds-it",
+      "title": "The Designer Vibe-Codes the Feature",
+      "setup": "You're an eng manager. A designer on your team used Claude Code to build a working prototype of next quarter's headline feature over a weekend. PM loves it and wants to ship it. Two of your engineers are upset — they say the code is 'AI slop' and unmaintainable.",
+      "suggested_moves": [
+        "Ship the prototype as-is; let production reality teach the team to trust the new workflow",
+        "Have engineering rewrite it from scratch using the prototype as the spec",
+        "Pair the designer with a senior engineer to harden it together — set the norm for this team"
+      ],
+      "judge_bench": ["cat-wu", "boris-cherny", "asha-sharma", "hamel-husain--shreya-shankar", "claire-vo-openclaw"],
+      "themes": ["AI-native-workflow", "code-quality", "team-norms"]
+    },
+    {
+      "id": "evals-or-vibes",
+      "title": "Evals or Vibes",
+      "setup": "You're the PM on an AI summarization product used by 80K weekly users. Your CEO says 'I want one number that tells me if this is good.' Your top engineer says 'evals are eating 30% of our cycles and not catching what users complain about.' NPS-style 'vibe checks' are easier but feel unscientific.",
+      "suggested_moves": [
+        "Build a real eval harness with golden datasets — slow down to speed up",
+        "Drop formal evals; run weekly user 'vibe sessions' as the quality signal",
+        "Keep light evals for regression-catching only; rely on production user signals (thumbs, edits) as the primary quality metric"
+      ],
+      "judge_bench": ["cat-wu", "boris-cherny", "asha-sharma", "hamel-husain--shreya-shankar", "claire-vo-openclaw"],
+      "themes": ["evals", "quality-measurement", "process"]
+    }
+  ],
+  "leadership": [
+    {
+      "id": "checked-out-star",
+      "title": "The Checked-Out Star",
+      "setup": "Your highest-output engineer has visibly disengaged in the last 2 months. Reviews are due in 2 weeks. The team is starting to notice.",
+      "suggested_moves": [
+        "Have the hard conversation now, before reviews",
+        "Wait for reviews; gather more data first",
+        "Reassign their highest-priority project to someone else"
+      ],
+      "judge_bench": ["molly-graham", "rachel-lockett", "matt-macinnis", "ben-horowitz", "jessica-fain"],
+      "themes": ["performance-management", "difficult-conversations", "team-dynamics"]
+    },
+    {
+      "id": "founder-bypass",
+      "title": "The Founder Bypass",
+      "setup": "You're a 6-month-tenure VP. The founder keeps slacking your reports directly with 'small asks' that turn into 2-day fire drills. You've raised it once; nothing changed. Your team is starting to route around you.",
+      "suggested_moves": [
+        "Escalate hard — tell the founder this stops or you walk",
+        "Stop fighting it; make yourself the speed lane so the founder routes through you by default",
+        "Coach your reports to triage and push back themselves — build their muscle, not just your authority"
+      ],
+      "judge_bench": ["molly-graham", "rachel-lockett", "matt-macinnis", "ben-horowitz", "jessica-fain"],
+      "themes": ["founder-dynamics", "authority", "managing-up"]
+    },
+    {
+      "id": "rif-the-merger",
+      "title": "RIF the Merger",
+      "setup": "You're a director. Your company acquired a 30-person startup 4 months ago. Two of your teams now have duplicate functions. Leadership has told you privately to cut 8 people in 3 weeks, with no announced reorg yet. Trust is fragile on both sides.",
+      "suggested_moves": [
+        "Cut fast and quietly; one bad week is better than a slow death by rumor",
+        "Tell the teams the reorg is coming before the cuts; trade speed for transparency",
+        "Refuse the 3-week timeline; come back with a 6-week plan that includes role-matching interviews for everyone"
+      ],
+      "judge_bench": ["molly-graham", "rachel-lockett", "matt-macinnis", "ben-horowitz", "jessica-fain"],
+      "themes": ["layoffs", "post-acquisition", "trust"]
+    },
+    {
+      "id": "no-one-likes-the-decision",
+      "title": "Nobody Likes the Decision",
+      "setup": "You're a new product lead. After a month of debate, you killed a feature 3 senior engineers had championed. Engagement was flat in the beta. They're publicly fine but privately tell peers you 'didn't get it.' You can feel velocity slipping.",
+      "suggested_moves": [
+        "Hold the line silently; the data was the data, leaders eat the dissent",
+        "Reopen the decision; call a 90-minute meeting where the engineers re-pitch and you commit to a path with their input",
+        "Address it 1:1 with each engineer; acknowledge what you got wrong about the process, not the call"
+      ],
+      "judge_bench": ["molly-graham", "rachel-lockett", "matt-macinnis", "ben-horowitz", "jessica-fain"],
+      "themes": ["decision-making", "buy-in", "influence"]
+    },
+    {
+      "id": "first-time-managing-peers",
+      "title": "Promoted Over Your Friends",
+      "setup": "You're a senior IC who just got promoted to manage a team of 5 — three of whom were your peers and one is your closest work friend. In your first week, two of them flag the same direct-report conflict to you, expecting you to take sides.",
+      "suggested_moves": [
+        "Take the side that's right on the merits, friendship be damned",
+        "Stay neutral; make them sit in a room together and broker it as facilitator",
+        "Punt the call up to your VP until you've built up management chops"
+      ],
+      "judge_bench": ["molly-graham", "rachel-lockett", "matt-macinnis", "ben-horowitz", "jessica-fain"],
+      "themes": ["new-manager", "peer-promotion", "neutrality"]
+    }
+  ],
+  "zero-to-one": [
+    {
+      "id": "love-but-no-pay",
+      "title": "Love But No Pay",
+      "setup": "Your first 10 users adore your product and use it daily. None of them are willing to pay. Your runway is 5 months.",
+      "suggested_moves": [
+        "Pivot the audience to one with budget",
+        "Charge anyway and see who churns",
+        "Keep building; figure out monetization at 100 users"
+      ],
+      "judge_bench": ["eric-ries-2", "melanie-perkins", "grant-lee", "brian-halligan", "stewart-butterfield"],
+      "themes": ["pmf", "monetization", "early-traction"]
+    },
+    {
+      "id": "vc-says-pivot",
+      "title": "The VC Wants a Pivot",
+      "setup": "You're a 2-person founding team, $400K in the bank, 9 months in. Your lead investor sat you down: 'The market's clear — you should pivot to AI agents for legal.' You have a small but real foothold in your current market (12 paying SMBs, $4K MRR). Your co-founder is leaning toward the pivot.",
+      "suggested_moves": [
+        "Pivot — the investor sees the market more clearly than you do",
+        "Refuse the pivot; double down on the 12 paying customers and find 12 more",
+        "Run a 4-week parallel discovery on the legal angle without committing — let evidence decide"
+      ],
+      "judge_bench": ["eric-ries-2", "melanie-perkins", "grant-lee", "brian-halligan", "stewart-butterfield"],
+      "themes": ["pivots", "investor-influence", "conviction"]
+    },
+    {
+      "id": "co-founder-fault-line",
+      "title": "The Co-Founder Fault Line",
+      "setup": "You're 18 months in with your technical co-founder. The product works. You think it's time to hire a head of sales and push hard on revenue. Your co-founder thinks the product is 'not nailed yet' and refuses to staff up sales. You haven't had a real fight yet but you can feel it building.",
+      "suggested_moves": [
+        "Hire the head of sales over the co-founder's objection; show, don't tell",
+        "Defer to the co-founder; spend the next 3 months ruthlessly tightening the product, then revisit",
+        "Bring in a coach or board member to mediate before either of you digs in further"
+      ],
+      "judge_bench": ["eric-ries-2", "melanie-perkins", "grant-lee", "brian-halligan", "stewart-butterfield"],
+      "themes": ["cofounder-conflict", "go-to-market-timing", "company-building"]
+    },
+    {
+      "id": "side-project-vs-day-job",
+      "title": "The Side Project That Won't Quit",
+      "setup": "You're a designer at a series-B startup with a comfortable role. Your side project — a Notion plugin — hit $9K MRR in 3 months with no marketing. You have a vested year of equity worth ~$200K if you stay 8 more months. Your spouse is risk-averse.",
+      "suggested_moves": [
+        "Quit now; momentum is the asset, not the unvested equity",
+        "Wait the 8 months; collect the equity and use that runway to launch from a position of strength",
+        "Stay employed but go part-time / 4-day workweek if you can negotiate it — buy time without burning bridges"
+      ],
+      "judge_bench": ["eric-ries-2", "melanie-perkins", "grant-lee", "brian-halligan", "stewart-butterfield"],
+      "themes": ["going-full-time", "founder-leap", "risk-appetite"]
+    },
+    {
+      "id": "the-rich-cousin-clone",
+      "title": "Goliath Just Cloned You",
+      "setup": "You're a solo founder with 800 paying users and $35K MRR. Microsoft (or OpenAI, or Notion — pick your giant) just shipped a free feature inside their product that does 80% of what your product does. Your inbox is full of churn requests but also unsolicited 'are you raising?' DMs from VCs.",
+      "suggested_moves": [
+        "Raise the round; use the validation + capital to go upmarket and out-execute the giant on the 20% they don't do",
+        "Don't raise; keep margins, lean into the 20% niche, stay scrappy and profitable",
+        "Sell the company while you have leverage and the 'are you raising' signal is hot"
+      ],
+      "judge_bench": ["eric-ries-2", "melanie-perkins", "grant-lee", "brian-halligan", "stewart-butterfield"],
+      "themes": ["incumbent-threat", "moats", "fundraising-vs-bootstrapping"]
+    }
+  ],
+  "career": [
+    {
+      "id": "pm-as-pmgr",
+      "title": "PM As Project Manager",
+      "setup": "You're a PM at a fast-growing startup. Eng treats you like a project manager — tickets, dates, standups. You want strategic input but no one's asking.",
+      "suggested_moves": [
+        "Stop showing up at standups; create vacuum for someone else",
+        "Pitch a strategy doc unprompted; force a seat at the table",
+        "Find an exec sponsor first; build influence before reach"
+      ],
+      "judge_bench": ["sam-lessin", "tomer-cohen", "keith-rabois", "dr-becky-kennedy", "nikhyl-singhal-2"],
+      "themes": ["influence", "role-clarity", "career-strategy"]
+    },
+    {
+      "id": "ic-vs-manager",
+      "title": "The IC/Manager Fork",
+      "setup": "You're a staff engineer at a 1,200-person company. Your manager is dangling a director role: 4 reports, no IC time, 30% comp bump. You love coding. You also know the IC ladder above you only has 2 open headcount across the org.",
+      "suggested_moves": [
+        "Take the director role; the ceiling is real, money compounds, you can return to IC later",
+        "Stay IC and start interviewing externally for a Staff/Principal role at another company",
+        "Stay IC internally; pitch leadership on a tech-lead-with-reports hybrid role that doesn't exist yet"
+      ],
+      "judge_bench": ["sam-lessin", "tomer-cohen", "keith-rabois", "dr-becky-kennedy", "nikhyl-singhal-2"],
+      "themes": ["IC-vs-manager", "career-ladder", "negotiation"]
+    },
+    {
+      "id": "ai-erased-my-job",
+      "title": "AI Just Ate My Job Description",
+      "setup": "You're a mid-level product marketer. In the last 6 months, your team shrunk from 9 to 4 — the others were replaced by 'PMM + Claude.' Your manager has been kind but you can read the room. You have 4 months of cash savings.",
+      "suggested_moves": [
+        "Out-AI everyone — go heads-down for 60 days learning the new toolchain and become the AI-native PMM on your team",
+        "Pivot roles entirely — interview for AI PM or AI evals roles where the AI-native curve is the job",
+        "Leave tech employment behind for now — start a 1-person AI-powered consulting practice serving the same buyers"
+      ],
+      "judge_bench": ["sam-lessin", "tomer-cohen", "keith-rabois", "dr-becky-kennedy", "nikhyl-singhal-2"],
+      "themes": ["AI-disruption", "reinvention", "career-pivot"]
+    },
+    {
+      "id": "underwater-offer",
+      "title": "The Underwater Offer",
+      "setup": "You're a senior PM. After 6 weeks of interviewing, your dream company offered you $90K below your current comp, plus equity in a company that hasn't priced in 2 years. Your current job is fine but plateaued. The recruiter says 'we don't negotiate base, we never have.'",
+      "suggested_moves": [
+        "Take the offer at the lower number — the brand and the people are the compounding asset",
+        "Counter hard on equity and signing bonus; if they hold, walk",
+        "Walk away; stay at your current company and run a real internal mobility play for the next 6 months"
+      ],
+      "judge_bench": ["sam-lessin", "tomer-cohen", "keith-rabois", "dr-becky-kennedy", "nikhyl-singhal-2"],
+      "themes": ["negotiation", "compensation", "career-bets"]
+    },
+    {
+      "id": "boss-from-hell",
+      "title": "The Boss from Hell",
+      "setup": "You're a senior designer, 8 months into a role you fought hard to get. Your new VP is brilliant but a public-shame-er — last week he ridiculed your work in front of 12 people on a Zoom. You can't tell if you're growing or eroding. You have stock vesting in 4 months.",
+      "suggested_moves": [
+        "Confront the VP 1:1 — name the behavior, set a boundary, see how he responds",
+        "Stay quiet; survive the 4 months to the vesting cliff, then start looking",
+        "Go around — talk to HR or his peer about the pattern, before you lose more reps"
+      ],
+      "judge_bench": ["sam-lessin", "tomer-cohen", "keith-rabois", "dr-becky-kennedy", "nikhyl-singhal-2"],
+      "themes": ["difficult-boss", "boundaries", "career-survival"]
+    }
+  ]
+}
