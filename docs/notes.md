@@ -233,3 +233,23 @@ Concrete benefits beyond bigger numbers:
 **Skip if:** your pass bars are comfortably met and you're trying to move fast to character sheets and Replit work.
 
 It's a marginal improvement, not a transformational one. Above-bar embeddings without prefixes will produce a working demo; the prefixes just give you more headroom.
+
+### Observed impact on this dataset
+
+Measured 2026-05-23 — verify-embeddings.ts before and after enabling prefixes:
+
+| Query | Top-1 cosine before | Top-1 cosine after | Δ |
+|---|---|---|---|
+| Retention | 0.765 | 0.795 | +0.030 |
+| AI evals | 0.594 | 0.668 | +0.074 |
+| Perf conversation | 0.645 | 0.699 | +0.054 |
+| PMF | 0.781 | 0.807 | +0.026 |
+| Manager/IC | 0.689 | 0.721 | +0.032 |
+| **Median** | **0.689** | **0.721** | **+0.032** |
+
+Qualitative changes:
+- Perf conversation: expected-guests-in-top-5 went 2/4 → 3/4 (Molly Graham appeared at top-1, was missing entirely from top-5 before).
+- Flat distributions partially fixed: AI evals top-1-to-top-5 gap went 0.007 → 0.019; perf conversation 0.008 → 0.013.
+- No regressions on any query.
+
+So: smaller bump than the theoretical 0.1-0.2 I'd expected, but consistently positive across all 5 queries and produced one real qualitative win (Molly Graham surfacing). Worth the 15-20 min compute cost.
