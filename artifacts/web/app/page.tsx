@@ -28,33 +28,18 @@ const buckets = Object.keys(BUCKET_LABELS) as Bucket[];
 
 export default function Home() {
   return (
-    <main
-      className="min-h-screen px-6 pb-24 pt-16 sm:px-10"
-      style={{ backgroundColor: "var(--color-surface)" }}
-    >
+    <main className="min-h-screen px-6 pb-24 pt-16 sm:px-10">
       {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
-        {/* Eyebrow — plain uppercase tracking text, no container */}
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.18em",
-            color: "#A8998F",
-            textTransform: "uppercase",
-            fontWeight: 600,
-            marginBottom: "16px",
-          }}
-        >
+        {/* Eyebrow */}
+        <p className="text-eyebrow mb-4">
           🦈&ensp;Shark-tank-style scenario practice
         </p>
 
-        {/* Title — script font matching Lenny's brand */}
+        {/* Title — Caveat script via --font-display token */}
         <h1
           className="mt-2 text-6xl font-bold leading-tight sm:text-8xl"
-          style={{
-            fontFamily: "var(--font-caveat)",
-            color: "var(--color-text-primary)",
-          }}
+          style={{ fontFamily: "var(--font-caveat)", color: "var(--color-text-primary)" }}
         >
           The Lenny Tank
         </h1>
@@ -79,12 +64,7 @@ export default function Home() {
 
       {/* Bucket grid */}
       <div className="mx-auto mt-12 max-w-5xl">
-        <p
-          className="mb-8 text-center text-xs font-semibold uppercase tracking-widest"
-          style={{ color: "var(--color-text-muted)" }}
-        >
-          Pick your arena
-        </p>
+        <p className="text-eyebrow mb-8 text-center">Pick your arena</p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {buckets.map((key) => {
@@ -95,7 +75,7 @@ export default function Home() {
               <Link
                 key={key}
                 href={`/bucket/${key}`}
-                className="bucket-card group relative flex flex-col gap-4 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5"
+                className="card card-interactive group relative flex flex-col gap-4 p-6 transition-all duration-200 hover:-translate-y-0.5"
               >
                 <span className="text-4xl">{emoji}</span>
 

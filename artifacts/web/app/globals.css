@@ -1,23 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-orange: #e07432;
+  /* ── Brand palette ── */
+  --color-brand-orange:       #e07432;
   --color-brand-orange-light: #fef0e2;
-  --color-brand-orange-dark: #b85c22;
+  --color-brand-orange-dark:  #b85c22;
 
-  --color-surface: #fffcf8;
-  --color-card: #ffffff;
-  --color-border: #ead9cb;
+  /* ── Surface / layout ── */
+  --color-surface:       #fffcf8;
+  --color-surface-tint:  #fff8f3;   /* warm hover fill */
+  --color-surface-press: #feecd8;   /* active/pressed fill */
+  --color-card:          #ffffff;
+
+  /* ── Borders ── */
+  --color-border:        #ead9cb;
   --color-border-strong: #d4c2b0;
 
-  --color-text-primary: #1a1110;
+  /* ── Text ── */
+  --color-text-primary:   #1a1110;
   --color-text-secondary: #7c6e66;
-  --color-text-muted: #a8998f;
+  --color-text-muted:     #a8998f;
 
+  /* ── Typography ──
+     Next.js injects --font-caveat and --font-geist onto <body> via className.
+     Use var(--font-caveat) directly for display/script text (e.g. hero h1).
+     The aliases below exist for documentation; use the raw vars in JSX.        */
   --font-display: var(--font-caveat);
-  --font-body: var(--font-geist);
+  --font-body:    var(--font-geist);
+
+  /* ── Radii ── */
+  --radius-card: 1rem;     /* 16px — cards */
+  --radius-btn:  0.625rem; /* 10px — buttons */
 }
 
+/* ─────────────────────────────────────────────
+   Base — applied globally, every page inherits
+   ───────────────────────────────────────────── */
 @layer base {
   body {
     background-color: var(--color-surface);
@@ -26,23 +44,111 @@
   }
 }
 
+/* ─────────────────────────────────────────────
+   Components — reusable classes, use these
+   everywhere instead of inline styles
+   ───────────────────────────────────────────── */
 @layer components {
-  .bucket-card {
+
+  /* ── Text patterns ── */
+
+  /* Small-caps label used for section headers, eyebrows */
+  .text-eyebrow {
+    font-size: 0.6875rem;   /* 11px */
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Cards ── */
+
+  /* Base card: white bg + warm border + subtle shadow */
+  .card {
     background-color: var(--color-card);
     border: 1.5px solid var(--color-border);
     box-shadow: 0 1px 3px rgba(180, 130, 90, 0.06);
+    border-radius: var(--radius-card);
   }
-  .bucket-card:hover {
+
+  /* Add to .card when it should respond to hover (links, clickable tiles) */
+  .card-interactive:hover {
     border-color: var(--color-brand-orange);
     box-shadow: 0 4px 16px rgba(224, 116, 50, 0.12);
   }
 
-  /* ── Bucket page ── */
-  .scenario-card {
-    background-color: var(--color-card);
-    border: 1.5px solid var(--color-border);
-    box-shadow: 0 1px 3px rgba(180, 130, 90, 0.06);
+  /* ── Buttons ── */
+
+  /* Primary: filled orange */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-btn);
+    background-color: var(--color-brand-orange);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1.5px solid var(--color-brand-orange);
+    cursor: pointer;
+    transition: background-color 0.15s, box-shadow 0.15s;
   }
+  .btn-primary:hover {
+    background-color: var(--color-brand-orange-dark);
+    border-color: var(--color-brand-orange-dark);
+    box-shadow: 0 2px 8px rgba(224, 116, 50, 0.25);
+  }
+  .btn-primary:active {
+    background-color: var(--color-brand-orange-dark);
+  }
+
+  /* Secondary: outlined, inherits card bg */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-btn);
+    background-color: var(--color-card);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1.5px solid var(--color-border-strong);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-brand-orange);
+    color: var(--color-brand-orange);
+    box-shadow: 0 2px 10px rgba(224, 116, 50, 0.10);
+  }
+  .btn-secondary:active {
+    background-color: var(--color-brand-orange-light);
+  }
+
+  /* Ghost / dashed variant — "write your own" affordances */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-btn);
+    background-color: var(--color-card);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1.5px dashed var(--color-border-strong);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-brand-orange);
+    color: var(--color-brand-orange);
+    box-shadow: 0 2px 10px rgba(224, 116, 50, 0.10);
+  }
+
+  /* ── Move buttons (bucket scenario page) ── */
 
   .move-btn {
     display: flex;
@@ -50,20 +156,22 @@
     gap: 10px;
     width: 100%;
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: var(--radius-btn);
     border: 1.5px solid var(--color-border);
     background-color: var(--color-surface);
     color: var(--color-text-primary);
     cursor: pointer;
     transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+    text-align: left;
+    font-size: 0.875rem;
   }
   .move-btn:hover {
     border-color: var(--color-brand-orange);
-    background-color: #fff8f3;
+    background-color: var(--color-surface-tint);
     box-shadow: 0 2px 8px rgba(224, 116, 50, 0.10);
   }
   .move-btn:active {
-    background-color: #feecd8;
+    background-color: var(--color-surface-press);
   }
 
   .move-btn--own {
@@ -86,16 +194,5 @@
   .move-letter--own {
     color: inherit;
     font-weight: 400;
-  }
-
-  .own-scenario-btn {
-    background-color: var(--color-card);
-    border: 1.5px dashed var(--color-border-strong);
-    color: var(--color-text-secondary);
-  }
-  .own-scenario-btn:hover {
-    border-color: var(--color-brand-orange);
-    color: var(--color-brand-orange);
-    box-shadow: 0 2px 10px rgba(224, 116, 50, 0.10);
   }
 }

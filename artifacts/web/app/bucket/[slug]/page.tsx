@@ -36,15 +36,12 @@ export default async function BucketPage({
   const emoji = BUCKET_EMOJI[bucket];
 
   return (
-    <main
-      className="min-h-screen px-6 pb-32 pt-10 sm:px-10"
-      style={{ backgroundColor: "var(--color-surface)" }}
-    >
+    <main className="min-h-screen px-6 pb-32 pt-10 sm:px-10">
       <div className="mx-auto max-w-2xl">
         {/* Back link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:opacity-70"
+          className="inline-flex items-center gap-1.5 text-sm mb-8 transition-opacity hover:opacity-70"
           style={{ color: "var(--color-text-muted)" }}
         >
           <span aria-hidden>←</span>
@@ -80,7 +77,7 @@ export default async function BucketPage({
         <div className="mt-14 flex justify-center">
           <Link
             href="/tank?scenarioId=custom"
-            className="own-scenario-btn inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all"
+            className="btn-ghost rounded-xl px-6 py-3.5"
           >
             <span>✏️</span>
             Write your own scenario
