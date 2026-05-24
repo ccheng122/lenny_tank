@@ -160,6 +160,23 @@ Companion docs:
 
 **Easy to revisit if:** demos consistently surface off-topic reactions despite the bars being met (raise the bars), or you find yourself rejecting embeddings that actually produce fine demos (lower them).
 
+### 16. Centralize brand tokens up-front, reference them by name in every Replit Agent prompt
+
+**Choice:** Extract brand styling once into central design tokens — colors and typography in `tailwind.config.ts`, reusable component classes (`.card`, `.btn-primary`, etc.) in `app/globals.css` — then reference those tokens by name in every subsequent task prompt. The original plan had styling sprinkled inline ("Style: dark mode, big punchy headline...") per task, which was a gap.
+
+**Alternatives considered:**
+- **Vibe styling inline per page** (the original plan's implicit approach) — each task prompt described styling in words, Replit Agent picked its own colors/fonts/spacing. Risk: by Task 3.2 you have three shades of "yellow," two different fonts, and inconsistent card styles across pages. Refactoring across files later is exactly what Replit Agent is worst at.
+- **Adopt a UI library like shadcn/ui** — would give consistency for free but adds setup time and locks the look into a generic SaaS-adjacent style that's at odds with Lenny's editorial brand.
+- **Do styling as one big polish pass at the end** — common pattern but fights the same multi-file refactor problem above.
+
+**Why centralize early:** Replit Agent is reliable on individual prompts but bad at cross-file refactors. The cheapest moment to enforce design consistency is BEFORE the second page is built. Tokens in `tailwind.config.ts` are read by every page automatically, so coherence is the default rather than something we have to fight for later.
+
+**How we extracted tokens in practice:** Screenshotted Lenny's Newsletter homepage and uploaded it to Replit Agent, then explicitly asked it to extract a palette + typography and persist them into `tailwind.config.ts` + `globals.css` with semantic names (`brand.cream`, `brand.yellow`, `brand.ink`). Then refactored the landing page to use those tokens instead of inline hex codes. Future tasks reference the named tokens.
+
+**How to apply:** Every future Replit Agent prompt for a new page or component must include an explicit "Style: use the brand tokens from tailwind.config.ts (`bg-brand-cream`, `text-brand-ink`, `font-serif`) and the reusable classes from globals.css (`.card`, `.btn-primary`)" line. The named references are how we ensure inheritance — without them, Replit Agent will silently invent new styles.
+
+**Easy to revisit if:** pages start looking inconsistent despite using the tokens (probably means the token set is too sparse — add more), or the brand needs a refresh (change the values in `tailwind.config.ts` once and every page updates).
+
 ---
 
 ## Quality checkpoints (verify-as-you-go)
