@@ -235,13 +235,13 @@ export default async function TankPage({
 
 function BackLink({ href }: { href: string }) {
   return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-1.5 text-sm mb-10 transition-opacity hover:opacity-70"
-      style={{ color: "var(--color-text-muted)" }}
-    >
-      <span aria-hidden>←</span>
-      Pick a different scenario
-    </Link>
+    <div className="mb-10">
+      <Link href={href} className="back-pill">
+        <span className="back-pill__icon" aria-hidden>
+          ←
+        </span>
+        Pick a different scenario
+      </Link>
+    </div>
   );
 }

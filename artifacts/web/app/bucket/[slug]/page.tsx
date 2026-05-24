@@ -41,14 +41,14 @@ export default async function BucketPage({
     <main className="min-h-screen px-6 pb-32 pt-10 sm:px-10">
       <div className="mx-auto max-w-2xl">
         {/* Back link */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm mb-10 transition-opacity hover:opacity-70"
-          style={{ color: "var(--color-text-muted)" }}
-        >
-          <span aria-hidden>←</span>
-          Back to buckets
-        </Link>
+        <div className="mb-10">
+          <Link href="/" className="back-pill">
+            <span className="back-pill__icon" aria-hidden>
+              ←
+            </span>
+            Back to buckets
+          </Link>
+        </div>
 
         {/* Page header */}
         <header className="mb-10 flex items-center gap-3">
