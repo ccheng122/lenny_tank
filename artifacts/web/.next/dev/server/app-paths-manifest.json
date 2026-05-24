@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/tank/page": "app/tank/page.js",
-  "/bucket/[slug]/page": "app/bucket/[slug]/page.js"
+  "/tank/page": "app/tank/page.js"
 }
