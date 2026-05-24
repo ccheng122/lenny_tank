@@ -1428,6 +1428,8 @@ Click [Share spirit judge] on /tank/result. An image opens/downloads with the hi
 
 ## Phase 5 — Polish
 
+Phase 5 covers three different kinds of polish: copy (5.1), visual/design (5.2), and behavior/bugs (5.3). The brand tokens established up-front (see `decisions.md` §16) mean styling work in this phase is mostly about applying tokens consistently, not redefining them. Run tasks in order — copy decisions sometimes change what visual elements are needed.
+
 ### Task 5.1: Landing page social proof and copy pass
 
 - [ ] **Step 1: Paste this prompt into Replit Agent**
@@ -1452,7 +1454,43 @@ Visit / on mobile (responsive devtools) and desktop. Confirm the layout looks go
 
 ---
 
-### Task 5.2: Bug bash and final polish
+### Task 5.2: Replace emoji icons with brand SVG icons
+
+**Why:** the MVP shipped with emoji icons (📈 🤖 🧭 🚀 🎯) on the bucket tiles for speed. Emojis render inconsistently across OS/browser combos and don't pick up the brand color tokens. Swapping to a proper SVG icon library is a small, high-leverage polish move that ties the visual identity together. Do this AFTER Task 5.1 so any icons added in the "How it works" section get swapped in the same pass.
+
+- [ ] **Step 1: Paste this prompt into Replit Agent**
+
+```
+Replace every emoji icon in the app with custom SVG icons matching the brand. Use lucide-react (https://lucide.dev) — it's well-supported in Next.js, tree-shakable, and has a consistent outline style that fits the editorial brand.
+
+Specifically:
+1. Install: `npm install lucide-react`
+2. Replace the 5 bucket emojis on the landing page with these Lucide icons (outline style, size 28, color brand.ink with a yellow accent on hover):
+   - Growth (📈) → TrendingUp
+   - Shipping AI (🤖) → Bot
+   - Leadership (🧭) → Compass
+   - Zero-to-One (🚀) → Rocket
+   - Career (🎯) → Target
+3. Replace the "How it works" step icons (card, target, group) with: FileText, MousePointer2, Users — same outline style and sizing.
+4. If any other emoji exist in the app (e.g. on the verdict screen or share buttons), swap them for matching Lucide icons in the same style. List them in your response.
+5. Keep the existing tile layout, spacing, and bucket-to-icon mapping intact. Only the icon glyphs change.
+
+Use the brand color tokens from tailwind.config.ts (text-brand-ink default, hover:text-brand-yellow or similar). Do NOT inline hex codes.
+```
+
+- [ ] **Step 2: Verify**
+
+1. Visit / and confirm each bucket tile shows the correct Lucide icon at the same position and size where the emoji was.
+2. Hover a tile and confirm the icon color shifts to the brand yellow.
+3. Check the "How it works" section icons look consistent in style with the bucket icons.
+4. Confirm no stray emojis remain anywhere in the app (open /tank/result for a sample round to check).
+5. Mobile check — icons should scale appropriately on a narrow viewport.
+
+If Replit Agent picked different Lucide names than the ones above (Lucide occasionally renames icons across versions), that's fine as long as the meanings match — note the swaps in your response.
+
+---
+
+### Task 5.3: Bug bash and final polish
 
 - [ ] **Step 1: Run through every user path**
 
