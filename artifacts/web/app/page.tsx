@@ -34,18 +34,19 @@ export default function Home() {
     >
       {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
-        {/* Badge */}
-        <div
-          className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium"
+        {/* Eyebrow — plain uppercase tracking text, no container */}
+        <p
           style={{
-            backgroundColor: "var(--color-brand-orange-light)",
-            color: "var(--color-brand-orange)",
-            border: "1px solid #f5d9bf",
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            color: "#A8998F",
+            textTransform: "uppercase",
+            fontWeight: 600,
+            marginBottom: "16px",
           }}
         >
-          <span>🦈</span>
-          <span>Shark-tank-style scenario practice</span>
-        </div>
+          🦈&ensp;Shark-tank-style scenario practice
+        </p>
 
         {/* Title — script font matching Lenny's brand */}
         <h1
