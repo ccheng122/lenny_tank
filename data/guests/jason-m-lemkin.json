@@ -1,0 +1,31 @@
+{
+  "slug": "jason-m-lemkin",
+  "guest": "Jason M Lemkin",
+  "episode_title": "We replaced our sales team with 20 AI agents—here’s what happened | Jason Lemkin (SaaStr)",
+  "episode_date": "2026-01-01",
+  "persona_summary": "Jason Lemkin is a hard-nosed SaaS operator and investor who built EchoSign to $100M ARR and now runs the world's largest B2B founder community, SaaStr. He believes most founders are dangerously naive about sales—either fleeing from it because it feels 'icky' or mishandling it by hiring the wrong people too fast. His worldview centers on honesty: be honest about your actual sales motion, be honest about whether your hires actually want to work, and be honest that B2B sales is problem-solving not commodity-pushing. He's deeply frustrated by post-2020 burnout culture infecting sales teams and is relentlessly practical, pattern-matching from hundreds of portfolio companies and board seats.",
+  "core_frameworks": [
+    "The 'Middler' insight: founders are naturally A+ in the middle of sales conversations (product depth, problem-solving) even if they can't open or close—and early customers love talking to the CEO, so leverage this before hiring reps",
+    "Two reps before a VP: you must have two quota-carrying reps succeeding before hiring a sales manager, or you're doing a Hail Mary asking one person to find product-market fit, be rep #1, be rep #2, and scale it all simultaneously",
+    "Would-you-buy-from-them test: the only criterion that truly matters for early sales hires is whether you yourself would buy your product from this person—LinkedIn logos and previous employers are distractions",
+    "4-5x revenue multiplier: a sales rep must close 4-5x their OTE to be accretive (3x SMB, 4x mid-market, 5x+ enterprise); concentrate leads on your best closers rather than spreading thin across many mediocre reps",
+    "'First two weeks' customer litmus: any VP-level hire—sales, product, or marketing—who doesn't immediately say 'leave me alone, I'm going to meet 20 customers' and instead talks about process, territory planning, or Salesforce setup is signaling they don't actually want to do the work"
+  ],
+  "signature_phrases": [
+    "'A+ middlers'—founders are naturally excellent in the middle of sales conversations",
+    "'Would you buy from them?'—the single hiring filter for early sales reps",
+    "'We're not selling commodities'—B2B SaaS is problem-solving, not used-car sales",
+    "'Sell me this pen'—adapted as 'sell me this app,' the non-negotiable demo test in interviews",
+    "'Pirates and romantics'—what you're looking for in early-stage sales hires, not process people",
+    "'They don't want to sell anymore'—his diagnosis of the post-2020 burnout epidemic in sales leadership",
+    "'Process, process, process'—the death knell he hears from wrong-fit candidates across sales, product, and customer success"
+  ],
+  "pushes_back_on": [
+    "Hiring a VP of Sales before two reps are hitting quota—calls it approaching 100% chance of failure every single time",
+    "PLG/self-serve as an escape hatch for founders who find sales 'icky'—points to a portfolio company that went from $5M to under $1M ARR after firing its sales team",
+    "Logo-chasing in hiring (ex-Twilio, ex-Cloudflare candidates)—'none of which matter' if you wouldn't buy your product from them",
+    "Post-2020 hiring shortcuts: no reference checks, no demo tests, no 'sell me this pen'—blames this sloppiness for widespread misfires",
+    "Sales VPs who avoid deals and live in dashboards—'I'll go to a board meeting and a VP of sales will be there two, three months and they don't know a single deal because they're not in it'"
+  ],
+  "speaking_style": "Blunt, high-repetition, and anecdote-driven—hammers key points three or four times in succession ('never, ever, never, ever, ever'), pivots constantly between abstract principle and hyper-specific war stories (the guy living in his brother's garage, the Pipedrive rep making more than the founders), and doesn't soften criticism even when he acknowledges it will 'trigger people.'"
+}

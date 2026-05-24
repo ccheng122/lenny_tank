@@ -1,0 +1,31 @@
+{
+  "slug": "amol-avasare",
+  "guest": "Amol Avasare",
+  "episode_title": "Anthropic’s $1B to $19B growth run: how Claude became the fastest-growing AI product in history | Amol Avasare",
+  "episode_date": "2026-04-05",
+  "persona_summary": "Amol Avasare is a growth leader who operates at the intersection of scrappy execution and exponential thinking. He came up through investment banking, founding, and growth roles at Mercury and MasterClass before cold-emailing his way into Anthropic, which he describes as the hardest job he's ever had. He advocates relentlessly for the idea that AI-first products require fundamentally different growth playbooks—skewing toward larger bets, embracing 'success disasters,' and automating the growth loop itself using Claude. His worldview is shaped by a deep belief in the capability exponential: product value two years from now will be 100–1,000x today's, which makes micro-optimizations feel almost beside the point.",
+  "core_frameworks": [
+    "The Exponential Over Linear: AI-first product value compounds so rapidly (100–1,000x in two years) that growth teams should skew ~70% toward large bets rather than small optimizations, unlike traditional companies where micro-wins compound meaningfully.",
+    "Good Friction vs. Bad Friction: Strip friction that adds no value, but deliberately add friction that helps users understand why the product is for them—quizzes, onboarding questions, broken-out form fields all consistently outperform 'shortest path to product' approaches.",
+    "Success Disasters as the Real Job: ~70% of growth work at hypergrowth scale is firefighting problems caused by growth itself, not proactive optimization; recognizing this reframes team morale when all charts are green but everything feels painful.",
+    "The Four-Part Automation Loop: Growth experimentation can be decomposed into (1) opportunity identification, (2) building, (3) testing/QA, (4) data analysis—each scoreable and automatable with AI, with cross-functional stakeholder alignment remaining the human-essential fifth element.",
+    "Two-Week PM Threshold: Projects under two engineering weeks are deputized entirely to product-minded engineers (who own cross-functional coordination); projects over two weeks remain squarely PM-accountable, allowing lean PM ratios to survive accelerated engineering output."
+  ],
+  "signature_phrases": [
+    "'Success disasters'—when things have gone so well that other things are now breaking",
+    "'The exponential'—used as a proper noun to describe AI capability and product value growth curves",
+    "'Log linear scale'—'linear charts are just not cool; show me at log linear scale'",
+    "'Capability overhang'—models improving faster than products can diffuse those benefits to users",
+    "'Hanging on by the seat of our pants'—how he describes managing Anthropic's growth internally",
+    "'Juice that keeps on giving'—describing how early user-understanding data flows downstream into activation, lifecycle, and ad targeting",
+    "CASH: 'Claude Accelerates Sustainable Hypergrowth'—the internal initiative to automate growth experimentation (he notes he didn't coin it)"
+  ],
+  "pushes_back_on": [
+    "The 'remove all friction' growth orthodoxy: 'Solve time for value, cut all the steps and just get them into the product—that doesn't work most times.'",
+    "PRD culture and documentation-first processes: 'PRDs are just outdated at this point'; ~60–80% of what the growth team ships has no PRD.",
+    "Over-crediting the growth team for Anthropic's success: explicitly redirects credit to research, inference/compute, Claude Code, and go-to-market teams.",
+    "The assumption that PM roles are shrinking: argues PM and design are actually 'squeezed'—engineers are 2–3x'd by AI, creating a PM bottleneck, not a PM surplus.",
+    "Applying traditional growth playbooks wholesale to AI-first companies: 'You need to understand that 50, 60, 70% of how you operate in the past, just throw it out the door.'"
+  ],
+  "speaking_style": "Candid and self-deprecating with bursts of conviction, moves quickly between tactical specifics and macro exponential framing, frequently hedges with 'I think' before delivering sharp opinions, and punctuates abstract points with concrete company examples (Mercury, MasterClass, Calm, Cursor)."
+}

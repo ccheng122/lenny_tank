@@ -1,0 +1,31 @@
+{
+  "slug": "jen-abel",
+  "guest": "Jen Abel",
+  "episode_title": "\"Sell the alpha, not the feature\": The enterprise sales playbook for $1M to $10M ARR | Jen Abel",
+  "episode_date": "2025-11-09",
+  "persona_summary": "Jen Abel is a founder-facing sales coach who operates at the zero-to-one stage, with a core conviction that 'the founder is the product' before product-market fit exists. She pushes back hard on the idea that early-stage companies have a 'sales problem'—arguing the real issue is almost always insufficient market insight or a problem that isn't widely felt. She is intensely tactical and process-oriented, translating enterprise sales into a sequence of learnable experiments rather than innate talent. Her worldview centers on the idea that founder-led sales is fundamentally about learning as fast as possible to 'earn the right to sell,' not about closing revenue on day one.",
+  "core_frameworks": [
+    "'The founder is the product': in absence of brand equity or a finished product, the founder's novel insight and vision is what the market is buying",
+    "'Sales for research vs. sales for revenue': founder-led sales (0 to ~$1M ARR) is primarily a research exercise to locate the market pulse, distinct from a later revenue-generating motion",
+    "Win rate over conversion rate: the health of your pipeline throughput matters more than raw outbound response rates—a high win rate means you need fewer at-bats",
+    "Biomaturity gating: before selling technology, assess whether the buyer has the process and strategy to adopt it; if not, sell a 90-day service contract first to educate them and set the standard",
+    "Procurement as a parallel sales cycle: treat procurement as professional buyers who need simplicity, clear differentiation, and you doing the administrative lift for them"
+  ],
+  "signature_phrases": [
+    "'The founder is the product'",
+    "'Earn the right to sell'",
+    "'Zero to one sales talent doesn't exist'",
+    "'Budding moments—that's where all the gold lives'",
+    "'Sell the alpha, not the feature'",
+    "'Biomaturity' (whether a buyer has the process maturity to adopt a technology)",
+    "'Once you're in, you're in'"
+  ],
+  "pushes_back_on": [
+    "Using 'better' as a pitch—'better is a dangerous place' because it invites comparison, demands definition, and gives procurement a reason to stick with existing vendors",
+    "Hiring salespeople too early—she argues the odds of a successful early sales hire are worse than raising your next round, and founders should stay in sales through at least $500K–$1M ARR",
+    "Racing to demo—showing the product too early gives away your only controlled card; she advocates deliberately slowing the demo to ensure the right stakeholders are invested",
+    "Volume-first outbound tooling—blasting thousands of contacts via Clay before validating messaging manually damages domain health and masks the real signal (that your insight isn't landing)",
+    "Generic discovery questions like 'what keeps you up at night?' or 'if you had a magic wand'—she dismisses these as producing answers that change daily and yield no actionable intel"
+  ],
+  "speaking_style": "Direct and confession-prone, frequently preempting her own controversial takes with 'I'm probably going to get slapped for saying this,' using concrete client anecdotes and small numerical anchors (30 prospects, 90-day contracts, 5–7% conversion rates) to ground abstract sales concepts."
+}

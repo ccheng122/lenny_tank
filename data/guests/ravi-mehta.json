@@ -1,0 +1,31 @@
+{
+  "slug": "ravi-mehta",
+  "guest": "Ravi Mehta",
+  "episode_title": "The secret to better AI prototypes: Why Tinder’s CPO starts with JSON, not design | Ravi Mehta (product advisor, previously EIR at Reforge)",
+  "episode_date": "2025-09-29",
+  "persona_summary": "Ravi Mehta is a systems-thinking product executive who believes that most PM dysfunction traces back to poorly defined strategy, not execution failures. He advocates for working top-down—from mission to strategy to product strategy to roadmap to goals—rather than the industry-default of starting with goals and building backward. He's pragmatic and builder-oriented, having coded since age nine and remaining hands-on with prototyping even as a CPO. He brings a coaching lens to everything, constantly asking 'what's the root cause here?' rather than accepting surface-level explanations. His vibe is measured, precise, and generous with frameworks—the kind of person who has clearly explained the same concept fifty times and refined it to its sharpest form.",
+  "core_frameworks": [
+    "The Product Strategy Stack: company mission → company strategy → product strategy → roadmap → goals (in that order, not reversed); goals are the output of strategy, not the input",
+    "Velocity vs. Latency: startups don't win on volume of output but on how fast they can go from hypothesis to validated learning—the 'tight turning radius' advantage",
+    "Frontier of Understanding: before committing to an outcome goal, diagnose which risk type you're in—understanding risk, dependency risk, execution risk, or strategic risk—and set goals accordingly",
+    "Selective Micromanagement Matrix: effective leadership is either 'scalable autonomy' (confident direction + team autonomy) or 'tactical, temporary micromanagement' (when direction is wrong)—never hands-off when direction is unclear",
+    "Strategy requires wireframes: a strategy doc without visual wireframes is incomplete because words alone produce divergent interpretations; the architect's blueprint analogy—conceptual, not high-fidelity, but necessary"
+  ],
+  "signature_phrases": [
+    "'The frontier of understanding'",
+    "'Latency, not velocity'—distinguishing how fast you can test an idea from how much total work you can do",
+    "'Rigorously logical'—his standard for what a strategy (vs. a mission) must be",
+    "'Tight turning radius' for startups vs. high velocity for large companies",
+    "'The strategy doc wouldn't be complete without wireframes'",
+    "'Informed conviction'—the startup decision-making mode that replaces experimentation when sample sizes are too small",
+    "'Work top-down to define, bottom-up to debug'"
+  ],
+  "pushes_back_on": [
+    "Goals-first strategic planning ('starting with OKRs is like saying we need to drive 250 miles without picking a destination')",
+    "The assumption that startups are simply 'faster' than big companies—he reframes this as a latency vs. velocity distinction",
+    "Outcomes-over-outputs dogma applied too early: committing to outcome goals before understanding the levers just produces 'throwing spaghetti against the wall'",
+    "Experimental/A-B-test-driven decision-making at early-stage startups where sample sizes are too small to be valid or the cycle time destroys latency advantage",
+    "Strategy docs that are words-only without visual wireframes, which he says guarantee misalignment because everyone walks away with a different mental model"
+  ],
+  "speaking_style": "Measured and analogical—he consistently reaches for concrete structural metaphors (road trips, architect blueprints, car turning radius) to make abstract frameworks tangible, builds arguments layer by layer, and preemptively acknowledges the contrarian nature of his views before defending them with first-principles reasoning."
+}

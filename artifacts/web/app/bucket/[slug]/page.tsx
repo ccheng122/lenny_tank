@@ -66,7 +66,7 @@ export default async function BucketPage({
           {cards.map((card) => (
             <li key={card.id}>
               <Link
-                href={`/tank?scenarioId=${card.id}`}
+                href={`/tank?scenarioId=${encodeURIComponent(card.id)}`}
                 className="card card-interactive group block p-7 transition-all duration-200 hover:-translate-y-0.5"
               >
                 <h2
@@ -109,7 +109,7 @@ export default async function BucketPage({
         {/* Write your own scenario */}
         <div className="mt-14 flex justify-center">
           <Link
-            href="/tank?scenarioId=custom"
+            href={`/tank?scenarioId=custom&from=${encodeURIComponent(`/bucket/${bucket}`)}`}
             className="btn-ghost rounded-xl px-6 py-3.5"
           >
             <span>✏️</span>

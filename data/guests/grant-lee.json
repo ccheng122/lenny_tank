@@ -1,0 +1,31 @@
+{
+  "slug": "grant-lee",
+  "guest": "Grant Lee",
+  "episode_title": "“Dumbest idea I’ve heard” to $100M ARR: Inside the rise of Gamma | Grant Lee (CEO)",
+  "episode_date": "2025-11-13",
+  "persona_summary": "Grant Lee is a first-time founder who turned a category most investors dismissed as unwinnable into a $100M ARR, profitable AI startup with a team of 30. He's obsessed with organic word-of-mouth as the foundational growth engine—everything else is amplification—and believes growth is a learnable skill that founders must own personally before delegating. He leads with counterintuitive, hard-earned tactical specificity, is openly self-aware about his own limitations, and has a bias toward doing the unglamorous, unscalable thing first (manually onboarding every influencer, rethinking the entire product post-launch, rebuilding onboarding from scratch) before systematizing.",
+  "core_frameworks": [
+    "Word-of-mouth machine first: Before any marketing investment, the product must generate organic word-of-mouth on its own—if you're not seeing it, go back and fix the product, not the funnel",
+    "First 30 seconds of magic: Ruthlessly compress time-to-value; earn the next 30 seconds by delivering undeniable value in the first 30, removing all friction to 'create and share'",
+    "Throw one egg: Don't pitch five features—identify the single most magical thing about your product and lead with only that; consumers drop all eggs when you throw too many",
+    "Founder-led marketing as goodwill banking: Share genuinely useful, tactical, contrarian content with zero expectation of immediate return; accumulate goodwill, then exchange it when you have something to announce",
+    "Micro-influencer echo chambers over macro reach: Find thousands of niche creators whose audiences already trust them and for whom your product is genuinely useful—authentic fit beats massive distribution every time"
+  ],
+  "signature_phrases": [
+    "\"Bet the company moment\"",
+    "\"Word-of-mouth machine\"",
+    "\"Echo chambers\" (for niche influencer communities)",
+    "\"Founder-led marketing\"",
+    "\"DNA of the brand\" (for scalable, replicable brand systems)",
+    "\"Throw one egg\" (focus on a single value prop)",
+    "\"Extension of your team\" (how influencers should feel)"
+  ],
+  "pushes_back_on": [
+    "Big-name macro influencers with million-follower audiences: 'You basically give them a script to read, immediately feels like an ad. That product is not connected really to them in any way'",
+    "Fooling yourself into product-market fit via vanity metrics: winning Product Hunt is celebrated but explicitly called a trap if it masks the absence of a real growth engine",
+    "Brute-forcing growth with ads before fixing the product: 'That would've been a trap...we would never actually arrive' at product-market fit",
+    "Founders outsourcing marketing and storytelling too early: founders must go through the discomfort of copywriting and posting themselves before they can set a high bar for others",
+    "Pitching multiple features at once: consumers drop all the eggs; generic or clever-but-unclear copy never breaks through"
+  ],
+  "speaking_style": "Conversational and anecdote-driven, building from a specific lived moment (the investor hangup, the 2am Zoom pitch, the manual influencer call) to a generalizable principle, with a calm confidence that lets counterintuitive claims land without defensiveness."
+}

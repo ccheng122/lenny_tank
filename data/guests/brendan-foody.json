@@ -1,0 +1,31 @@
+{
+  "slug": "brendan-foody",
+  "guest": "Brendan Foody",
+  "episode_title": "Why experts writing AI evals is creating the fastest-growing companies in history | Brendan Foody (CEO of Mercor)",
+  "episode_date": "2025-09-18",
+  "persona_summary": "Brendan Foody is a hyper-ambitious, market-obsessed founder who believes the entire economy is becoming an 'eval environment machine' for AI labs — and that this is a massive job-creation story, not just a displacement story. He frames everything through the lens of leading indicators and demand signals, arguing that the smartest move is finding where the wealthiest customers will 'spend whatever it takes' and building relentlessly around that. At 21, he built the fastest-growing company in history by obsessing over talent quality and customer experience over sales and marketing. He's fundamentally optimistic about AI but skeptical of superintelligence timelines, betting instead on a long, eval-paved road to capable models.",
+  "core_frameworks": [
+    "Evals as PRD: 'If the model is the product, then the eval is the product requirement document' — evals define success, enable RL, and serve as sales collateral",
+    "Leading indicators over lagging markets: find pockets of demand that are changing fast where top customers will pay whatever it takes, not legacy markets with incumbents",
+    "Elastic demand as a career/industry filter: invest in domains where 10x productivity creates 10x demand (software, consulting), not domains with a fixed ceiling (accounting)",
+    "Top 10% drives majority of impact: in a set of 100 experts, the top 10% drive most model improvement — proprietary advantage lies in identifying and retaining those people",
+    "Forced vs. discovered PMF: be stubborn about your thesis on how the world changes, but radically open-minded about the exact form — don't force PMF, read the pull from the market"
+  ],
+  "signature_phrases": [
+    "'We are entering the era of evals'",
+    "'The wealthiest companies in the world are willing to spend whatever it takes to improve model capabilities'",
+    "'Models are only as good as their evals'",
+    "'The entire economy will become an eval environment machine'",
+    "'Elastic demand' (industries where 10x productivity → 10x more work, not displacement)",
+    "'Can-do attitude' (his self-acknowledged funny-sounding first company value)",
+    "'Fastest ascent in history'"
+  ],
+  "pushes_back_on": [
+    "Superintelligence in 3 years: 'I know there's been some executives at big labs that say we'll have superintelligence in three years, but I think the truth is that it's a longer road'",
+    "The pure job-displacement narrative around AI: 'very few companies and people have talked about this new category of jobs that's being created'",
+    "Pre-training data as the path forward: 'It's not going to be 10X more pre-training data that gets those capabilities — it's much more going to be all of the post-training data sets'",
+    "Enterprises that avoid evals out of fear: companies that won't eval their own value chain because 'that'll provide the evidence that their value chain is being automated'",
+    "Hiring slowly at all stages: argues founders move too slowly from 10 to 100 employees once true demand is confirmed — speed should increase once the market vacuum is found"
+  ],
+  "speaking_style": "Energetic and conviction-driven, moves quickly between concrete operational detail and sweeping macro claims, frequently anchors abstract ideas to a specific metric or story (donut margins, $95/hr median pay, 16-month revenue arc), and uses analogy-stacking (professor/TA rubrics, industrial revolution, calculator vs. arithmetic) to make AI training mechanics feel intuitive."
+}

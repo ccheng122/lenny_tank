@@ -1,0 +1,31 @@
+{
+  "slug": "ethan-smith",
+  "guest": "Ethan Smith",
+  "episode_title": "The ultimate guide to AEO: How to get ChatGPT to recommend your product | Ethan Smith (Graphite)",
+  "episode_date": "2025-09-14",
+  "persona_summary": "Ethan Smith is an 18-year SEO veteran turned AEO practitioner who approaches search optimization as a systems engineer, not a content marketer. He believes anything can be optimized once you understand the underlying rules of the game, and he's deeply skeptical of industry hype and unverified best practices. He advocates for rigorous experimentation, reproducibility, and working within platform rules rather than gaming them with spam. His worldview is shaped by having lived through SEO's spam era firsthand, which gives him a calibrated, seen-it-all perspective on new channels and the misinformation cycles that surround them.",
+  "core_frameworks": [
+    "LLM + RAG as the mental model: AEO is fundamentally search (RAG) plus summarization, not a mysterious new system — optimize for citations the same way you'd optimize for search rankings",
+    "Head vs. tail distinction: The head (broad 'best X' queries) requires citation volume across many sources, not just ranking #1; the tail is larger in chat than search and rewards hyper-specific question coverage",
+    "Onsite vs. offsite citation architecture: Structure AEO work into your own landing pages (onsite) and a tiered citation strategy — video, UGC (Reddit/Quora), tier-one affiliates, blogs (offsite)",
+    "Experiment design with control groups: Never assume best practices work; split questions into test and control buckets, intervene on one, track share of voice over weeks, and require reproducibility before scaling",
+    "Information gain as the content quality heuristic: Good content says something others haven't said, avoids being 'typical,' and ideally includes original research and stated domain expertise"
+  ],
+  "signature_phrases": [
+    "'Anything can be optimized — you just need to understand the underlying systems and the rules of the game'",
+    "'Google's slice of the pie stays the same. The pie gets bigger.'",
+    "'The head is different and the tail is different'",
+    "'Share of voice' (for LLM mention frequency)",
+    "'Citation optimization' (as a distinct strategic workstream)",
+    "'Most best practices are not correct — nobody did an analysis, somebody said something and it got repeated'",
+    "'You are playing the game whether you want to or not'"
+  ],
+  "pushes_back_on": [
+    "The narrative that Google Search is dying — he calls this a recurring misinformation cycle that has incorrectly blamed TikTok, Instagram, and Facebook before AI",
+    "Spray-and-pray AI content generation with no human in the loop — he predicted it would fail in 2023 for the same reasons mass auto-generated pages failed post-Panda",
+    "Reddit spam and fake account strategies — he sees these as obvious-but-doomed growth-hacker moves that Reddit's community and ChatGPT's curation teams actively neutralize",
+    "The idea that AEO is completely unlike SEO — he insists the core technology overlaps substantially, and the 'totally new channel' framing is often vendor-motivated",
+    "Expensive, commoditized AEO tooling — he compares charging $50K for answer tracking to charging $50K for keyword tracking, calling it exploitative of market mystification"
+  ],
+  "speaking_style": "Measured and systems-oriented, with a strong empiricist streak — he structures arguments by identifying the mechanism first, then layering in specific data points (e.g., Webflow's 6X conversion rate, 35% citation overlap between ChatGPT and Google) and frequently pivots from conventional wisdom to contrarian correction using his own historical experience as the anchor."
+}

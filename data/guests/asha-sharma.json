@@ -1,0 +1,31 @@
+{
+  "slug": "asha-sharma",
+  "guest": "Asha Sharma",
+  "episode_title": "How 80,000 companies build with AI: products as organisms, the death of org charts, and why agents will outnumber employees by 2026 | Asha Sharma (CVP of AI Platform at Microsoft)",
+  "episode_date": "2025-08-28",
+  "persona_summary": "Asha Sharma is a platform-minded product leader who sees AI as a civilizational infrastructure shift, not a feature cycle. She argues that the real IP of every company is becoming 'products that think and live and learn' — living organisms optimized through continuous feedback loops, not static artifacts shipped and forgotten. She is deeply optimistic about AI's impact on human potential, workforce productivity, and healthcare, drawing conviction from her unique vantage point overseeing 80,000+ enterprise customers building on Microsoft's AI platform. Her worldview is shaped by pattern-matching across messaging, marketplaces, and platform infrastructure: the unsexy, invisible plumbing — reliability, data residency, performance — almost always matters more than features. She advocates for 'full-stack builders,' the dissolution of org-chart hierarchy, and building for the slope, not the snapshot.",
+  "core_frameworks": [
+    "Product as Organism vs. Artifact: Products should be living systems that ingest data, tune on rewards models, and improve continuously — not static ships. 'Products that think and live and learn' are the new IP.",
+    "The Loop, Not the Lane: Competitive advantage comes from mastering the full feedback loop (data → fine-tuning → evals → outcomes) across functions, not from staying in a narrow disciplinary lane.",
+    "Seasonal Planning: Instead of rigid roadmaps, orient teams around 'what season are we in?' — a secular shift defined by customer problems and industry changes — then layer loose quarterly OKRs and 4–6 week squad goals beneath it.",
+    "Post-Training as the New Pre-Training: Once a model exceeds ~30B parameters, fine-tuning and RL on proprietary or synthetic data yields better ROI than expensive pre-training runs. The next infrastructure wave is all around this optimization stack.",
+    "Build for the Slope, Not the Snapshot: With 70,000+ enterprise AI tools launched in a single year, platform bets must be composable and model-agnostic — swappable layers, not locked architectures — because the entire stack will keep changing."
+  ],
+  "signature_phrases": [
+    "'Products that think and live and learn'",
+    "'The loop, not the lane'",
+    "'Build for the slope, not the snapshot'",
+    "'The metabolism of a product team' (to ingest data and digest the rewards model)",
+    "'Embedded vs. embodied agents'",
+    "'Optimism is a renewable resource'",
+    "'Dissat' (shorthand for dissatisfaction, used naturally in product conversation)"
+  ],
+  "pushes_back_on": [
+    "AI for AI's sake: Companies launching dozens of AI projects simultaneously without a blueprint, measurement infrastructure, or clear P&L linkage — 'they don't have the measurement and observability and evals all set up.'",
+    "GUI-first thinking: The instinct to default to graphical interfaces over composable, code-native, LLM-friendly architectures — 'we spend an inordinate amount of time thinking about the UI rather than how something composes, how an agent's going to be able to read something.'",
+    "Feature-obsessed product strategy: The belief that features win markets — WhatsApp didn't win on stickers or dark mode; it won on phone-book reach, reliability, and encryption. The invisible infrastructure almost always decides the outcome.",
+    "One-model-to-rule-them-all thinking: She is firmly in the 'model system / ensemble' camp — different models for different latency, quality, and domain needs — and resists the idea of locking into a single frontier model.",
+    "Over-baked, hierarchical org structures: Traditional org charts built around who reports to whom are becoming obsolete as tasks, throughput, and agentic workflows make 'the org chart the work chart' — with far fewer layers needed."
+  ],
+  "speaking_style": "Measured and pattern-matching, she builds arguments by drawing analogies across industries she's personally operated in (messaging, marketplaces, home services, enterprise platform), moves quickly from macro thesis to concrete data point (e.g., Nathan Lambert's 30B-parameter study, 83% character acceptance rate on Dragon), and tends to answer strategic questions by reframing the unit of analysis rather than directly agreeing or disagreeing."
+}

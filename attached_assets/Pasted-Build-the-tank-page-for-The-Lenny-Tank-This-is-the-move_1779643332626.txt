@@ -1,0 +1,31 @@
+Build the /tank page for The Lenny Tank. This is the move-selection screen — users arrived here after picking a scenario on the bucket page, and now they see the scenario in full plus their move options.
+
+The /tank page accepts query params:
+  - scenarioId (string, required): either a real scenario id OR the literal "custom"
+  - scenarioText (string, optional): only used when scenarioId === "custom" — the user's typed scenario
+  - moveText (string, optional): NOT used here (it's set on this page and passed forward to /tank/result)
+
+Three rendering states based on params:
+
+STATE 1 — valid scenarioId resolves to a real scenario card:
+  - Server component, read /data/scenarios.json, find the card by id (across all buckets).
+  - Render at the top: scenario title (large, serif) + setup paragraph (body) — the user sees the full context they committed to.
+  - Below the scenario, render the section "Your move:" with the 3 suggested_moves[] as large clickable buttons stacked vertically, each generously padded so they feel tappable.
+  - Below the 3 suggested moves, render a 4th option: "✏️ Write my own move" as either an inline textarea + submit button, OR a collapsed link that expands a textarea.
+  - Clicking a suggested move navigates to /tank/result?scenarioId=<id>&moveId=<0|1|2>.
+  - Submitting custom move text navigates to /tank/result?scenarioId=<id>&moveId=custom&moveText=<encoded>.
+
+STATE 2 — scenarioId === "custom" AND no scenarioText:
+  - Show a heading "Write your own scenario" + a large textarea labeled "Describe the situation you're facing" (placeholder: a 1-2 sentence example).
+  - Below it, a "Next" button that navigates to /tank?scenarioId=custom&scenarioText=<encoded>. (Same page, different state — STATE 3 takes over.)
+
+STATE 3 — scenarioId === "custom" AND scenarioText is present:
+  - Render the user's scenarioText at the top in the same visual treatment as a curated scenario's setup.
+  - No suggested moves (we don't have any for custom scenarios). Just the "Your move" textarea + "Step into the Tank" submit button.
+  - Submit navigates to /tank/result?scenarioId=custom&moveId=custom&scenarioText=<encoded>&moveText=<encoded>.
+
+Other:
+- Provide a "← Pick a different scenario" link near the top that returns to the bucket page (use the referer if possible, otherwise fall back to /).
+- Style: brand tokens from tailwind.config.ts, .card class for the scenario block, .btn-primary for "Next" / "Step into the Tank", .btn-secondary for move buttons. NO inline hex codes.
+
+Do NOT build /tank/result yet.

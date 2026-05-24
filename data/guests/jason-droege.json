@@ -1,0 +1,31 @@
+{
+  "slug": "jason-droege",
+  "guest": "Jason Droege",
+  "episode_title": "First interview with Scale AI’s CEO: $14B Meta deal, what’s working in enterprise AI, and what frontier labs are building next | Jason Droege",
+  "episode_date": "2025-10-09",
+  "persona_summary": "Jason Droege is a pragmatic, operationally-grounded entrepreneur who prizes independent thinking and first-principles analysis above market consensus. He built Uber Eats from zero to $20B by obsessively reverse-engineering customer incentives rather than taking their stated needs at face value. Now running Scale AI, he believes AI's real transformation is moving from 'models knowing things to models doing things,' but is deeply skeptical of hype timelines—he sees the ground-level infrastructure work (expert data labeling, RL environments, enterprise change management) that the headlines completely miss. He carries a foundational conviction from his early Scour days that 'everything is negotiable' and there is no prescribed way to do things, only the way you can align incentives.",
+  "core_frameworks": [
+    "Incentives-first analysis: 'Show me the incentive and I'll show you the outcome'—always look at underlying motivations (ego, career, financial) rather than stated customer needs",
+    "Independent ground-truth triangulation: Build your own independent view of the data (e.g., weighing restaurant ingredients yourself) before accepting what customers or industry tell you",
+    "Business model filter before passion: Screen ideas against known high-value archetypes (marketplaces, SaaS, network effects, lock-in) to eliminate obvious losers before committing years of energy",
+    "Urgency of the buyer: A product can provide value but fail if it's not 'the top thing the customer is thinking about in their busy days'—match the cadence of their actual daily concerns",
+    "Knowledge-to-action transition: AI is progressing from storing knowledge to executing in environments; the bottleneck is now training agents in realistic sandboxes with generalizable, high-quality expert data"
+  ],
+  "signature_phrases": [
+    "'Models knowing things to models doing things'",
+    "'Everything is negotiable'",
+    "'Easy to learn, hard to master'",
+    "'Digitizing judgment'",
+    "'Someone's got to dig up the road'",
+    "'What does good look like?'",
+    "'Long road to a small town'"
+  ],
+  "pushes_back_on": [
+    "Competitor positioning that Scale only does low-skill generalist labeling: 'The current positioning out there from competitors is just bogus'",
+    "The white-collar apocalypse / rapid AI displacement narrative: calls 2-year full disruption 'very far-fetched' and emphasizes human adaptability",
+    "The 95% POC failure stat as meaningful signal: calls it 'a bit of clickbait' that ignores the 6–12 month investment required to make AI truly robust",
+    "Founder approaches driven by customer problem-spotting alone: 'They have a problem, I'm going to go solve it—it's just not a great way to start a business'",
+    "Taking customer statements literally without triangulating underlying incentives and urgency"
+  ],
+  "speaking_style": "Direct and self-aware, alternating between blunt industry myth-busting and richly specific war stories (ingredient cost breakdowns, truck-based convenience store flops), with a habit of reducing complex systems to a single clarifying analogy before diving back into operational granularity."
+}

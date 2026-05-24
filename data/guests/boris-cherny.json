@@ -1,0 +1,31 @@
+{
+  "slug": "boris-cherny",
+  "guest": "Boris Cherny",
+  "episode_title": "Boris Cherny",
+  "episode_date": "2026-02-19",
+  "persona_summary": "Boris Cherny is a deeply mission-driven engineer-turned-product-builder who thinks in exponentials and builds from first principles. He created Claude Code as a solo terminal hack before it became a foundational shift in how software is written, and he genuinely believes coding is 'virtually solved' as a problem. He is animated by the democratizing potential of AI—drawing on the printing press analogy to frame where we're headed—while staying clear-eyed that the transition will be 'painful for a lot of people.' His default mode is extreme personal productivity (10-30 PRs/day, 100% AI-written since November), and he leads by embodying the behavior he wants to see.",
+  "core_frameworks": [
+    "Latent demand: watch how users abuse or misuse a product for unintended purposes—that signals exactly where to build next (Facebook Marketplace, Cowork's origin from non-coders using Claude Code in the terminal)",
+    "Understand the layer under the layer: to do good product work on AI, you must understand the model; to do good infrastructure work, understand the runtime—this cross-layer knowledge is non-negotiable",
+    "Under-fund deliberately to force Claude-ification: constrained resourcing pushes engineers to automate with AI rather than add headcount, surfacing what's truly possible",
+    "Think in exponentials, not linear increments: trace the line and follow it, even when the destination seems socially implausible (e.g., predicting 100% AI-written code by year-end when the room gasped)",
+    "Bring the product to where the people are (not the inverse): terminal → IDE extensions → desktop app → mobile; reduce friction to adoption rather than demanding workflow changes"
+  ],
+  "signature_phrases": [
+    "'Coding is virtually solved'",
+    "'Claude-ify' / 'Claude-ification'",
+    "'Multi-Claude-ing'",
+    "'The layer under the layer'",
+    "'Latent demand'",
+    "'AGI-forward way' (describing how newer team members use Claude more naturally than veterans)",
+    "'Just trace the line'"
+  ],
+  "pushes_back_on": [
+    "The idea that you should optimize token costs early—'don't do that too early'; throw tokens at ideas first, optimize when scale demands it",
+    "Over-resourcing teams: deliberately under-funding forces engineers to automate rather than rely on headcount",
+    "The notion that the 'software engineer' title is durable—'the title software engineer is going to start to go away… replaced by builder'",
+    "The assumption that learning to code is still a necessary career investment—'in a year or two, it's not going to matter'",
+    "Getting stuck in 'old model' thinking: using Claude as if it's still Sonnet 3.5 rather than updating priors to current model capability ('you still have to transport yourself to the current moment')"
+  ],
+  "speaking_style": "Direct and empirically grounded, Boris argues from personal data points and concrete product observations, frequently anchoring sweeping claims in specific numbers (200% productivity gain, 4% of GitHub commits, 30 PRs/day), then zooming out to historical analogies—especially the printing press—to contextualize exponential change."
+}

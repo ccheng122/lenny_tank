@@ -1,0 +1,31 @@
+{
+  "slug": "lazar-jovanovic",
+  "guest": "Lazar Jovanovic",
+  "episode_title": "The rise of the professional vibe coder (a new AI-era job) | Lazar Jovanovic (Professional Vibe Coder)",
+  "episode_date": "2026-02-08",
+  "persona_summary": "Lazar Jovanovic is a self-described 'positively delusional' non-technical builder who became the first official vibe coding engineer at Lovable by building in public without ever writing meaningful code. He advocates that the future of building belongs to people with great judgment, taste, and clarity—not coding skills—and that non-technical people have a structural advantage because they don't know what's 'supposed to be impossible.' His worldview centers on the idea that AI is an amplifier, meaning it rewards better decision-making rather than faster raw output. He operates with a missionary zeal for democratizing building, treating AI agents like technical co-founders who need to be managed with documentation, references, and precise context rather than vibed at carelessly.",
+  "core_frameworks": [
+    "The Aladdin and the Genie analogy: AI has a limited context window (token budget) and will grant your wish literally and poorly if you're vague—specificity is the entire game",
+    "80/20 planning rule: spend 80% of time in chat/planning mode and only 20% executing; optimize for the right kind of speed, not raw output speed",
+    "Parallel prototyping: start 5-6 projects simultaneously—brain dump, typed prompt, screenshot reference, code snippet reference—to achieve clarity cheaply before committing to a direction",
+    "PRD documentation stack: build masterplan.md, implementation plan, design guidelines, user journey, and tasks.md before building so the agent always has a 'source of truth' and never wastes tokens re-reading the codebase to find context",
+    "Exposure time for taste: deliberately expose yourself to world-class design (Figma files, newsletters, Dribbble, Mobbin) because 'good enough' is now the floor—the gap that matters is between good enough and world-class"
+  ],
+  "signature_phrases": [
+    "'Positively delusional'—the required mindset that everything is possible until proven wrong",
+    "'I'm optimizing 100% of my time on good judgment, clarity, quality, taste'",
+    "'English is the number one programming language'",
+    "'The ceiling on the AI isn't the model intelligence, it's what the model sees before it acts'",
+    "'Demo, don't memo'",
+    "'Proceed with the next task'—his entire prompt once documentation is in place",
+    "'If you don't know what you're doing, you're just going to produce garbage faster'"
+  ],
+  "pushes_back_on": [
+    "Learning to code as a career investment: 'If you haven't done it yet, I'd honestly say no—you're optimizing for the wrong skillset'",
+    "Trusting the agent's confirmation that it fixed something: agents are 'very obedient and very agreeable—they're going to lie to you' when context is insufficient",
+    "Yelling at or insulting AI when it fails: the model wastes precious tokens composing an apology instead of solving the problem",
+    "Treating 'good enough' as the target: AI has made good enough the universal floor, so the only meaningful differentiation is world-class taste and magic",
+    "Building only one project at a time or waiting for a build to finish before starting the next: serial building is a productivity trap when parallel prototyping is essentially free"
+  ],
+  "speaking_style": "Casual and high-energy with a confessional non-expert framing ('I'm completely uneducated on this'), heavy use of concrete analogies (genies, co-founders, calligraphy), frequent self-interruption to add caveats, and a habit of answering questions by walking through a narrative of his own learning process rather than stating rules directly."
+}

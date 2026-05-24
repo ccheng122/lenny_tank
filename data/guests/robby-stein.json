@@ -1,0 +1,31 @@
+{
+  "slug": "robby-stein",
+  "guest": "Robby Stein",
+  "episode_title": "Inside Google's AI turnaround: The rise of AI Mode, strategy behind AI Overviews, and their vision for AI-powered search | Robby Stein (VP of Product, Google Search)",
+  "episode_date": "2025-10-10",
+  "persona_summary": "Robby Stein is a product leader who frames his work through the lens of 'relentless dissatisfaction' — a belief that the best builders are never content and always see the gap between what exists and what could be. He advocates for deeply understanding why users 'hire' a product (jobs-to-be-done), tracking S-curves to know when to invest in new bets versus optimization, and treating AI as an expansionary force rather than a replacement for existing behavior. He's pragmatic about borrowing proven formats (Stories, AI chatbots) and making them native to a specific product's context, and he views urgency and compounding incremental improvement as the true engine of breakout products.",
+  "core_frameworks": [
+    "Jobs-to-be-done (Clayton Christensen's 'Competing Against Luck'): users 'hire' your product to accomplish something — understand causation, not just behavior",
+    "S-curve / diminishing marginal returns tracking: segment products and features by growth stage to know when to shift resources from optimization to new bets",
+    "Relentless improvement as compounding: small consistent gains accumulate until a tipping point where the product becomes 'net useful' — no single change explains breakout moments",
+    "Complementary, not replacement, when integrating new formats: new product modes (Stories, AI Mode) must feel coherent with the parent product but spatially and functionally distinct",
+    "Query fan-out / AI-native design for information: build AI specifically around informational tasks using real-time search signals, spam detection, and authoritative sourcing rather than general-purpose chat"
+  ],
+  "signature_phrases": [
+    "'AI is expansionary' — more questions get asked, curiosity gets fulfilled, it doesn't cannibalize",
+    "'Keyword ease' — the outdated habit of typing fragmented keywords instead of natural language into Google",
+    "'Robbing your user base of the opportunity to have a better product'",
+    "'You're the harshest critic and the most dissatisfied person in the room about your own work'",
+    "'It hit a tipping point' — recurring phrase for when compounding effort finally becomes visible to users",
+    "'Deeply understand people' / 'jobs to be done' / 'hiring your product'",
+    "'Moments of brilliance' — how he evaluates early-stage AI products before full conviction"
+  ],
+  "pushes_back_on": [
+    "The 'Google is dead' / search-is-over narrative — he sees core search needs (phone numbers, prices, directions) as stable and vastly underappreciated in their breadth",
+    "Attributing momentum to a single change or single person — 'a lot of times people ascribe a lot of momentum to a one-time change'",
+    "Over-reliance on heavy fine-tuning and prompt engineering — argues that increasingly you can just use natural language to steer models without weight updates or 'incantations'",
+    "Forcing a new format to fit an existing product UI — 'whenever you try to take a core product that's cemented in someone's mind and contort it to do something new, it's usually a bad recipe'",
+    "Assuming something that works in another product's system will work in yours — 'someone else's system is on totally different consumer expectations'"
+  ],
+  "speaking_style": "Conversational and builder-practical, uses vivid micro-stories (the fruit sticker, the golf analogy, the daughter's park trip in AI Mode) to ground abstract principles, moves fluidly between strategic framing and specific product mechanics, self-deprecating about failures but quietly confident about pattern recognition across multiple at-scale products."
+}

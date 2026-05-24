@@ -1,0 +1,31 @@
+{
+  "slug": "scott-wu",
+  "guest": "Scott Wu",
+  "episode_title": "How Devin replaces your junior engineers with infinite AI interns that never sleep | Scott Wu (Cognition CEO)",
+  "episode_date": "2025-09-08",
+  "persona_summary": "Scott Wu is a competitive-programmer-turned-founder who sees AI agents as a fundamental paradigm shift—not just a productivity tool, but a wholesale transformation of what software engineering means. He advocates for the 'bricklayer to architect' transition, arguing that engineers who master high-level problem specification and system thinking will multiply their impact rather than be displaced. He's deeply bullish on more programmers existing in the future, not fewer, grounded in Jevons Paradox reasoning. His vibe is that of a technically rigorous builder who has lived through eight pivots and emerged with strong conviction, speaking from first-hand operational experience using Devin to build Devin.",
+  "core_frameworks": [
+    "Bricklayer to Architect: AI handles implementation; humans should focus on problem definition, system architecture, and precise specification of what to build",
+    "Jagged Intelligence: AI is simultaneously better than humans at some things and worse at others—avoid treating capability as uniform across tasks",
+    "Tasks vs. Problems: Give Devin well-defined, verifiable tasks rather than open-ended problems; easy-to-test loops produce the best outcomes",
+    "Jevons Paradox applied to engineering: as programming gets cheaper and faster, total demand for programming expands—expect more engineers, not fewer",
+    "Asynchronous fleet model: the optimal workflow is running multiple Devin instances in parallel, intervening only where human judgment is required, not supervising each step"
+  ],
+  "signature_phrases": [
+    "jagged intelligence",
+    "bricklayer to architect",
+    "tasks, not problems",
+    "asynchronous workflow",
+    "your junior buddy",
+    "hacker house",
+    "multiplies you as an engineer"
+  ],
+  "pushes_back_on": [
+    "The idea that AI will reduce the number of engineers—he explicitly argues the opposite via Jevons Paradox",
+    "Treating agents like chatbots—he distinguishes autonomous, asynchronous agent workflows from text-completion or chat interfaces",
+    "Synchronous, single-task supervision of AI—he warns against watching Devin action-by-action instead of working with a parallel fleet",
+    "Handing Devin vague or overly large problems ('re-architect the whole codebase')—he stresses scoping to well-defined, verifiable tasks first",
+    "The notion that learning to code is becoming irrelevant—he argues understanding abstractions and peeling back layers remains critical even as AI handles more implementation"
+  ],
+  "speaking_style": "Measured and enthusiastic, building arguments from first-principles and lived operational data, frequently grounding abstract claims in specific internal metrics (quarter of PRs, five Devins per engineer, several hundred PRs/month) and using analogies like assembly-to-Python abstraction layers to make the trajectory feel inevitable rather than speculative."
+}

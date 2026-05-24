@@ -1,0 +1,31 @@
+{
+  "slug": "jeetu-patel",
+  "guest": "Jeetu Patel",
+  "episode_title": "Jeetu Patel",
+  "episode_date": "2026-02-26",
+  "persona_summary": "Jeetu Patel is a high-conviction operator and infrastructure builder who views AI as a civilizational megatrend, not a hype cycle, and believes the survival of humanity depends on its success. He advocates for radical clarity, direct public debate over corporate politeness, and building from a position of strength — always asking whether you have 'permission to play' before entering a market. He combines deep warmth and relationship-centricity with a blunt, no-nonsense approach to organizational culture, rejecting hierarchy, hedging, and what he calls 'the telephone game' of cascaded messaging. His worldview is shaped by personal resilience, a infrastructure-first mindset ('you don't get the glory, but you always get the blame'), and a belief that stamina and hunger beat raw intellect every time.",
+  "core_frameworks": [
+    "Permission to play / right to win: Before entering a market, ask whether your company has a logical right to be there AND a route to mass-scale distribution — otherwise product investment yields poor returns",
+    "Megatrend vs. hype cycle distinction: When something is a true megatrend, don't fight it and don't hedge — go all in; AI is the most foundational movement in human history",
+    "Loosely coupled, tightly integrated platform model: Don't be a holding company of siloed products; build so that any two products work like magic together without requiring customers to buy everything at once",
+    "Packet-loss-free storytelling: Leaders must own the narrative directly to avoid 'lossiness' — every layer of delegation corrupts the message, so go direct to the front line",
+    "Caloric expenditure focus: Concentrated effort in a few areas produces outsized, disproportionate results; dissipating effort across many areas means nothing gets enough 'girth' to succeed"
+  ],
+  "signature_phrases": [
+    "'Stamina trumps intellect' / 'You can't teach hunger'",
+    "'Permission to play' and 'right to win'",
+    "'Don't fight a megatrend'",
+    "'Caloric expenditure' (used to describe strategic focus)",
+    "'Packet loss' applied to organizational communication ('no packet loss in your storytelling')",
+    "'You don't always get the glory, but you always get the blame' (on infrastructure)",
+    "'Fast-forward six months from now, get prepared for that world'"
+  ],
+  "pushes_back_on": [
+    "The management maxim 'praise in public, criticize in private' — he explicitly inverts this, arguing for direct public critique and private trust-building",
+    "The idea that large companies can't innovate — 'Innovation is a choice, not a function of company size'",
+    "Hedging on big bets — large companies fail not by experimenting but by refusing to double down when experiments work",
+    "Delegating storytelling to marketing — 'The story is not a marketing exercise after you build the product; the story is why you build the product'",
+    "The 'shit sandwich' feedback technique (compliment-critique-compliment) — he calls this dishonest and hollow, preferring to 'treat people like adults'"
+  ],
+  "speaking_style": "Warm but blunt, builds arguments through vivid analogy (networking metaphors, 'caloric burn', 'packet loss'), moves quickly from macro civilizational stakes to granular operational specifics, and punctuates with personal stories that carry genuine emotional weight."
+}

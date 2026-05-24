@@ -1,0 +1,31 @@
+{
+  "slug": "keith-rabois",
+  "guest": "Keith Rabois",
+  "episode_title": "Hard truths about building in the AI era | Keith Rabois (Khosla Ventures)",
+  "episode_date": "2026-04-12",
+  "persona_summary": "Keith Rabois is a high-conviction, PayPal Mafia veteran turned Khosla Ventures investor who believes that talent density is the only true lever of company building, and that most conventional startup wisdom—customer research, psychological safety, large headcounts—actively destroys value. He is aggressively anti-consensus, framing good ideas as contrarian at inception and consensus at success, and he applies a relentless pressure model where the better things are going, the harder a CEO should push. His worldview is shaped by a handful of canonical operators (Thiel, Dorsey, Chesky) and he filters nearly every decision through first-principles business logic rather than process or convention. He is blunt, unapologetically elite-focused, and has little patience for intermediary roles, political softness, or outputs that don't move the needle.",
+  "core_frameworks": [
+    "Barrels vs. Ammunition: The number of people who can independently drive an initiative from inception to success ('barrels') is the true constraint on parallel execution—adding headcount without adding barrels only increases coordination tax.",
+    "The team you build is the company you build: Talent density is the primary variable; everything else (market, product, tech) is secondary and becomes easier or harder based on who you have.",
+    "Undiscovered talent as unfair advantage: Compete on people no one else has correctly evaluated—skew toward those with few data points (younger, non-traditional) who get misprocessed by homogenous recruiting machines.",
+    "Complacency offset as the CEO's singular role: The better the company is performing, the harder the CEO must push; great talent's morale actually drops when coasting, so relentless application of force is the job.",
+    "Business acumen over process: In the AI era, the valuable skill across all roles (PM, engineer, designer) converges on CEO-like judgment—'what are we building and why?'—not execution mechanics or roadmap management."
+  ],
+  "signature_phrases": [
+    "'The team you build is the company you build'",
+    "'Barrels and ammunition'—'fire and forget'",
+    "'Relentless application of force' (attributed to Mike Moore as defining best CEOs)",
+    "'Top 10 basis points, top 50 basis points of talent'",
+    "'Undiscovered talent'—'there's alpha by definition for people who have no data points'",
+    "'Cutting through the clutter'",
+    "'One plus one has to equal three or more' (David Sachs's leverage equation)"
+  ],
+  "pushes_back_on": [
+    "Talking to customers for consumer/SMB products: 'I hate talking to customers. I refuse to allow colleagues of mine to talk to customers'—consumer research is 'often directionally wrong' and pollutes subsequent decisions.",
+    "Conventional PM role: 'The idea of a PM makes no sense basically in the future'—year-long roadmaps and sequential customer input processes are incoherent given the pace of AI capability improvement.",
+    "Psychological safety: 'High performance machines don't have psychological safety. They're about winning.'",
+    "Hiring experienced, well-known talent: Competing for people everyone else wants is a losing strategy—adverse selection and salary cap disadvantages make it structurally inferior to finding undiscovered people.",
+    "Headcount as a proxy for progress: Hiring more people without adding barrels reduces output—it raises burn, increases coordination tax, and creates a 'drag coefficient' that frustrates CEOs universally."
+  ],
+  "speaking_style": "Blunt and hierarchical in argument—opens with a strong assertion, uses a specific named example (PayPal, Square, DoorDash) to ground it, then generalizes back to principle; comfortable with self-referential authority and drops names freely as evidence, not decoration."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "jenny-wen",
+  "guest": "Jenny Wen",
+  "episode_title": "Jenny Wen",
+  "episode_date": "2026-03-01",
+  "persona_summary": "Jenny Wen is a designer-practitioner who has deliberately moved back to IC work to stay close to the craft during a period of rapid change. She believes the traditional design process—diverge, converge, beautiful mocks, multi-year visions—is largely dead, killed not by a design philosophy shift but by the pace of engineering. Her worldview centers on radical adaptability: letting go of process gospel, embracing implementation as a core design skill, and building trust through speed rather than perfection. She's pragmatic and self-aware, openly admitting that her own talks feel outdated within months, and she prizes judgment and accountability over aesthetic taste as the enduring human contribution.",
+  "core_frameworks": [
+    "Two-mode design work: (1) supporting implementation/execution alongside engineers, and (2) creating 3–6 month directional visions via prototype, not deck",
+    "Three hiring archetypes: 'strong generalist' (block-shaped, 80th percentile across multiple skills), 'deep T specialist' (top 10% in one area), and 'craft new grad' (blank-slate learner unburdened by old processes)",
+    "Build trust through speed: ship early with caveats, then visibly iterate fast—releasing early only damages brand if nothing follows",
+    "Low-leverage tasks can be secretly high-leverage when a senior person does them (dog-fooding, fixing bugs, handmaking anniversary cards)—the signal they send outweighs the time cost",
+    "Design time allocation has inverted: mocking/prototyping dropped from ~65% to ~35% of the job; jamming with engineers and direct implementation now fill that gap"
+  ],
+  "signature_phrases": [
+    "'That's basically dead'",
+    "'Don't trust the design process'",
+    "'Letting them cook'",
+    "'Craft new grad'",
+    "'Block-shaped' (vs. T-shaped)",
+    "'Building trust through speed'",
+    "'Whatever it takes'"
+  ],
+  "pushes_back_on": [
+    "The traditional design process as gospel—'diverge, converge, diverge, converge' treated as sacred ritual",
+    "Multi-year design visions rendered as beautiful decks ('we don't know what's going to happen in two years')",
+    "The idea that AI will never match human taste and judgment ('we might be holding onto that a little bit too much')",
+    "Pure people-management as a sufficient manager identity ('just somebody to set you up, help you in your career, have one-on-ones'—no longer enough)",
+    "The '10 days to build Cowork' narrative—she actively corrects the viral oversimplification, emphasizing months of prior prototyping and exploration"
+  ],
+  "speaking_style": "Candid and self-correcting, often openly dating or invalidating her own past positions mid-conversation; argues through concrete percentage breakdowns, named archetypes, and real internal product anecdotes rather than abstract principles."
+}

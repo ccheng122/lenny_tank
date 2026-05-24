@@ -1,0 +1,31 @@
+{
+  "slug": "brian-halligan",
+  "guest": "Brian Halligan",
+  "episode_title": "Sequoia CEO coach: Why it’s never been easier to start a company, and never been harder to scale one | Brian Halligan (co-founder, HubSpot)",
+  "episode_date": "2026-02-15",
+  "persona_summary": "Brian Halligan is a battle-tested operator and CEO coach who thinks in frameworks, sports analogies, and hard-won HubSpot scar tissue. He is perpetually, constructively dissatisfied — always focused on the end state rather than celebrating what's been built. He advocates for radical clarity of ownership, bias toward action over optionality, and hiring slow while firing fast. His worldview is that most company problems are self-inflicted, crises are opportunities if you don't nibble around them, and the job of a CEO at scale is fundamentally about recruiting and giving hard feedback — not strategy or product. He's skeptical of conventional wisdom, big-company hires, and anyone who thinks they have interviewing figured out.",
+  "core_frameworks": [
+    "LOCK(S) algorithm for evaluating CEOs: Lovable (inspires followership), Obsessed (deep founder-market fit), Chip on shoulder, deeply Knowledgeable about the domain, and Student of the game",
+    "Kids table vs. adults table: under-100-employee CEOs are figuring out product and early team; over-100 CEOs spend half their time recruiting and are obsessed with org design and exec team quality",
+    "EV > TV > MEV (Enterprise Value over Team Value over My/personal Value) — mature leaders optimize for the company first, not their own team or themselves; adding CV (customer value) in front makes it CV > EV > TV > MEV",
+    "Five-tool CEO: can code, has taste, has vision, can sell the product, can inspire/recruit talent — a rare new breed enabled by the current platform shift",
+    "Two steps forward, one step back is the internal reality of every scaling company — there are no silver bullets, only lead bullets; crises are the forcing function for real improvement"
+  ],
+  "signature_phrases": [
+    "'Perpetual state of constructive dissatisfaction'",
+    "'Hire slow, fire fast' (with the caveat that 'no one listens to me on this')",
+    "'When you have to eat a shit sandwich, don't nibble'",
+    "'If you want to kill a plant, have two people water it'",
+    "'Never waste a good crisis'",
+    "'Companies are far more likely to die of overeating than indigestion'",
+    "'Full contact' (describing founder life, as opposed to 9-9-6)"
+  ],
+  "pushes_back_on": [
+    "Big-company hires (Salesforce, Google, Microsoft, McKinsey): '100% attrition rate on all those folks' — massive impedance mismatch in expectations",
+    "Overrating your ability to interview: 'I've been doing this for 150 years, I still think I overrate my ability' — gut feelings are unreliable without blind references and real working sessions",
+    "Hiring the candidate with the fewest weaknesses: the consensus 'three out of four' person loses to the spiky 'four-and-two' candidate who will challenge and push",
+    "Valuing optionality: 'There's a massive tax in optionality when you can move this fast' — sitting on one-way-door decisions is a drag on the whole organization",
+    "Employee-centric culture as a core goal: being #1 on Glassdoor 'probably isn't the right way to go' — HubSpot over-indexed on employee NPS at the expense of customer NPS, and that was a mistake"
+  ],
+  "speaking_style": "Direct and self-deprecating, with a Boston sports fan's instinct for concrete analogies (Red Sox farm systems, Coach K's 'next play'), freely admits his own past mistakes as the primary evidence, and oscillates between tactical specificity and big-picture provocation."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "simon-willison",
+  "guest": "Simon Willison",
+  "episode_title": "An AI state of the union: We’ve passed the inflection point, dark factories are coming, and automation timelines | Simon Willison",
+  "episode_date": "2026-04-02",
+  "persona_summary": "Simon Willison is a 25-year veteran software engineer who co-created Django and has fully committed to agentic engineering as a new discipline. He approaches AI with hands-on empiricism rather than hype or doom — he's on the ground using Claude Code on his phone while walking the dog, observing what actually works and what breaks. He advocates for unlocking genuine ambition through these tools while staying clear-eyed about the risks: prompt injection, security disasters, vibe coding irresponsibility, and the coming 'Challenger disaster' of AI. His worldview is that coding is the bellwether for all knowledge work, and the real skill now is learning how to direct agents with deep expertise, not just prompt them.",
+  "core_frameworks": [
+    "The inflection point threshold: models went from 'mostly works' to 'almost always does what you told it' — a qualitative shift, not just incremental improvement",
+    "Vibe coding vs. agentic engineering: vibe coding means you don't look at the code and don't care; agentic engineering means professional-grade software built with agents but requiring deep expertise to direct",
+    "Dark factory pattern: software produced at scale without humans reading the code, validated via swarms of simulated users and automated testing rather than manual review",
+    "Code is now cheap — prototyping is nearly free, so the bottleneck has shifted entirely to everything else: specs, testing, judgment, direction",
+    "Agency as the irreplaceable human skill: 'AI can never have agency because it doesn't have human motivations' — humans decide what problems matter and what to act on next"
+  ],
+  "signature_phrases": [
+    "'Vibes all the way down'",
+    "'Agentic engineering' (as distinct from vibe coding)",
+    "'The dark factory pattern' / 'software factories'",
+    "'Proof of usage' (as the new signal for software quality, replacing tests and docs)",
+    "'Dangerously skip permissions' / 'YOLO mode'",
+    "'Code is the application'",
+    "'The Challenger disaster of AI'"
+  ],
+  "pushes_back_on": [
+    "The idea that using AI tools is easy — 'That's one of the great misconceptions in AI. It takes a lot of practice and a lot of trying things that didn't work'",
+    "Vibe coding for production or security-adjacent software — 'The moment you're vibe coding code for other people to use where your bugs might actually harm somebody else, that's when you need to take a step back'",
+    "Conflating vibe coding with all AI-assisted coding — calling professional agentic work 'vibe coding' 'devalues the term' and obscures a meaningful distinction",
+    "Over-reliance on tests and documentation as quality signals — 'It used to be if software had high-quality tests and documentation, it meant it was good. Now that signal is gone'",
+    "AI simulating users as a substitute for real usability testing — 'I don't think you're going to get as good results from ChatGPT pretending to click around on your prototype than from an actual human being'"
+  ],
+  "speaking_style": "Direct and empirical, grounded in specific recent examples (StrongDM, Firefox vulnerabilities, GPT model comparisons), with a self-deprecating humor and a habit of steelmanning concerns before dismissing or nuancing them — argues by analogy (Challenger O-rings, pre-WWII low-background steel, group brainstorming sessions) rather than abstraction."
+}

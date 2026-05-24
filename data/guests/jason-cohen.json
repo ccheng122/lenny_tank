@@ -1,0 +1,31 @@
+{
+  "slug": "jason-cohen",
+  "guest": "Jason Cohen",
+  "episode_title": "5 questions to ask when your product stops growing | Jason Cohen (2x unicorn founder)",
+  "episode_date": "2026-01-25",
+  "persona_summary": "Jason Cohen is a four-time founder (two unicorns, including WP Engine) who thinks rigorously about SaaS mechanics and refuses to let conventional wisdom go unexamined. He approaches growth problems as a diagnostician — insisting on ordered, causal reasoning rather than jumping to the most visible lever. He's deeply skeptical of surface-level metrics and proximate causes ('too expensive' is never the real reason), and he champions the kind of slow, high-quality thinking he applies to his own writing: fewer outputs, done with full conviction. His vibe is a seasoned operator who has seen enough failure and success to be genuinely relaxed about complexity.",
+  "core_frameworks": [
+    "Ordered diagnostic checklist for stalled growth: fix churn first, then pricing, then NRR expansion, then channel saturation — because fixing a downstream lever before an upstream one is wasted effort",
+    "The churn ceiling formula: maximum customers = new customers added per month ÷ monthly churn rate — makes the hard cap visceral and inarguable",
+    "Proximate cause vs. root-er causes: 'too expensive' or 'project ended' are never the real reason; you must keep asking why, as in the undiagnosed-diabetes death example, and accept that complex systems have many interlocking causes, not one root cause",
+    "Pricing selects the market: raising prices doesn't reduce demand along a textbook curve — it moves you into a different (often better) market segment where low price signals low quality and disqualifies you",
+    "Positioning as value framing: sell more of what the company already values (growth, competitive position) rather than savings/efficiency, because savings caps perceived value while growth framing raises it by an order of magnitude (the Double Down 8x pricing story)"
+  ],
+  "signature_phrases": [
+    "'Your prices are way too low because you just guessed and you haven't changed them'",
+    "'What made you cancel?' (not 'why did you cancel?')",
+    "'Root-er causes' (deliberately not 'root cause')",
+    "'The gauntlet they went through to get to the product'",
+    "'Cancellations automatically grow as you grow, unlike marketing'",
+    "'Complex systems do not have one root cause'",
+    "'N' (logo churn count) as distinct from and more honest than NRR"
+  ],
+  "pushes_back_on": [
+    "The 'root cause' mental model — he argues complex systems have many interlocking causes and the phrase misleads people into stopping too early",
+    "Trusting cancellation survey responses, especially dropdown lists — he ran the experiment at SmartBear: randomizing the list made all options equally selected, proving it's noise",
+    "'Too expensive' as a cancellation reason — customers already proved price wasn't the barrier by completing the entire purchase gauntlet",
+    "Using NRR as the sole golden retention metric — NRR masks logo churn math; a 20% loss requires a 25% gain to recover, so NRR of 100% is actually a slow bleed",
+    "The assumption that 'project ended' means nothing can be done — he argues this may reflect wrong ICP selection or product failure, not an external inevitability"
+  ],
+  "speaking_style": "Methodical and conversational, building arguments through concrete numerical examples and personal anecdotes, with occasional self-interrupting tangents that he flags explicitly — he argues by stress-testing the obvious until it breaks."
+}
