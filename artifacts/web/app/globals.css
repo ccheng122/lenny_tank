@@ -1,7 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-orange: #e07432;
+  --color-brand-orange-light: #fef0e2;
+  --color-brand-orange-dark: #b85c22;
+
+  --color-surface: #fffcf8;
+  --color-card: #ffffff;
+  --color-border: #ead9cb;
+  --color-border-strong: #d4c2b0;
+
+  --color-text-primary: #1a1110;
+  --color-text-secondary: #7c6e66;
+  --color-text-muted: #a8998f;
+
+  --font-display: var(--font-caveat);
+  --font-body: var(--font-geist);
+}
+
 @layer base {
-  :root {
-    color-scheme: dark;
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .bucket-card {
+    background-color: var(--color-card);
+    border: 1.5px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(180, 130, 90, 0.06);
+  }
+  .bucket-card:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: 0 4px 16px rgba(224, 116, 50, 0.12);
   }
 }

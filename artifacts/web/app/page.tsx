@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { BUCKET_LABELS, type Bucket } from "@data";
 
-const BUCKET_META: Record<
-  Bucket,
-  { emoji: string; description: string }
-> = {
+const BUCKET_META: Record<Bucket, { emoji: string; description: string }> = {
   growth: {
     emoji: "📈",
     description: "For PMs obsessed with moving the needle on activation and retention",
@@ -31,29 +28,60 @@ const buckets = Object.keys(BUCKET_LABELS) as Bucket[];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 px-6 pb-24 pt-20 sm:px-10">
+    <main
+      className="min-h-screen px-6 pb-24 pt-16 sm:px-10"
+      style={{ backgroundColor: "var(--color-surface)" }}
+    >
       {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm text-zinc-400">
-          <span className="text-amber-400">🦈</span>
+        {/* Badge */}
+        <div
+          className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium"
+          style={{
+            backgroundColor: "var(--color-brand-orange-light)",
+            color: "var(--color-brand-orange)",
+            border: "1px solid #f5d9bf",
+          }}
+        >
+          <span>🦈</span>
           <span>Shark-tank-style scenario practice</span>
         </div>
 
-        <h1 className="mt-6 bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent sm:text-7xl">
+        {/* Title — script font matching Lenny's brand */}
+        <h1
+          className="mt-2 text-6xl font-bold leading-tight sm:text-8xl"
+          style={{
+            fontFamily: "var(--font-caveat)",
+            color: "var(--color-text-primary)",
+          }}
+        >
           The Lenny Tank
         </h1>
 
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+        {/* Subtitle */}
+        <p
+          className="mx-auto mt-5 max-w-xl text-lg leading-relaxed sm:text-xl"
+          style={{ color: "var(--color-text-secondary)" }}
+        >
           Practice the high-stakes decisions of your craft.{" "}
-          <span className="text-zinc-200">
+          <span style={{ color: "var(--color-text-primary)", fontWeight: 500 }}>
             Get feedback from people who've already lived them.
           </span>
         </p>
+
+        {/* Divider */}
+        <div
+          className="mx-auto mt-10 h-px w-16"
+          style={{ backgroundColor: "var(--color-border-strong)" }}
+        />
       </div>
 
       {/* Bucket grid */}
-      <div className="mx-auto mt-16 max-w-5xl">
-        <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-500">
+      <div className="mx-auto mt-12 max-w-5xl">
+        <p
+          className="mb-8 text-center text-xs font-semibold uppercase tracking-widest"
+          style={{ color: "var(--color-text-muted)" }}
+        >
           Pick your arena
         </p>
 
@@ -66,21 +94,29 @@ export default function Home() {
               <Link
                 key={key}
                 href={`/bucket/${key}`}
-                className="group relative flex flex-col gap-4 rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-zinc-600 hover:bg-zinc-800 hover:shadow-xl hover:shadow-black/40"
+                className="bucket-card group relative flex flex-col gap-4 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5"
               >
-                {/* Subtle glow on hover */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 ring-1 ring-inset ring-white/10 transition-opacity group-hover:opacity-100" />
-
                 <span className="text-4xl">{emoji}</span>
 
                 <div>
-                  <h2 className="text-lg font-bold text-white">{label}</h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">
+                  <h2
+                    className="text-base font-semibold"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
+                    {label}
+                  </h2>
+                  <p
+                    className="mt-1.5 text-sm leading-relaxed"
+                    style={{ color: "var(--color-text-secondary)" }}
+                  >
                     {description}
                   </p>
                 </div>
 
-                <div className="mt-auto flex items-center gap-1 text-xs font-medium text-zinc-500 transition-colors group-hover:text-zinc-300">
+                <div
+                  className="mt-auto flex items-center gap-1 text-xs font-semibold transition-colors"
+                  style={{ color: "var(--color-brand-orange)" }}
+                >
                   Enter arena
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +136,17 @@ export default function Home() {
           })}
         </div>
       </div>
+
+      {/* Footer note */}
+      <p
+        className="mt-16 text-center text-xs"
+        style={{ color: "var(--color-text-muted)" }}
+      >
+        Inspired by the guests of{" "}
+        <span style={{ color: "var(--color-brand-orange)" }}>
+          Lenny's Podcast
+        </span>
+      </p>
     </main>
   );
 }
