@@ -100,15 +100,17 @@ Each bucket ships with **5 curated scenario cards** for MVP (25 total). Each car
    → "Step into the Tank" CTA
    → 5 bucket tiles
 
-2. Bucket selected
-   → 5 scenario cards
-   → "✏️ Write my own scenario" text box at the bottom
+2. Bucket selected (page: /bucket/[slug])
+   → 5 scenario cards: title + setup ONLY
+   → Moves are deliberately hidden — see scenario-commitment principle below
+   → "✏️ Write my own scenario" affordance at the bottom
 
-3. Scenario selected
-   → 3 suggested moves
-   → "✏️ Write my own move" text box
+3. Scenario selected (page: /tank?scenarioId=X)
+   → Full scenario setup re-displayed for context
+   → NOW the 3 suggested moves appear as buttons
+   → "✏️ Write my own move" text box as a 4th option
 
-4. Move submitted
+4. Move submitted (page: /tank/result)
    → "The Tank" view
    → 3 judges appear (avatar + name + role)
    → Reactions stream in one-by-one (1-2 sec stagger)
@@ -122,6 +124,8 @@ Each bucket ships with **5 curated scenario cards** for MVP (25 total). Each car
 6. Share (public, opt-in)
    → Generic, always-positive shareable image (see §7)
 ```
+
+**Scenario-commitment principle:** the gap between step 2 (pick scenario) and step 3 (see moves) is intentional. Showing moves alongside the scenario lets users window-shop both at once, which destroys the "what would YOU do?" tension. They'd pick scenarios based on which move sounds appealing instead of being challenged by the dilemma. Two-step reveal forces real commitment. See `docs/decisions.md` §17.
 
 ## 7. Share Cards
 

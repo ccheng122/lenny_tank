@@ -177,6 +177,28 @@ Companion docs:
 
 **Easy to revisit if:** pages start looking inconsistent despite using the tokens (probably means the token set is too sparse — add more), or the brand needs a refresh (change the values in `tailwind.config.ts` once and every page updates).
 
+### 17. Reveal moves only AFTER scenario commitment (two-step flow)
+
+**Choice:** The bucket page shows scenario titles + setups only — never the suggested moves. Users must click a scenario card to see the 3 strategic options. The /tank page is where the move choice happens. So the flow is:
+
+1. Pick bucket
+2. Pick scenario (moves hidden)
+3. *Now* see moves, pick one (or write your own)
+4. See judge reactions
+
+**Alternatives considered:**
+- Show everything on one page (scenario + moves visible simultaneously) — what the plan originally specified, before this revision
+- Show all scenarios as collapsed accordions, expand to reveal moves
+- Show only one scenario at a time (full-screen takeover per scenario card)
+
+**Why the two-step reveal:** The whole game mechanic is "what would YOU do?" — that question loses tension the moment users can window-shop both questions and answers in parallel. When all scenarios + all moves are on one page, users instinctively read the moves first and pick a scenario based on which move sounds best — backward from what we want. Forcing scenario-then-move commitment restores the "I'm tackling THIS specific dilemma" feeling that makes the panel verdict satisfying.
+
+**Concrete examples of what gets ruined without this rule:**
+- "The Retention Cliff" + options including "Pause growth spend; fix the leaky bucket first" — if a user sees the options first, they pick the scenario that has the move they already believe in, instead of being challenged by the scenario.
+- Comparing moves across scenarios ("oh, scenario 3's options look more interesting than scenario 1's") trivializes the scenario choice itself.
+
+**Easy to revisit if:** user testing shows people are confused about what they're committing to (e.g. expect to preview moves like a quiz), in which case maybe show a single hint like "(3 options inside)" on the card to telegraph that something is coming next — but still don't show the actual moves.
+
 ---
 
 ## Quality checkpoints (verify-as-you-go)

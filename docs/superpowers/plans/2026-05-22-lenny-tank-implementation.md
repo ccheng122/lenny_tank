@@ -1016,7 +1016,9 @@ If anything is off (hardcoded data, wrong styling, extra features), give Replit 
 
 ## Phase 2 — Scenario Browsing
 
-### Task 2.1: Bucket page showing scenario cards
+**Important UX principle for Phase 2 (see `decisions.md` §17):** the bucket page shows *scenarios only* — never the suggested moves. Users must commit to a scenario before seeing how they could approach it. This preserves the game/commitment feel. Showing scenario + moves on one page (the original plan's mistake, since corrected) destroys the "what would you do?" tension by letting users window-shop both questions and answers at once.
+
+### Task 2.1: Bucket page showing scenario CHOICES (no moves visible)
 
 - [ ] **Step 1: Paste this prompt into Replit Agent**
 
@@ -1025,65 +1027,79 @@ Build the bucket page at /bucket/[slug] for The Lenny Tank.
 
 Context: I just built the landing page. The 5 bucket tiles on / link to /bucket/[slug] where slug is one of: growth, shipping-ai, leadership, zero-to-one, career. The data is in /data/scenarios.json (typed by /data/index.ts:ScenarioDeck). Use BUCKET_LABELS for the page title.
 
+CRITICAL UX RULE: this page shows ONLY scenario titles and setups. Do NOT render the suggested_moves array anywhere on this page. Users must commit to picking a scenario before seeing the strategic options — that's the whole game mechanic.
+
 Requirements:
 1. Server component reads /data/scenarios.json. If the slug isn't a valid Bucket, return a 404 (use notFound()).
-2. Page header: bucket emoji + label + a "← Back" link to /.
-3. Render the 5 scenario cards for that bucket in a single-column list (cards are wide, easy to read). Each card shows:
-   - Title (large)
-   - Setup paragraph
-   - "Suggested moves:" header followed by the 3 suggested moves as clickable buttons, plus a 4th button labeled "✏️ Write my own move"
-   - When the user clicks a move (suggested or own), navigate to /tank?scenarioId=X&moveId=Y where moveId is the array index 0-2 for suggested or "custom" for own
-4. At the very bottom of the page, after the 5 cards, render an "✏️ Write your own scenario" affordance (button or expandable form). Clicking it navigates to /tank?scenarioId=custom (we'll handle the form on the /tank page in a later step).
-5. Style: match the dark-mode landing page. Cards have hover states. Move buttons feel tactile.
+2. Page header: bucket icon (matching the landing page's Lucide icon for that bucket) + label (from BUCKET_LABELS) + a "← Back to buckets" link to /.
+3. Render the 5 scenario cards for that bucket in a single-column list (cards are wide, easy to read, feel like meaty buttons). Each card shows:
+   - Title (large, serif headline font from brand tokens)
+   - Setup paragraph (body font, slightly muted color)
+   - Subtle hover state (slight shadow lift, brand-yellow border/accent) that signals "click to enter"
+   - NO move buttons, NO suggested_moves text, NO move count — moves are revealed on the next page
+4. The entire card is clickable as a Next.js Link to /tank?scenarioId=<id>. The /tank page builds next.
+5. At the very bottom of the page, after the 5 cards, render an "✏️ Write your own scenario" affordance (a subtler card or expandable section). Clicking it navigates to /tank?scenarioId=custom.
+6. Style: use brand tokens from tailwind.config.ts (bg-brand-cream, text-brand-ink, font-serif for headlines, font-sans for body). Use the .card class from globals.css. NO inline hex codes.
 
-Do NOT yet implement the /tank page. The buttons just need to navigate with the correct query params.
+Do NOT yet implement the /tank page. The cards just need to navigate with the correct query params.
 ```
 
 - [ ] **Step 2: Verify**
 
-1. Click each of the 5 bucket tiles from /; you should see 5 scenario cards in each.
+1. Click each of the 5 bucket tiles from /; you should see 5 scenario cards in each, showing ONLY title + setup. NO suggested moves should appear anywhere.
 2. Verify no two buckets share the same cards.
-3. Click a suggested move; the URL changes to /tank?scenarioId=X&moveId=Y but the page may 404. That's fine — Task 2.2 builds /tank.
-4. Click "← Back"; you return to /.
+3. Click a scenario card; the URL changes to /tank?scenarioId=<id> but the page may 404. That's fine — Task 2.2 builds /tank.
+4. Confirm the "Write your own scenario" affordance at the bottom navigates to /tank?scenarioId=custom.
+5. Click "← Back to buckets"; you return to /.
 
 ---
 
-### Task 2.2: Tank page that captures the user's move and free-text inputs
+### Task 2.2: Scenario detail page with move selection (/tank)
 
 - [ ] **Step 1: Paste this prompt into Replit Agent**
 
 ```
-Build the /tank page for The Lenny Tank.
+Build the /tank page for The Lenny Tank. This is the move-selection screen — users arrived here after picking a scenario on the bucket page, and now they see the scenario in full plus their move options.
 
-The /tank page accepts query params: scenarioId (string), moveId ("0" | "1" | "2" | "custom"). Both may be undefined or "custom".
+The /tank page accepts query params:
+  - scenarioId (string, required): either a real scenario id OR the literal "custom"
+  - scenarioText (string, optional): only used when scenarioId === "custom" — the user's typed scenario
+  - moveText (string, optional): NOT used here (it's set on this page and passed forward to /tank/result)
 
-Requirements:
+Three rendering states based on params:
 
-1. Server component reads /data/scenarios.json. Resolve the scenario by id (across all buckets). If scenarioId is undefined or "custom", render a "Write your own scenario" form (textarea labeled "Describe the situation you're facing", with a submit button that navigates to /tank?scenarioId=custom&moveId=custom&scenarioText=<encoded>).
+STATE 1 — valid scenarioId resolves to a real scenario card:
+  - Server component, read /data/scenarios.json, find the card by id (across all buckets).
+  - Render at the top: scenario title (large, serif) + setup paragraph (body) — the user sees the full context they committed to.
+  - Below the scenario, render the section "Your move:" with the 3 suggested_moves[] as large clickable buttons stacked vertically, each generously padded so they feel tappable.
+  - Below the 3 suggested moves, render a 4th option: "✏️ Write my own move" as either an inline textarea + submit button, OR a collapsed link that expands a textarea.
+  - Clicking a suggested move navigates to /tank/result?scenarioId=<id>&moveId=<0|1|2>.
+  - Submitting custom move text navigates to /tank/result?scenarioId=<id>&moveId=custom&moveText=<encoded>.
 
-2. If a valid scenario is found AND moveId is "0", "1", or "2", display:
-   - The scenario title + setup at the top (so the user sees context)
-   - Their chosen move (the resolved suggested move text) below
-   - A "Step into the Tank" button that navigates to /tank/result?scenarioId=X&moveId=Y (this route doesn't exist yet — that's the next step)
+STATE 2 — scenarioId === "custom" AND no scenarioText:
+  - Show a heading "Write your own scenario" + a large textarea labeled "Describe the situation you're facing" (placeholder: a 1-2 sentence example).
+  - Below it, a "Next" button that navigates to /tank?scenarioId=custom&scenarioText=<encoded>. (Same page, different state — STATE 3 takes over.)
 
-3. If moveId is "custom" (and scenarioId resolves), display:
-   - The scenario title + setup
-   - A textarea labeled "Your move" with placeholder "What do you do?"
-   - A submit button "Step into the Tank" that navigates to /tank/result?scenarioId=X&moveId=custom&moveText=<encoded>
+STATE 3 — scenarioId === "custom" AND scenarioText is present:
+  - Render the user's scenarioText at the top in the same visual treatment as a curated scenario's setup.
+  - No suggested moves (we don't have any for custom scenarios). Just the "Your move" textarea + "Step into the Tank" submit button.
+  - Submit navigates to /tank/result?scenarioId=custom&moveId=custom&scenarioText=<encoded>&moveText=<encoded>.
 
-4. If scenarioId is "custom" and moveId is "custom", show both textareas (scenario + move), then submit goes to /tank/result?scenarioId=custom&moveId=custom&scenarioText=<encoded>&moveText=<encoded>
-
-5. Style consistent with the rest of the app. Keep this page minimal — it's a transition screen.
+Other:
+- Provide a "← Pick a different scenario" link near the top that returns to the bucket page (use the referer if possible, otherwise fall back to /).
+- Style: brand tokens from tailwind.config.ts, .card class for the scenario block, .btn-primary for "Next" / "Step into the Tank", .btn-secondary for move buttons. NO inline hex codes.
 
 Do NOT build /tank/result yet.
 ```
 
 - [ ] **Step 2: Verify**
 
-1. Click a suggested move from a bucket page; you land on /tank showing scenario + your move + "Step into the Tank" button.
-2. Click "✏️ Write my own move" from a bucket page; you land on /tank showing scenario + a textarea.
-3. Click "✏️ Write your own scenario" from a bucket page; you land on /tank showing two textareas.
-4. The "Step into the Tank" buttons all navigate to /tank/result with correct query params.
+1. From a bucket page, click any scenario card. You land on /tank with the scenario's title + setup visible at top, and 3 suggested moves + 1 "write my own" option below.
+2. Click a suggested move — URL changes to /tank/result?scenarioId=...&moveId=0 (may 404, fine for now).
+3. Click "Write my own move" — see a textarea, submit goes to /tank/result with moveId=custom and moveText.
+4. From the bucket page, click "Write your own scenario." You land on /tank in STATE 2 (single textarea for scenario). Type and submit → URL updates to STATE 3 (scenarioText in URL, now showing scenario + move textarea).
+5. The "← Pick a different scenario" link returns to the bucket page (or /).
+6. No suggested_moves visible anywhere except this /tank page after a scenario is committed.
 
 ---
 
