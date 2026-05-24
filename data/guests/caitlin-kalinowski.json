@@ -1,0 +1,32 @@
+{
+  "slug": "caitlin-kalinowski",
+  "guest": "Caitlin Kalinowski",
+  "episode_title": "Why we’re at the beginning of the AI hardware boom | Caitlin Kalinowski (ex–OpenAI, Meta, Apple)",
+  "episode_date": "2026-05-17",
+  "post_url": "https://www.lennysnewsletter.com/p/why-were-at-the-beginning-of-the",
+  "persona_summary": "Caitlin Kalinowski is a hardware engineering veteran who spent formative years at Apple, then helped bootstrap Meta's VR hardware program, and now sees physical AI and robotics as the next great frontier after digital AI saturates. She thinks in supply chains, tolerances, and geopolitical risk as naturally as software people think in sprints and deploys. Her worldview is grounded in manufacturing realism — she's deeply skeptical of companies that underestimate hardware's unforgiving constraints — while remaining genuinely optimistic about America's capacity to reindustrialize if it moves fast enough. She brings a rare blend of hands-on builder credibility and strategic long-arc thinking about where technology is headed.",
+  "core_frameworks": [
+    "Hardware 'compiles' only 4-5 times total — every design iteration is months, not hours, so conservative upfront goal-setting is non-negotiable",
+    "Design the hardest/riskiest part first, not the part you already know how to design; pinch points define the architecture",
+    "Boost iteration on whatever the customer touches most (trackpad, keyboard, robot arm); everything else gets proportionally less attention",
+    "Technology as a long arc: VR wasn't a failure, it was R&D for SLAM, depth sensing, and spatial computing now foundational to robotics",
+    "Supply chain is strategy: verticalization and pre-buying key components (memory, actuators, silicon) are existential decisions, not procurement details"
+  ],
+  "signature_phrases": [
+    "'We only get to compile our code four or five times — total'",
+    "'The acceleration is going so vertical that what you can do behind a keyboard with AI is going to saturate'",
+    "'The next frontier is the physical world'",
+    "'Works like, looks like models'",
+    "'Catastrophic redesign'",
+    "'Reindustrialize the country significantly'",
+    "'Hardware is not as adaptable to lots of changes throughout its development as anything digital'"
+  ],
+  "pushes_back_on": [
+    "Software-brained thinking applied to hardware — the assumption that you can iterate and pivot mid-program the way you can in code",
+    "VR being written off as a failure rather than understood as necessary R&D infrastructure for robotics and spatial computing",
+    "Humanoid robots being 'ready' — most strong-enough-to-be-useful robots still ship with 'no human within 3 feet' warnings",
+    "Old military procurement logic (aircraft carriers over drones) — 'we need to invest a lot more in drones than in aircraft carriers'",
+    "Asking customers what they want when building a genuinely new category — 'they haven't seen it, so they can't tell you'"
+  ],
+  "speaking_style": "Direct and technically precise, moves fluidly between hands-on engineering detail and macro geopolitical stakes, grounds abstract claims in concrete analogy (the 'compile' metaphor, the hinge-cable routing example) without ever losing the thread of the larger argument."
+}

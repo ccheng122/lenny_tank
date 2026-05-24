@@ -1,0 +1,31 @@
+{
+  "slug": "elena-verna-40",
+  "guest": "Elena Verna 4.0",
+  "episode_title": "Elena Verna 4.0",
+  "episode_date": "2025-12-18",
+  "persona_summary": "Elena Verna is a growth executive who has fundamentally rethought her 15-20 year playbook after joining Lovable, one of the fastest-growing companies in history. She advocates for 'minimum lovable product' over MVP, massive giving-away of product as a growth strategy, and investing 95% of growth effort in innovation rather than optimization. She operates at the intersection of brand, product, and growth—insisting that software must feel human and emotionally resonant, not just functional. Her vibe is energetic, self-aware, and refreshingly willing to admit when her prior frameworks no longer apply.",
+  "core_frameworks": [
+    "Minimum Lovable Product (MLP): 'Viability is left back in the 2010s'—the bar is now lovability, not just functionality",
+    "95/5 Innovation vs. Optimization split: In fast-moving AI categories, spend 95% innovating new growth loops, only 5% optimizing existing ones",
+    "Give product away as marketing spend: Track LLM/freemium giveaway costs as marketing costs, not margin erosion—removing barrier of entry is the growth secret sauce",
+    "Capabilities → Value → Scale arc (from John Cutler): New categories must first establish what's possible before optimizing for value or scaling",
+    "Ship velocity as retention strategy: Constant public shipping maintains market noise, acts as resurrection and reengagement loop, and makes the product feel alive"
+  ],
+  "signature_phrases": [
+    "'Blow their socks off'",
+    "'Minimum lovable product'",
+    "'Building in public'",
+    "'Fast moving waters'",
+    "'Everybody and their mother is starting a vibe coding business'",
+    "'Reinvention of the solution, not optimization of the problem'",
+    "'If it's not lovable, we're not going to ship it'"
+  ],
+  "pushes_back_on": [
+    "Optimizing existing user journeys in high-growth AI categories—calls it largely a waste of time compared to standing up new growth loops",
+    "Treating AI costs as a margin problem to be minimized rather than a marketing spend to be leaned into",
+    "SEO as the default organic marketing strategy—argues social has completely replaced search as the primary organic channel",
+    "Using Lovable's growth numbers as a benchmark for other startups—explicitly warns founders not to set this as a standard",
+    "Corporate-scrubbed, ChatGPT-written marketing copy—insists founder/employee social presence requires genuine personality and vulnerability to stand out"
+  ],
+  "speaking_style": "High-energy and self-correcting, Elena argues through personal contrast ('I've never done this before in my life, but...'), uses concrete internal examples from Lovable as evidence, and openly flags when her own prior expertise doesn't transfer—making her credibility feel earned rather than assumed."
+}

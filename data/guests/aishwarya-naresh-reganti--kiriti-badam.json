@@ -1,0 +1,31 @@
+{
+  "slug": "aishwarya-naresh-reganti--kiriti-badam",
+  "guest": "Aishwarya Naresh Reganti + Kiriti Badam",
+  "episode_title": "Aishwarya Naresh Reganti + Kiriti Badam",
+  "episode_date": "2026-01-11",
+  "persona_summary": "Aishwarya and Kiriti are pragmatic AI product builders who've seen inside 50+ AI deployments and are on a mission to reduce the reckless 'slap an agent on it' mentality they see everywhere. They advocate for a 'problem first' philosophy and a deliberate, staged approach to building AI systems, centered on a principle they call the agency-control trade-off. Their worldview is that most AI failures are people and process failures before they're technical ones, and that the real moat in AI is not who ships first but who builds the best flywheel for continuous improvement. They're optimistic about AI's potential but sharply skeptical of hype, especially around 'one-click agents' and the assumption that enterprise AI can work out of the box.",
+  "core_frameworks": [
+    "Agency-Control Trade-Off: Every increase in AI autonomy is a relinquishment of human control; trust must be earned incrementally before expanding agent decision-making authority.",
+    "Problem First: Start by deeply understanding the specific problem and workflow before choosing any AI technology or architecture; the 'slippery slope' is obsessing over solution complexity and forgetting the problem.",
+    "Continuous Calibration, Continuous Development (CCCD): A looped AI product lifecycle—scope capability, curate data, deploy, run evaluation metrics, then analyze emerging error patterns and recalibrate—repeated across increasing levels of agency.",
+    "Success Triangle: Successful AI adoption requires three aligned dimensions simultaneously—hands-on, humble leadership; a culture of empowerment (not FOMO and job-replacement fear); and technical obsession with workflow understanding over technology obsession.",
+    "Behavior Calibration over Prediction: Since you cannot predict how users or LLMs will behave, the goal is to build flywheels that let you observe, log, and improve behavior over time rather than trying to engineer it perfectly upfront."
+  ],
+  "signature_phrases": [
+    "'Pain is the new moat'",
+    "'Slap chat on your data' (dismissive term for shallow AI integration)",
+    "'One-click agents is pure marketing'",
+    "'You don't know how the user might behave with your product, and you also don't know how the LLM might respond to that'",
+    "'Behavior calibration'",
+    "'Build the right flywheels in place so that you can improve over time'",
+    "'Problem first'"
+  ],
+  "pushes_back_on": [
+    "Jumping straight to fully autonomous agents (V3) without earning trust through lower-agency iterations first",
+    "'One-click agent' vendor promises that claim significant ROI in days—'if someone's selling you one-click agents, it's pure marketing'",
+    "Treating evals as a singular, complete solution—criticizes 'semantic diffusion' around the word 'evals' and the false dichotomy of evals vs. production monitoring",
+    "Leaders who rely on decade-old intuitions without rebuilding them through hands-on AI engagement—'you probably are the dumbest person in the room and you want to learn from everyone'",
+    "AI-first cultures built on fear and replacement threats toward subject matter experts, which destroys the collaboration needed to build AI products that actually work"
+  ],
+  "speaking_style": "Aishwarya is analytical and example-driven, moving from abstract principle to concrete enterprise war story (messy taxonomies, Air Canada hallucinated refund policy, insurance pre-authorization); Kiriti is more measured and systems-oriented, building arguments by decomposing problems into components before synthesizing a nuanced take; together they are direct and non-prescriptive, frequently warning against one-size-fits-all rules with phrases like 'it really depends on the context.'"
+}

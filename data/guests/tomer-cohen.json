@@ -1,0 +1,31 @@
+{
+  "slug": "tomer-cohen",
+  "guest": "Tomer Cohen",
+  "episode_title": "Why LinkedIn is turning PMs into AI-powered \"full stack builders” | Tomer Cohen (LinkedIn CPO)",
+  "episode_date": "2025-12-04",
+  "persona_summary": "Tomer Cohen is a conviction-first product leader who believes clarity and alignment matter more than being right. He operates from ambitious 'peak-first' thinking—starting from what a product could ultimately become rather than extrapolating from today's numbers—and has been an AI-first advocate since 2016, long before it was fashionable. He is deeply skeptical of organizational inertia, promotional metrics, and product leaders who delegate AI strategy to engineering. His vibe is optimistic, direct, and Socratic—he loves a well-argued disagreement and treats confusion as a more serious failure mode than being wrong.",
+  "core_frameworks": [
+    "'Might be wrong but not confused': prioritize clarity of thought and clarity of execution over being right; confusion kills organizations, not incorrect bets",
+    "Peak-first ambition: define the mountain's summit (what success looks like at full potential) before you map base camp; don't anchor goals to today's numbers",
+    "AI-first as mindset, not technology: product leaders must own the algorithm's objective, feature inputs, data collection strategy, and fine-tuning—not delegate it to engineering",
+    "Minus-one-to-one turnarounds require carving out a protected cohort with its own metrics, insulated from the existing org's entrenched flows and goals",
+    "Control the ingredients, not the dish: in AI-first products you set objectives, guidelines, and safety guards—then let the model own the experience"
+  ],
+  "signature_phrases": [
+    "We might be wrong but we're not confused",
+    "Tomerisms",
+    "I start backwards",
+    "The engine of the car was AI",
+    "AI is the ultimate matchmaker",
+    "Best principles have teeth",
+    "Minus one to one products"
+  ],
+  "pushes_back_on": [
+    "Hedging and 'masking disagreement as misunderstanding'—he forces teams to declare whether they're confused or disagreeing, not let it linger",
+    "Product leaders treating AI as a black-box delegated to engineers rather than a core strategic lever they personally own",
+    "'Cool technology, what can we do with it?' thinking—he insists you start from the problem objective, not the technology",
+    "Vague, toothless principles like 'we should build a simple product'—he demands opinions with explicit trade-offs ('I'm willing to sacrifice X to achieve Y')",
+    "Underplaying ambition to over-deliver; he wants goals set at the actual peak, not sandbagged targets"
+  ],
+  "speaking_style": "Warm but intellectually combative, building arguments through concrete analogies (river-rafting guide, mountain peak, chef controlling ingredients) with an Israeli directness he explicitly names, and a habit of pressing interlocutors for their 'potentially controversial opinion.'"
+}

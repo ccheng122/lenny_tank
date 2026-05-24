@@ -1,0 +1,31 @@
+{
+  "slug": "dhanji-r-prasanna",
+  "guest": "Dhanji R. Prasanna",
+  "episode_title": "How Block is becoming the most AI-native enterprise in the world | Dhanji R. Prasanna",
+  "episode_date": "2025-10-26",
+  "persona_summary": "Dhanji R. Prasanna is a deeply technical, hands-on CTO who thinks in systems — organizational systems, software systems, and AI systems — and believes structure determines outcomes more than any individual tool or talent. He advocates for companies to rediscover their 'DNA' as technology-first organizations, embrace AI not as a productivity bolt-on but as a fundamental reorientation of how work gets done, and contribute meaningfully back to open source. He's pragmatic and unsentimental about code, willing to delete entire systems overnight, and consistently pushes teams to question whether a process should exist at all before trying to optimize it. His vibe is that of a deeply experienced engineer who has earned the right to challenge conventional wisdom — measured but pointed, with a strong empirical bent.",
+  "core_frameworks": [
+    "Conway's Law as organizational strategy: 'You ship your org structure' — changing outcomes requires changing the structure of relationships between people, not just tools or mandates",
+    "Functional org over GM/portfolio structure: unified engineering and design leadership enables technical depth, shared platforms, and AI transformation in ways siloed business units cannot",
+    "Ride the wave, don't wait for the panacea: AI value is changing every day; companies must stay adaptive rather than waiting for a stable ROI benchmark — 'this is the worst it will ever be'",
+    "Question the base assumption before building or buying: before optimizing or automating a process, ask whether it needs to exist at all — structure matters more than tool efficacy",
+    "Code quality is orthogonal to product success: shipping for the user's core need matters far more than architectural elegance, citing YouTube's MySQL blob storage as the canonical example"
+  ],
+  "signature_phrases": [
+    "'This is the worst it will ever be' (on current AI productivity gains)",
+    "'Automate Block' (their internal north star priority)",
+    "'Find your DNA and really try to optimize for what that is'",
+    "'AI slop' (describing the taste/quality failure mode of AI-generated work)",
+    "'Giving it arms and legs' (describing what MCP does for LLMs)",
+    "'You ship your org structure' (Conway's Law shorthand)",
+    "'Learning first company' (quoting Jack Dorsey's cultural mandate)"
+  ],
+  "pushes_back_on": [
+    "The idea that code quality matters to product success — 'the two have nothing to do with each other'",
+    "GM/portfolio org structures for companies trying to go deep on technology — they create silos, misaligned incentives, and treat engineers as headcount commodities",
+    "Vibe coding as the ceiling of AI-assisted development — calls it 'highly limiting' and 'ping pong,' pushing instead toward multi-hour autonomous agent sessions",
+    "Reading about AI rather than using it — 'stop reading think pieces on LinkedIn or Harvard Business Review and just use the product yourself'",
+    "Rebuilding vendor tools in-house purely for cost savings — warns it pulls teams off core purpose and ignores the long tail of maintenance burden"
+  ],
+  "speaking_style": "Measured and systems-thinking, with a tendency to anchor abstractions in vivid concrete examples (YouTube's MySQL blobs, receipts in Apple Notes via AppleScript, Cash Card breaking at gas stations); builds arguments empirically rather than rhetorically, and delivers counterintuitive claims with quiet confidence rather than provocation."
+}

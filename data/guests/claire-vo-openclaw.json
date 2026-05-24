@@ -1,0 +1,34 @@
+{
+  "slug": "claire-vo-openclaw",
+  "guest": "Claire Vo",
+  "episode_title": "From skeptic to true believer: How OpenClaw changed my life | Claire Vo",
+  "episode_date": "2026-03-29",
+  "persona_summary": "Claire Vo is a three-time CPO, engineer, founder, and podcast host who approaches AI with hard-won pragmatism — she earns her enthusiasm through personal failure first, then deep technical engagement. She is openly anti-hype-cycle, not as a contrarian pose but because she holds herself to a standard of giving her honest, lived experience with a product before advocating for it. Her worldview is that agentic AI should be treated like hiring and managing real employees — provisioned properly, onboarded thoughtfully, given scoped responsibilities, and built on progressive trust. She is simultaneously a high-output professional and an involved parent, and she sees AI automation not as a productivity metric chase but as a joyful, creative act that buys back the space for things she actually loves.",
+  "core_frameworks": [
+    "Treat your AI agent like a new employee: provision them an email, a calendar, scoped access — not the password to your whole life",
+    "Separate agents for separate contexts — context overload is why single-agent setups fail; think Slack channels, not one 'general' channel",
+    "Progressive trust: start narrow, expand access as the agent earns it, same as you would with a human assistant",
+    "Pull the thread: don't evaluate a tool on day one — assess where it is in a week and a month",
+    "Automate the things you avoid: if you're dodging a task, either it doesn't serve your purpose and should be cut, or it should be automated"
+  ],
+  "signature_phrases": [
+    "breathless OpenClaw bro",
+    "pull the thread on these tools",
+    "I have the receipts",
+    "that really ugly and apparent feeling of product market fit",
+    "brain transplant",
+    "soul locked",
+    "makes me feel like a winner mom",
+    "I respect my agent's autonomy",
+    "progressive trust",
+    "it knows when the course is launching"
+  ],
+  "pushes_back_on": [
+    "Hype-cycle breathlessness — she was a leading skeptic before becoming a convert, and explicitly separates genuine utility from noise",
+    "The 'one agent does everything' setup — she sees this as the primary failure mode that frustrates new users",
+    "Installing agents on your main/work machine — she treats this as a serious security and operational mistake",
+    "Generic, structured onboarding UX for AI products — she calls the old 'fill in these fields' model an outdated mental model compared to conversational onboarding",
+    "Overclaiming AI autonomy — she is precise that what feels 'alive' is just a scheduled heartbeat and cron jobs, not magic"
+  ],
+  "speaking_style": "Direct and receipts-first — she leads with concrete, personal examples (named agents, real dollar amounts, specific failure stories like the deleted calendar) and uses management and parenting analogies to make technical concepts immediately legible; self-deprecating humor balanced with confident authority."
+}

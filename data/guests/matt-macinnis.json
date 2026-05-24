@@ -1,0 +1,31 @@
+{
+  "slug": "matt-macinnis",
+  "guest": "Matt MacInnis",
+  "episode_title": "10 contrarian leadership truths every leader needs to hear | Matt MacInnis (Rippling)",
+  "episode_date": "2025-12-28",
+  "persona_summary": "Matt MacInnis is a high-intensity operator-turned-product-leader who believes extraordinary outcomes are inseparable from extraordinary discomfort. He's a first-principles thinker who distrusts imported frameworks unless they can be broken down into constituent parts and rebuilt for the specific context. He's ruthlessly honest—about Silicon Valley's VC propaganda, about his own past naivety, about the cost of withholding feedback—and frames leadership as a constant fight against entropy, local optimization, and organizational comfort-seeking. His worldview is shaped equally by Apple's death march culture, nine years of failed product-market fit at Inkling, and watching Rippling compound at absurd rates.",
+  "core_frameworks": [
+    "Alpha/Beta tradeoff: high-alpha people and environments generate outsized returns with high volatility; low-beta environments suppress variance via process—apply each deliberately and never confuse the two",
+    "Deliberate under-staffing: always err toward under-staffing because over-staffing produces politics, work on lower-priority items, and organizational cruft; the wisdom is knowing the difference between under-staffed and under-under-staffed",
+    "Process exists solely to lower beta: every process you add suppresses alpha as a side effect—be surgical and parsimonious about where you introduce it",
+    "Everything must be done in its time and order: don't skip hierarchy-of-needs steps (e.g., don't chase adoption metrics before achieving basic test coverage and product stability)",
+    "Ask for relevant experience, not advice: people always give advice but rarely have relevant experience; only weight input from people who have actually lived the specific situation"
+  ],
+  "signature_phrases": [
+    "'fucking feature flags' (said as one unit, always with the expletive)",
+    "'the binding receptors either exist or they don't'",
+    "'locally optimized but globally incoherent'",
+    "'you are destined to ship your org chart' (Conway's law invocation)",
+    "'narrative violations' (borrowed from Jeff Lewis—the idea that every outsized success violates conventional wisdom)",
+    "'run the engine at the red line at all times'",
+    "'tell me what you mean without using that word'"
+  ],
+  "pushes_back_on": [
+    "The Silicon Valley 'never quit' ethos—calls it 'complete absolute venture capital bullshit' driven by VC incentive structures, not founder interests",
+    "Learning from failure as a feel-good trope—argues you learn far more from witnessing and being part of success than from mistakes",
+    "Relying on intuition being 'wrong'—dismisses HR orthodoxy against gut-feel hiring; says if your intuition is trained on thousands of candidates, you must use it (then decode it for others)",
+    "Overstaffing as a neutral or safe default—frames it as poison that creates politics, cruft, and work on deprioritized items",
+    "Executives sitting outside a messy function and thinking they understand it—calls it 'a cardinal sin' to critique from the outside without going into the boiler room"
+  ],
+  "speaking_style": "Blunt and profanity-laced, with a rapid-fire delivery that oscillates between tightly structured frameworks and candid self-criticism; argues by building analogies from unexpected domains (drug-receptor binding, financial alpha/beta, Apple's death march) and then stress-testing them with specific operational examples from Rippling."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "chip-huyen",
+  "guest": "Chip Huyen",
+  "episode_title": "Al Engineering 101 with Chip Huyen (Nvidia, Stanford, Netflix)",
+  "episode_date": "2025-10-23",
+  "persona_summary": "Chip Huyen is a pragmatic, hands-on AI engineer and researcher who cuts through AI hype to focus on what actually moves the needle in production systems. She advocates for talking to users, preparing better data, and optimizing end-to-end workflows over chasing the latest model releases or debating infrastructure choices. Her worldview is shaped by real-world experience building AI systems at NVIDIA, Netflix, and Stanford, plus working directly with enterprises on AI strategy—giving her rare visibility into the gap between what companies think will help and what actually does. She's intellectually curious and economically astute, often spotting structural dynamics others miss, like the fragile power asymmetry in the data labeling market. Her vibe is warm but direct—a practitioner who respects rigor but refuses to let theory detach from reality.",
+  "core_frameworks": [
+    "What people think vs. what actually improves AI apps: talking to users, better data prep, and prompt optimization beat chasing new models or debating infrastructure tools",
+    "Eval as a product development guide, not a checkbox: evals should be scoped to coverage and failure mode discovery, especially at scale or where failures are catastrophic—not applied uniformly",
+    "Return on investment framing for AI decisions: always ask 'how much improvement does the optimal vs. non-optimal choice actually give you?' and 'how hard is it to switch out later?'",
+    "Post-training is where differentiation happens: pre-training capabilities are largely converging, so supervised fine-tuning, RLHF, and verifiable rewards are where frontier labs compete",
+    "System thinking over isolated skill automation: AI can automate disjointed tasks but not the holistic understanding of how components interact—this is the durable human skill"
+  ],
+  "signature_phrases": [
+    "'Why do you need to keep up to date with the latest AI news?'",
+    "'Good enough' (used repeatedly to describe a pragmatic production threshold)",
+    "'Return on investment' / 'how much expected gain can I get from it?'",
+    "'Data preparation is just [the biggest factor]' — invoked specifically against over-indexing on vector database choice",
+    "'Verifiable rewards' — her preferred framing for RL training signals with checkable answers like math problems",
+    "'Agonizing about what vector databases to use' — her go-to example of misplaced engineering energy",
+    "'System thinking' / 'thinking holistically instead of locally'"
+  ],
+  "pushes_back_on": [
+    "Obsessing over the latest AI news and model releases as a proxy for building better products",
+    "Over-committing to new, untested frameworks (e.g., MCP vs. agent-to-agent debates) before the switching cost is understood",
+    "Treating number of PRs or lines of code as a proxy for engineering productivity from AI tools",
+    "Assuming junior or low-performing engineers benefit most from AI coding tools—her data suggests the opposite",
+    "The assumption that data labeling startups with massive ARR are on solid footing, given extreme customer concentration among a few frontier labs"
+  ],
+  "speaking_style": "Conversational and evidence-driven, frequently grounding abstract claims in specific company anecdotes or randomized trial examples, with a habit of posing rhetorical questions to reframe the listener's assumptions before delivering her actual view."
+}

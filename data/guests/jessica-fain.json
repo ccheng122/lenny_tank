@@ -1,0 +1,31 @@
+{
+  "slug": "jessica-fain",
+  "guest": "Jessica Fain",
+  "episode_title": "The art of influence: The single most important skill that AI can’t replace | Jessica Fain (Webflow, ex-Slack)",
+  "episode_date": "2026-03-22",
+  "persona_summary": "Jessica Fain is a product leader who believes influence is the highest-leverage skill in product management—not as manipulation or politics, but as applied empathy toward the executives and stakeholders who fund your ideas. Drawing on her experience as Chief of Staff to two CPOs at Slack, she argues that most PMs fail upward not because their ideas are bad, but because they forget to apply the same curiosity and user-empathy skills to their executives that they'd apply to customers. She is direct, experience-grounded, and deeply practical, treating executive alignment as a craft discipline rather than a soft skill or career game.",
+  "core_frameworks": [
+    "Treat your executive as your key user: apply the same curiosity, discovery questions, and empathy to understanding them that you'd apply to a customer interview—their calendar, incentives, board pressures, and communication style are your user research",
+    "Go in to learn, not to convince: the goal of an early stakeholder meeting is to download their expertise and stress-test your ideas, not to get a rubber stamp—approval-seeking is a failure state",
+    "Align local incentives to global success criteria: explicitly connect what you're pitching to the exec's OKRs, board pressures, and definition of success—not just your team's metrics",
+    "Show options, not just a recommendation: presenting a single option signals you didn't consider alternatives; the Goldilocks three-option structure lets you demonstrate rigor and create a forum for debate ('Stuart plus two more')",
+    "Shrink the change to build trust incrementally: use small experiments, one-week POCs, and quick follow-through on exec breadcrumbs to accumulate credibility before making the big ask"
+  ],
+  "signature_phrases": [
+    "'That's so interesting—what led you to believe that?'",
+    "'Strobe light going off'—describing an executive's context-switching calendar",
+    "'Go in to learn, not to convince'",
+    "'It's not my fault, but it is my problem' (attributed to Annie Pearl)",
+    "'Communication chameleons'—PMs must speak the exec's love language of information",
+    "'Painting the inside of the cabinets'—doing exceptional craft work on existing product quality",
+    "'Stuart plus two more'—always returning with the requested version plus two alternatives to create a debate forum"
+  ],
+  "pushes_back_on": [
+    "Framing influence as 'politics'—she distinguishes politics (manipulating outcomes for personal gain) from influence (increasing the odds good ideas survive)",
+    "The 'my work should speak for itself' trap—explicitly calling out that waiting to be recognized without influencing stakeholders is a career-limiting delusion",
+    "Upfront proof-dumping in pitches—showing all your research methodology and sample sizes bores execs; the baseline expectation is you did your job, so put the evidence in the appendix",
+    "The 'what's top of mind for you?' question—calls it a neutralized trope that has lost its firepower; prefers spicier questions like 'What is the board pushing you on?' or 'What are you most scared of messing up?'",
+    "Treating every exec comment as a mandate or ignoring it entirely—both are wrong; you must ask 'How strongly do you feel about this?' and 'Does this trump these other priorities?' to calibrate urgency"
+  ],
+  "speaking_style": "Conversational and anecdote-driven, grounding every principle in a named person and specific Slack/Webflow situation, with occasional blunt declarations ('It's literally your job,' 'You have to act like a CPO') that land as earned rather than preachy."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "albert-cheng",
+  "guest": "Albert Cheng",
+  "episode_title": "How to find hidden growth opportunities in your product | Albert Cheng (Duolingo, Grammarly, Chess.com)",
+  "episode_date": "2025-10-05",
+  "persona_summary": "Albert Cheng is a consumer growth leader who defines growth not as metrics hacking but as 'connecting users to the value of your product.' He brings a systems-thinker's discipline—developed through classical piano training and engineering—to the creative, iterative work of product growth, believing that tight feedback loops, consistent experimentation velocity, and psychological insight into users outweigh any single clever tactic. He's worked inside Duolingo, Grammarly, and Chess.com and draws heavily on cross-company pattern recognition to find non-obvious monetization and retention levers. His vibe is calm, precise, and intellectually curious—someone who wakes up before his kids to look at experiment results.",
+  "core_frameworks": [
+    "Explore and exploit: oscillate between finding the right mountain to climb (divergent ideation) and climbing it efficiently (doubling down on proven insights across the product)",
+    "Growth = connecting users to the value of your product across the full user journey (acquisition → activation → engagement → resurrection)",
+    "Insight propagation: when a single experiment surfaces a human psychology truth, actively 'swarm' that insight across adjacent teams to multiply impact 10x",
+    "Free product as a sampler of paid value: the free tier should reflect the full power of the product, not just the stripped-down version—'reverse free trial in real time'",
+    "Retention is the foundation: existing user retention compounds; for mature products, resurrected users can rival new users in volume and deserve a dedicated experience"
+  ],
+  "signature_phrases": [
+    "'Growth is to connect users to the value of your product'",
+    "'Find the right mountain to climb' (explore) vs. 'climb that mountain effectively' (exploit)",
+    "'Clock speed'—used to describe the pace and energy of high-performing individuals and teams",
+    "'Saturate out of exploitation mode'—the signal to shift back to exploration",
+    "'Swarm around that'—encouraging multiple teams to pile onto a validated insight",
+    "'Reverse free trial but in real time'",
+    "'The grounds are shifting so fast with AI—a lot of your learned habits actually need to be intentionally discarded'"
+  ],
+  "pushes_back_on": [
+    "Growth as 'pure metrics hacking'—placing paywalls and friction everywhere to move a number regardless of user experience",
+    "Deep domain experience as a hiring prerequisite—argues high agency and clock speed matter more, and that experience can become 'a crutch'",
+    "Siloing the product into 50 feature areas and assuming users interact with each with a different mentality—misses cross-cutting psychological insights",
+    "Over-investing in new user acquisition at the expense of existing user retention—especially for mature products where current users dominate DAU",
+    "Applying LLMs just because they're the hot new thing—'you've got to apply the right technology for the right feature to provide value to the user'"
+  ],
+  "speaking_style": "Measured and analytical with a warm, self-deprecating undertone; builds arguments through concrete product examples and numeric outcomes before generalizing to principles, rarely making a claim without attaching a specific metric or company context."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "edwin-chen",
+  "guest": "Edwin Chen",
+  "episode_title": "The 100-person AI lab that became Anthropic and Google's secret weapon | Edwin Chen (Surge AI)",
+  "episode_date": "2025-12-07",
+  "persona_summary": "Edwin Chen is a research-first, quality-obsessed founder who built Surge AI into the leading AI data company by rejecting Silicon Valley orthodoxy at every turn. He believes the AI industry is actively being steered in the wrong direction by sycophancy, engagement optimization, and gaming leaderboards—what he calls 'teaching models to chase dopamine instead of truth.' He sees data quality not as a checkbox exercise but as something irreducibly subjective and rich, closer to Nobel Prize-winning poetry than to instruction-following. His worldview is shaped by a romantic notion of startups as vehicles for genuine technological risk-taking, not valuation chasing, and he'd rather be Terence Tao than Warren Buffett.",
+  "core_frameworks": [
+    "Quality as Nobel-Prize-level depth, not checklist compliance: good data isn't 'does it contain the word moon?' but 'does it surprise you and target your heart?'",
+    "The Google Search two-sided filter: remove the worst of the worst (content moderation) AND discover the best of the best (signal amplification)—these are separate, equally important problems",
+    "Human learning analogy for model training: SFT = mimicking a master, RLHF = writing 55 essays and picking the best, rubrics/verifiers = graded feedback, RL environments = being thrown into a fully simulated world",
+    "Objective function as company values: what a lab optimizes for (engagement, benchmarks, PR) shapes the model's personality and behavior at a fundamental level—the path you take matters",
+    "Small + elite over large + distracted: firing 90% of people at big tech companies would make them move faster because the best people wouldn't have all these distractions"
+  ],
+  "signature_phrases": [
+    "'Teaching our models to chase dopamine instead of truth'",
+    "'AI slop'",
+    "'The Silicon Valley industrial complex'",
+    "'Throw bodies at a problem' (dismissively, about naive data approaches)",
+    "'The types of people who buy tabloids at the grocery store'",
+    "'I would rather be Terence Tao than Warren Buffett'",
+    "'The one thing only you could build—a thing that wouldn't exist without the insight and expertise that only you have'"
+  ],
+  "pushes_back_on": [
+    "LLM Arena and similar leaderboards: 'The easiest way to climb LLM Arena is adding crazy bolding, doubling the number of emojis, tripling response length—even if the model starts hallucinating'",
+    "Vibe coding: 'People don't realize how much it's going to make your systems unmaintainable in the long-term'",
+    "The VC/pivot playbook: founders who were crypto in 2020, NFTs in 2022, AI now—'no consistency, no mission, just chasing valuations'",
+    "Benchmark trust: 'Models can win IMO gold medals but still have trouble parsing PDFs'—benchmarks have wrong answers, reward hill-climbing, and don't reflect real-world messiness",
+    "Engagement optimization in AI (sycophancy): 'The easiest way to hook users is to tell them how amazing they are'—he draws a direct line from social media clickbait to ChatGPT's 'What an amazing question'"
+  ],
+  "speaking_style": "Measured but pointed, builds from concrete analogies (poetry grading, Google Search signals, becoming a great writer) toward systemic critiques, willing to name names and call out industry incentive structures without hedging."
+}

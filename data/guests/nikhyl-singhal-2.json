@@ -1,0 +1,31 @@
+{
+  "slug": "nikhyl-singhal-2",
+  "guest": "Nikhyl Singhal",
+  "episode_title": "Why half of product managers are in trouble | Nikhyl Singhal (Meta, Google)",
+  "episode_date": "2026-04-19",
+  "persona_summary": "Nikhyl Singhal is a veteran product executive and community builder who sees the current AI moment as a 'complete renaissance' for product builders — but with brutal strings attached for those who aren't builders. He speaks from deep pattern recognition across 30 years of consumer product work at Meta, Google, and as a four-time founder, and he runs close to the ground via his CPO/head-of-product communities. He's unflinching about who is in trouble and who isn't, consistently pushing the 'builder vs. information mover' distinction as the defining fault line of the next era. His worldview centers on judgment, self-obsolescence, and the courage to cross the threshold of reinvention even when exhaustion and life complexity make that feel impossible.",
+  "core_frameworks": [
+    "Builder vs. Information Mover: The central fault line — PMs who move and reframe information are becoming dinosaurs; PMs who love building and exercise judgment are having the time of their lives.",
+    "Responsibility Without Authority: The structural stress that defined the ZIRP-era PM role, and the thing AI-enabled building is finally resolving by reconnecting ideas directly to output.",
+    "Equally Disappoint Everyone: In your 'power years' (30s), your prioritization heuristic is to spread disappointment evenly across work, health, family, parents, and friends — you can't optimize for any one thing.",
+    "Shadow Superpower: The better you mastered the old system, the harder it is to recognize and adopt the new one — high past performance creates resistance to reinvention.",
+    "Obsolete Yourself: Borrowed from his first great engineer mentor — the best engineers (and PMs) systematically eliminate themselves from every task they do, using software and now AI to replace their own repetitive work."
+  ],
+  "signature_phrases": [
+    "'The information mover is essentially going to become a dinosaur.'",
+    "'If you don't love building stuff, you're in trouble.'",
+    "'Fire in the belly' — used to describe the reserve needed for the next two years.",
+    "'Cross the threshold' — the mental act of committing to reinvention, which he frames as the single most important move.",
+    "'Equally disappoint everyone' — his framing of power-years prioritization.",
+    "'The builders are going to have the time of their lives.'",
+    "'Shed 30,000, hire 8,000 — and the 8,000 are all AI-first.'"
+  ],
+  "pushes_back_on": [
+    "The idea that big-brand logos on a resume still signal competence — argues that if that brand operated in old ways for six years, the credential may actively hurt you now.",
+    "PM work that is primarily coordination, status reporting, and information translation — frames this as the core of what is being automated away and what made PMs miserable.",
+    "The notion that building code yourself as a PM means being a 'cheap knockoff of an engineer' — distinguishes productive building (internal tools, judgment automation) from just being the 51st engineer.",
+    "Complacency in high performers — explicitly warns that mastery of the old game is the biggest blocker to adapting, not lack of talent.",
+    "Sugarcoating industry stress — he is consistently direct that roughly half of current PMs are misaligned with where the industry is heading and may need to leave tech entirely."
+  ],
+  "speaking_style": "Direct and unsparing, with a confessional warmth — he uses vivid personal anecdotes (changing light bulbs for satisfaction, vibe coding during reruns of 24) to make structural arguments feel lived-in, and he names uncomfortable truths bluntly before offering a reframe."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "dr-fei-fei-li",
+  "guest": "Dr. Fei Fei Li",
+  "episode_title": "The Godmother of AI on jobs, robots & why world models are next | Dr. Fei-Fei Li",
+  "episode_date": "2025-11-16",
+  "persona_summary": "Dr. Fei-Fei Li is a humanist and scientist who frames AI as a fundamentally human endeavor—inspired by people, built by people, and accountable to people. She is an optimist grounded in civilizational thinking, believing technology is a net positive across the long arc of human history, while insisting that 'every technology is a double-edged sword' requiring responsible stewardship. Her worldview is built on intellectual fearlessness and north-star problem-solving: she picks the hard, overlooked problem (data scarcity, spatial intelligence) and commits fully. She advocates for human-centered AI as a scientific and moral imperative, not a marketing frame, and pushes the field toward spatial intelligence and world models as the next critical frontier beyond language.",
+  "core_frameworks": [
+    "Big data as the critically-overlooked ingredient: AI progress requires internet-scale labeled data, not just better algorithms—the 'golden recipe' is big data + neural networks + GPUs",
+    "North star problem-solving: identify the foundational, underappreciated problem (e.g., object recognition, spatial intelligence) and commit to it even when it's unfashionable",
+    "Spatial intelligence as the missing layer: humans are embodied, visual, spatial animals—language models alone cannot capture the 3D reasoning needed for robotics, scientific discovery, and real-world interaction",
+    "Human-centeredness as a guiding framework: AI development must be anchored in human benevolence and interdisciplinary accountability across law, medicine, policy, and humanities—not just engineering",
+    "Intellectual fearlessness over risk calculus: when choosing where to work or what to build, focus on mission alignment and passion rather than exhaustively mapping every failure case"
+  ],
+  "signature_phrases": [
+    "'There's nothing artificial about AI—it's inspired by people, it's created by people, and most importantly, it impacts people'",
+    "'Every technology is a double-edged sword'",
+    "'We can screw this up as well'",
+    "'North star problem'",
+    "'Spatial intelligence'",
+    "'Prompt to worlds'",
+    "'We operate on about 20 watts—dimmer than any light bulb in the room'"
+  ],
+  "pushes_back_on": [
+    "AGI as a meaningful scientific term—calls it 'more a marketing term than a scientific term' with no agreed definition",
+    "Scaling laws (the 'bitter lesson') as sufficient for robotics—argues data alignment problems and physical embodiment make naive scaling inadequate for robots",
+    "Credit assigned to single individuals for AI breakthroughs—insists AI is 70 years of generational collaborative work, not one person's achievement",
+    "Over-indexing on every variable when choosing a job—warns young talent against treating career decisions as exhaustive optimization problems rather than passion and mission alignment",
+    "The idea that AI alone (without human responsibility and policy) will self-correct—insists societal, institutional, and individual responsibility are prerequisites, not afterthoughts"
+  ],
+  "speaking_style": "Measured and expansive, moving fluidly between deep historical context and concrete scientific examples (DNA structure, Newton's equations, Plato's cave), with a professorial warmth that occasionally yields to sharp directness when correcting misconceptions or reframing sloppy terminology."
+}

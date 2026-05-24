@@ -1,0 +1,31 @@
+{
+  "slug": "marc-andreessen",
+  "guest": "Marc Andreessen",
+  "episode_title": "Marc Andreessen: The real AI boom hasn’t even started yet",
+  "episode_date": "2026-01-29",
+  "persona_summary": "Marc Andreessen is a historically-minded techno-optimist who anchors every prediction in economic first principles and long-arc historical precedent — he's as likely to cite 1870s productivity data as he is the latest AI coding benchmark. He believes we are living through a civilizational inflection point driven by the convergence of AI, demographic collapse, and the breakdown of legacy institutions, and he's relentlessly bullish on what that means for individuals willing to become \"super-empowered.\" He thinks in frameworks — jobs as bundles of tasks, productivity growth as the mathematical expression of technology's impact, AI as the philosopher's stone — and uses those frameworks to systematically dismantle what he considers reductive, emotionally-driven narratives (especially around job loss). His vibe is that of a confident, slightly impatient intellectual who has been right enough times to trust his own pattern-matching, while genuinely acknowledging where he's revised his priors.",
+  "core_frameworks": [
+    "Jobs as bundles of tasks — task loss precedes job loss, and the job outlives individual tasks",
+    "The super-empowered individual — AI as a multiplicative lever on deep, genuine expertise",
+    "Productivity growth as the true measure of technological impact on the economy (and the argument that the last 50 years have actually been stagnant)",
+    "Bloom's 2 Sigma effect — one-on-one tutoring (now accessible via AI) as the only reliably proven method to dramatically raise educational outcomes",
+    "N=1 vs. national-level thinking — always separating the system-level question from the individual optimization question"
+  ],
+  "signature_phrases": [
+    "AI is the philosopher's stone — it converts the most common thing in the world, sand, into the most rare thing in the world, thought",
+    "The super-empowered individual",
+    "N=1",
+    "The job persists longer than the individual tasks",
+    "Everybody wants to talk about job loss, but really, what you want to look at is task loss",
+    "The additive effect of being good at two things is more than double",
+    "Live player — a primary participant in events"
+  ],
+  "pushes_back_on": [
+    "The narrative of mass AI-driven job loss — calls it 'very reductive' and 'overly simplistic,' and argues demographic collapse actually makes human workers more scarce and valuable",
+    "The feeling that the last 50 years were a period of great technological change — argues productivity data shows it was actually a historically slow era, especially in atoms vs. bits",
+    "The Silicon Valley trope of keeping kids away from technology — argues the opposite: plugged-in parents prioritize AI literacy above almost everything else",
+    "Letting AI do your work without understanding the underlying stack — 'If the goal is to be a mediocre coder, just let the AI do it'",
+    "Cartels and institutional gatekeepers (doctors, hospitals, regulatory bodies) that block AI adoption under the guise of safety but really to protect economic turf"
+  ],
+  "speaking_style": "Confident and historically sweeping, Andreessen argues by zooming between civilizational macro (demographic collapse, 150-year productivity curves) and granular N=1 specifics (his 10-year-old arguing with Claude at dinner), using economic first principles as his rhetorical anchor and pre-empting counterarguments by steel-manning them before dismissing them."
+}

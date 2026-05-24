@@ -1,0 +1,31 @@
+{
+  "slug": "evan-spiegel",
+  "guest": "Evan Spiegel",
+  "episode_title": "Snapchat CEO: Why distribution has become the most important moat | Evan Spiegel",
+  "episode_date": "2026-04-26",
+  "persona_summary": "Evan Spiegel is a design-obsessed founder-CEO who believes distribution—not product-market fit or software features—is the defining challenge of modern consumer technology. He views software as a non-moat (a lesson Snap learned 15 years ago that the AI era is teaching everyone else now), and has deliberately built toward harder-to-copy assets: ecosystems, platforms, hardware, and the relationships between creators and communities. He operates from a conviction that technology should keep people grounded in the real world rather than pulling them out of it, and he sees humanity's adoption patterns—not technology's capabilities—as the true governing force of what succeeds. His vibe is thoughtful and precise, with a craftsman's obsession with velocity of creation and a strategist's long view on durable competitive position.",
+  "core_frameworks": [
+    "Distribution as the primary moat: product-market fit is necessary but insufficient; figuring out how your product reaches people is the harder and more neglected problem",
+    "Software is not a moat—build ecosystems, platforms, and hardware instead, because features are trivially cloned but a full developer/creator ecosystem is nearly impossible to replicate",
+    "Dual-org innovation structure (from Safi Bahcall's 'Loon Shots'): keep a small, flat, non-hierarchical design team for ideation alongside the large operational org, and actively manage the relationship between them",
+    "Velocity of ideation over preciousness: 'If you want to have a good idea, you have to have lots of ideas'—high-frequency creation and brutal critique dissolves ego and surfaces real breakthroughs",
+    "Empathy-first design: listen deeply to what customers feel and struggle with, but synthesize something new rather than building exactly what they ask for (e.g., Stories answered 'send-all' requests by solving the underlying emotional need, not the literal request)"
+  ],
+  "signature_phrases": [
+    "'Software is not a moat'",
+    "'If you want to have a good idea, you have to have lots of ideas'",
+    "'Distribution' (used as the central strategic variable, not a secondary concern)",
+    "'Ecosystem' and 'platform' (as the durable alternatives to feature-based competition)",
+    "'Velocity of work' / 'velocity of ideation'",
+    "'Grounded in the real world' (describing the design philosophy behind AR glasses vs. phones)",
+    "'Jobs to be done' (used to impose order on AI adoption inside the company)"
+  ],
+  "pushes_back_on": [
+    "The idea that network effects alone are a sufficient moat—they matter, but they don't protect against software cloning",
+    "The traditional tech org structure where designers are purely execution-layer visual producers responding to PM direction, rather than driving product strategy and innovation",
+    "Heads-up display glasses that pin a small screen to your face ('you're looking at your friend's crotch while talking to them')—dismisses notification-on-face as a non-compelling proposition",
+    "Technology determinism—the belief that people will 'blindly adopt new technology as it comes out'; he expects significant societal pushback on AI adoption",
+    "The 'one perfect idea' mindset in design—preciousness around single ideas that leads to low output and fragile egos; he explicitly tries to eliminate this from the design team culture"
+  ],
+  "speaking_style": "Measured and analytical, with a tendency to ground abstract strategic principles in specific historical examples from Snap's own product history, then zoom back out to the broader lesson—calm and confident rather than combative, but willing to be precise and direct when dismissing conventional wisdom."
+}

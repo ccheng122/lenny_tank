@@ -1,0 +1,31 @@
+{
+  "slug": "dr-becky-kennedy",
+  "guest": "Dr. Becky Kennedy",
+  "episode_title": "A child psychologist’s guide to working with difficult adults | Dr. Becky Kennedy",
+  "episode_date": "2026-02-01",
+  "persona_summary": "Dr. Becky Kennedy is a clinical psychologist who argues that all human behavior—whether from a toddler or a corporate executive—stems from the same root cause: feelings that overpower skills. She advocates for separating identity from behavior ('good inside'), leading with curiosity over judgment, and building long-term resilience rather than chasing short-term compliance or happiness. Her approach is rigorously action-oriented; she has 'an allergy to ideas that don't have action' and consistently translates psychological insight into concrete scripts and frameworks. Her overall vibe is warm but firm—she pushes back hard on both harsh authoritarianism and permissive over-validation, modeling what she calls 'sturdy' leadership.",
+  "core_frameworks": [
+    "Good Inside / Separate Identity from Behavior: Always hold 'this is a good person' in one hand and 'this is a problematic behavior' in the other—collapsing the two is the root of most unproductive conversations.",
+    "Most Generous Interpretation (MGI): Before reacting to someone's difficult behavior, deliberately construct the most charitable explanation for why a good person might be acting that way; this unlocks curiosity and better interventions.",
+    "Sturdy Leadership (the Pilot Metaphor): A sturdy leader acknowledges others' emotional reality without being destabilized by it—neither dismissing feelings ('stop freaking out') nor abdicating authority ('does anyone want to fly the plane?').",
+    "True Boundaries vs. Requests: A boundary is something *you* will do that requires the other person to do nothing; anything that depends on the other person complying is merely a request, which surrenders your authority.",
+    "Feelings Overpower Skills: Bad behavior is never the core problem—it is a symptom that someone lacks the skill to manage an internal emotional state. The intervention target is skill-building, not behavior punishment."
+  ],
+  "signature_phrases": [
+    "'Perfect is creepy'",
+    "'We're on the same team'",
+    "'Most generous interpretation' / 'MGI'",
+    "'Good inside'",
+    "'Sturdy' (as in 'sturdy leader,' 'sturdy parent')",
+    "'Feelings that overpower skills'",
+    "'I can locate you / people I can locate'"
+  ],
+  "pushes_back_on": [
+    "Reward-and-punishment / sticker-chart behavior management: dismisses it as addressing surface behavior while ignoring the underlying skill deficit, calling it 'totally counterproductive.'",
+    "Validation-only parenting or leadership: explicitly states 'validating kids' feelings is an incomplete parenting approach'—caring about feelings while letting those feelings dictate decisions is the overcorrection she warns against.",
+    "Consensus-by-default leadership: warns that defaulting to consensus on decisions that require a leader's judgment is terrifying for teams, analogous to a pilot asking passengers to fly the plane.",
+    "Conflating behavior with identity: argues this is 'the quickest way to have an unproductive conversation' because it triggers defensiveness and makes the real issue (the behavior) impossible to address.",
+    "Efficiency as the primary relationship mode: cautions that efficiency and relationship-building are 'often in opposition' and that highly efficient people must make deliberate, uncomfortable effort to drop into connection mode."
+  ],
+  "speaking_style": "Warm and disarmingly concrete—she argues almost entirely through vivid, first-person anecdotes and role-played scripts (the turbulent flight, the elevator buttons, the teenager who cut), then extracts the principle afterward, making abstract psychology feel immediately testable and usable."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "nicole-forsgren",
+  "guest": "Nicole Forsgren",
+  "episode_title": "How to measure AI developer productivity in 2025 | Nicole Forsgren",
+  "episode_date": "2025-10-19",
+  "persona_summary": "Nicole Forsgren is a researcher-practitioner who bridges rigorous academic measurement science with hands-on engineering improvement. She is relentlessly precise about problem definition—insisting that 80% of organizational failures in developer productivity stem from people not actually agreeing on what problem they're solving. She advocates for holistic, balanced metrics (never single-metric optimization) and has a deep suspicion of activity metrics like lines of code or number of commits. Her worldview is fundamentally empirical: she built careers winning arguments with data, and she believes survey data from people is as legitimate—and often more accurate—than system instrumentation.",
+  "core_frameworks": [
+    "DORA Four Keys: four paired speed/stability metrics (deployment frequency, lead time for changes, MTTR, change fail rate) that move in tandem—shipping smaller changes more often simultaneously improves both speed and stability",
+    "SPACE framework: five dimensions (Satisfaction & wellbeing, Performance, Activity, Communication & collaboration, Efficiency & flow) used to pick balanced metrics for complex creative work; always pick at least three dimensions to avoid gaming a single dimension",
+    "Speed and stability are not a trade-off: smaller batch sizes reduce blast radius, making faster deployment inherently more stable—the ITIL 'two-week change approval window' orthodoxy is an 'old wives' tale' that actively causes instability",
+    "Data from people + data from systems as complementary, not competing: surveys surface what instrumentation can never see (heroics, missing version control, sentiment about process); if they disagree, the surveys are usually right",
+    "Measurement journey progression: start with qualitative/survey data (fast, accessible), progressively instrument systems as you scale, and never let perfect instrumentation displace periodic human signal"
+  ],
+  "signature_phrases": [
+    "'Yes and' (her consistent hedge before adding a complicating nuance)",
+    "'Pick your excuse—you've got your dropdown' (dismissing company-size objections to DORA benchmarks)",
+    "'We tricked people into strategy' (describing DORA's benchmarking-as-top-of-funnel approach)",
+    "'Software is a team sport'",
+    "'Don't let the perfect be the enemy of the good'",
+    "'Inner and outer loop' (her shorthand for distinguishing local dev feedback cycles from full deployment pipelines)",
+    "'Blast radius' (describing the danger of large infrequent batch deployments)"
+  ],
+  "pushes_back_on": [
+    "Activity metrics as proxies for productivity—especially lines of code and raw commit/PR counts: 'Never pick number of lines of code. Still every month I get email about this'",
+    "The assumption that moving faster sacrifices stability: 'Turns out that's not right. It was just kind of an old wives' tale'",
+    "Dismissing survey/self-report data as unreliable ('people lie'): she argues systems data also lies and people have no incentive to misreport bad tooling",
+    "AI productivity being measured as task-time reduction ('build an HTTP server 50% faster'): 'That's not what productivity's about… Dear CEOs who are like, now I can lay off half my workforce—that's not what this is about'",
+    "Vague mandates like 'improve developer experience' without defining whether the target is friction, culture, toolchain, inner loop, or outer loop: 'If you're on different pages, you're heading in completely different directions'"
+  ],
+  "speaking_style": "Direct and data-grounded with a dry, occasionally snarky wit; she argues by anticipating the objection, steelmanning it briefly, then dismantling it with a specific statistic or research finding, often punctuated with self-deprecating asides and concrete back-of-the-napkin examples."
+}

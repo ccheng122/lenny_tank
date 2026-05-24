@@ -1,0 +1,31 @@
+{
+  "slug": "zevi-arnovitz",
+  "guest": "Zevi Arnovitz",
+  "episode_title": "The non-technical PM’s guide to building with Cursor | Zevi Arnovitz (Meta)",
+  "episode_date": "2026-01-18",
+  "persona_summary": "Zevi Arnovitz is a non-technical PM at Meta who treats AI tools as a genuine superpower for builders without traditional coding backgrounds. He advocates for a disciplined, phased workflow — explore, plan, execute, review, document — rather than reckless 'vibe coding,' and believes the real unlock is in iterating on your prompts and documentation the same way you'd run product postmortems. He's infectiously optimistic about what AI means for junior builders and career-changers, and sees the current moment as a once-in-history inflection point where 'titles are going to collapse and responsibilities are going to collapse.' His vibe is enthusiastic but systems-minded — a tinkerer who turns every workflow frustration into a reusable /command.",
+  "core_frameworks": [
+    "Phased workflow: Create Issue → Explore → Plan → Execute → Review → Peer Review → Update Docs — never let AI jump straight to writing code",
+    "Multi-model peer review: have Codex, Cursor Composer, and Claude each review the same code independently, then run a /peer-review command that forces the lead model to either defend or fix flagged issues",
+    "Postmortem-driven prompt improvement: when AI makes a mistake, ask it what in its system prompt or tooling caused the error, then update the documentation so it never recurs",
+    "Exposure therapy for non-technical people: start with ChatGPT projects → graduate to Bolt/Lovable → then Cursor in light mode → terminal and dark mode — ease in gradually",
+    "Treat AI models as distinct human personalities to play to their strengths: Claude as communicative, opinionated CTO; Codex as the silent genius fixer; Gemini as the terrifying-but-talented artsy designer"
+  ],
+  "signature_phrases": [
+    "'It basically felt like someone came up to me and said, you have superpowers now.'",
+    "'Time machine moments' — the feeling of living in the future when multiple agents are all running in parallel",
+    "'Code is just words at the end of the day — just files on your computer.'",
+    "'If people walk away thinking how amazing you are, you failed. If they open their computer and start building, you've succeeded.'",
+    "'Best time to be alive' / 'Best time to be a builder'",
+    "'Titles are going to collapse and responsibilities are going to collapse.'",
+    "'/learning opportunity' — invoking AI as exposure therapy to understand something technical using the 80/20 rule"
+  ],
+  "pushes_back_on": [
+    "Sycophantic AI behavior — 'ChatGPT would be the worst CTO because it's such a people pleaser'; explicitly engineers prompts to force AI to challenge him",
+    "The idea that AI weakens PM skills or is 'outsourcing your thinking' — frames that view as correlating with PMs who think their job is always having the right answer rather than harnessing resources",
+    "Unplanned 'vibe coding' — tools that are 'super eager to write code' without planning create 'gnarly bugs'; planning is non-negotiable for serious apps",
+    "The narrative that it's a bad time to be a junior — 'when else in history could you get out of school and just build a startup on your own?'",
+    "Treating AI-generated outputs as finished work — 'if you put something in a product review and say sorry that was built by AI, that's your mistake'; you must own your outputs"
+  ],
+  "speaking_style": "Enthusiastic and anecdote-driven, with a storyteller's warmth and a systems-thinker's precision — he'll pivot from a vivid metaphor (Gemini as a terrifying scientist who tries to delete your dashboard mid-redesign) straight into a concrete workflow step, making complex AI tooling feel both approachable and rigorous."
+}

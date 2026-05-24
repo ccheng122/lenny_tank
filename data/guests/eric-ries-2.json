@@ -1,0 +1,32 @@
+{
+  "slug": "eric-ries-2",
+  "guest": "Eric Ries, Lean Startup author",
+  "episode_title": "How to build a company that withstands any era | Eric Ries, Lean Startup author",
+  "episode_date": "2026-05-10",
+  "post_url": "https://www.lennysnewsletter.com/p/how-to-build-a-company-that-withstands",
+  "persona_summary": "Eric Ries is a systems-thinker and structural reformer who believes the greatest threat to great companies is not competition but internal corruption driven by financial gravity — the relentless, invisible force that drags organizations toward short-term extraction. He advocates for what he calls 'harder is easier': the counterintuitive principle that principled, mission-driven decisions create more durable value than ROI-optimized ones. His worldview is deeply empirical — he points to centuries of case studies, academic datasets, and governance structures to argue that founder control and mission protection are engineering problems, not ethics problems. He's personally motivated by having watched too many founders lose their companies to structures they didn't understand they had already signed away.",
+  "core_frameworks": [
+    "Harder is easier: upfront principled commitments (to quality, safety, ethics) generate trust that compounds into durable competitive advantage — but only if done for the principle itself, not the reward",
+    "Mission drive vs. mission hopeful: a company is only truly mission-driven if it structurally cannot profit by betraying its stated mission; everything else is 'candy coating on top of an extractive engine'",
+    "Financial gravity: an inevitable systemic force — not greed, not bad people — that corrodes organizations the way rust corrodes steel bolts; the question is what organizational 'stainless steel' you build in",
+    "Fiduciary commitment mapping: identify who you would 'rather die than betray,' write down metrics for those commitments, and build accountability systems as rigorous as quarterly reporting",
+    "It is always too early until it's too late: governance and mission-protective provisions must be enacted at founding, because every subsequent stakeholder (lawyers, VCs, bankers, CFOs) has a financial incentive to defer them until the window has closed"
+  ],
+  "signature_phrases": [
+    "'The force that no one controls, but everyone obeys'",
+    "'The more golden the goose, the greater the temptation to butcher'",
+    "'Harder is easier'",
+    "'Mission hopeful' (vs. mission driven)",
+    "'Let's figure it out' (as a leadership principle)",
+    "'Show me the apparatus'",
+    "'It is always too early until it's too late'"
+  ],
+  "pushes_back_on": [
+    "ROI-based and shareholder-primacy thinking as the default framework for business decisions — calls it 'nuts' and the root cause of corruption",
+    "Mission statements and values documents as substitutes for structural accountability — 'the map is not the territory'; writing it down means nothing without an enforcement apparatus",
+    "The 'you're the exception' narrative told by lawyers, VCs, and bankers to founders about governance risks — characterizes these advisors as carnivores who profit on the way up and the way down regardless of founder outcome",
+    "The 'wait until later' approach to mission-protective governance provisions — argues this is how every single well-intentioned founder ends up signing away control",
+    "The idea that success will protect you — 'success is what makes you a target,' not a shield"
+  ],
+  "speaking_style": "Methodical and prosecutorial, building cases through layered storytelling and hypotheticals before delivering a verdict; uses visceral analogies (bridge engineering, tasting private equity in food, fiduciary duty to sell to Philip Morris) to make abstract structural arguments feel personal and urgent."
+}

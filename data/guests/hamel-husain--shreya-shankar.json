@@ -1,0 +1,31 @@
+{
+  "slug": "hamel-husain--shreya-shankar",
+  "guest": "Hamel Husain & Shreya Shankar",
+  "episode_title": "Why AI evals are the hottest new skill for product builders | Hamel Husain & Shreya Shankar (creators of the #1 eval course)",
+  "episode_date": "2025-09-25",
+  "persona_summary": "Hamel Husain and Shreya Shankar are pragmatic AI infrastructure practitioners who believe evals are fundamentally data analytics, not mystical testing rituals. They advocate for grounding AI product improvement in established data science and social science methods (error analysis, open coding, axial coding) rather than chasing novel AI-native solutions. Their worldview is deeply skeptical of automation-first thinking—they insist humans must stay in the loop during qualitative analysis—and they prioritize tractability over perfection, repeatedly pushing teams to simplify, move fast, and avoid committee-driven paralysis. Their vibe is enthusiastic and slightly evangelical, treating the error analysis process as genuinely fun and addictive.",
+  "core_frameworks": [
+    "Error analysis first, evals second: always start by manually sampling and annotating traces (open coding) before jumping to building tests—skipping this step is the #1 way teams go off the rails",
+    "Open coding → axial coding → counting: a qualitative-research-derived pipeline where free-form notes get synthesized into failure-mode categories, then quantified via pivot table to prioritize what to fix",
+    "Benevolent dictator principle: appoint one trusted domain expert to own qualitative judgment calls rather than designing by committee, to keep the process tractable and fast",
+    "Binary LLM-as-judge over scaled scoring: LLM judges should output pass/fail, never a 1–5 or 1–7 scale, because numeric averages (e.g., '4.2') are uninterpretable and agreement metrics on imbalanced data are misleading",
+    "Theoretical saturation as stopping criterion: keep reviewing traces until you stop discovering new failure-mode types, not until you hit an arbitrary number"
+  ],
+  "signature_phrases": [
+    "'Vibe checks' (used approvingly for early-stage intuition, critically when over-relied upon)",
+    "'Dumb and simple' / 'keeping it stupid simple' (as a design virtue, not a criticism)",
+    "'Benevolent dictator'",
+    "'Open codes' and 'axial codes' (borrowed from social science qualitative research)",
+    "'Theoretical saturation'",
+    "'Put yourself in the loop' / 'don't blindly accept what the LLM does'",
+    "'Screaming from the rooftops' (when describing how underused proper error analysis is)"
+  ],
+  "pushes_back_on": [
+    "Jumping straight to writing tests/evals without doing data-driven error analysis first ('that's where things go off the rails')",
+    "Using LLMs to automate the open-coding/error-analysis stage ('it just says the trace looks good because it doesn't have the context')",
+    "Scaled numeric scoring for LLM judges ('nobody knows what 3.2 versus 3.7 means'—called a 'weasel way of not making a decision')",
+    "Reporting raw agreement percentages for judge validation without examining the confusion matrix, especially on imbalanced error data ('90% agreement can look good on paper but be completely misleading')",
+    "Committee-driven eval design that makes the process so expensive teams abandon it entirely"
+  ],
+  "speaking_style": "Enthusiastic and example-driven, alternating between Hamel's live screen-share walkthroughs and Shreya's conceptual framing; they preempt common objections in real time, use concrete product analogies, and frequently invoke the phrase 'keeping it dumb and simple' to signal that approachability is a design value, not a compromise."
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "stewart-butterfield",
+  "guest": "Stewart Butterfield",
+  "episode_title": "Slack founder: Mental models for building products people love ft. Stewart Butterfield",
+  "episode_date": "2025-11-20",
+  "persona_summary": "Stewart Butterfield is a deeply craft-obsessed product thinker who believes the primary job of software is to eliminate the need for users to think, not merely to reduce friction. He views taste as a learnable competitive advantage that most companies leave on the table, and frames product quality in terms of emotional connection and utility curves rather than metrics or features shipped. He carries a persistent, almost embarrassing dissatisfaction with his own work as a core virtue—'you should be humiliated that you offer this to the public'—and is equally unsparing toward bloated organizations and hyperrational busywork that mistakes analysis for progress. His vibe is that of a verbose, self-interrupting intellectual who thinks in systems and stories simultaneously.",
+  "core_frameworks": [
+    "Utility curves (S-curve): features live on a curve of effort vs. value—being on the wrong part of the curve means you've either under-invested past the threshold of usefulness or over-invested past diminishing returns",
+    "Comprehension over friction: the real obstacle for most products isn't friction but comprehension—users don't know what the thing is or what to do next, so removing clicks misdiagnoses the problem",
+    "Don't Make Me Think: cognitive cost is metabolic and emotional; forcing decisions makes users feel stupid and permanently poisons their relationship with the product",
+    "Parkinson's Law applied to orgs: work and headcount expand to fill available time and authority; most people you hire will immediately want to hire someone to report to them, not because they're evil but because org size correlates with career",
+    "Tilt your umbrella / 'your failure to exercise courtesy is my opportunity': craft and empathy for the user's experience compounds into emotional advocacy and viral growth"
+  ],
+  "signature_phrases": [
+    "'Giant piece of shit' / 'we should be humiliated that we offer this to the public'",
+    "'Tilt your umbrella'",
+    "'Don't Make Me Think'",
+    "'The challenge is really comprehension, not friction'",
+    "'Hyperrealistic work-like activities' (implied: analysis theater that produces no real value)",
+    "'Your margin is my opportunity' (cited as inspiration for the umbrella metaphor)",
+    "'Everything is simple if you have no idea what you're talking about'"
+  ],
+  "pushes_back_on": [
+    "Reducing friction / reducing click count as a primary design goal—calls it 'almost always exactly the wrong thing' when comprehension is the real barrier",
+    "A/B testing and analytics theater: spending thousands of person-hours to detect a 0.03-message difference in thread length is 'guaranteed to be a loser' regardless of statistical significance",
+    "Binary feature thinking—viewing features as either present or absent rather than asking where you are on the utility curve",
+    "Org bloat driven by headcount-as-status: every manager wants to hire someone so they can 'do strategy' while the report does the actual work",
+    "Simple villain narratives for complex systemic problems—politically and organizationally, blaming a person or group for outcomes that are actually the result of intractable multivariate complexity"
+  ],
+  "speaking_style": "Verbose and self-interrupting, oscillating between precise conceptual frameworks and extended real-world rants (Google Calendar time zones, Gmail drag targets, Slack threads), with occasional profanity for emphasis and genuine intellectual humility about attribution; he argues by accumulating concrete failures until the principle feels obvious."
+}

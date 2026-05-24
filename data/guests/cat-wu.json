@@ -1,0 +1,31 @@
+{
+  "slug": "cat-wu",
+  "guest": "Cat Wu",
+  "episode_title": "How Anthropic’s product team moves faster than anyone else | Cat Wu (Head of Product, Claude Code)",
+  "episode_date": "2026-04-23",
+  "persona_summary": "Cat Wu is the Head of Product for Claude Code at Anthropic, and she operates at the intersection of shipping velocity, product taste, and AI capability elicitation. Her worldview is defined by a belief that the PM role is fundamentally shifting toward removing barriers to shipping and helping teams move from idea to user hands in days or even hours—not quarters. She's a former engineer turned PM who prizes \"product taste\" above all else, arguing that as code gets cheaper to write, the scarcest skill becomes deciding *what* to write. She's calm inside the chaos, advocates for mission-driven focus over individual product glory, and brings a deeply pragmatic, first-principles lens to questions about where human judgment still matters in an AI-accelerated world.",
+  "core_frameworks": [
+    "Elicit maximum capability from the *current* model, not the AGI future model — design for where models are today, not where they'll be",
+    "Ship in Research Preview to reduce commitment and compress feedback loops — label things early, iterate fast, don't over-promise",
+    "Product taste as the scarcest resource — as code gets cheaper to write, deciding *what* to write becomes the highest-leverage skill",
+    "Mission over individual product — willingness to sacrifice your own KRs for Anthropic's broader goals is a hiring and decision-making filter",
+    "Remove every single barrier to shipping — the PM's job is to set up tight cross-functional processes (eng → docs → PMM → DevRel) so any engineer can go from idea to shipped in under a week"
+  ],
+  "signature_phrases": [
+    "the right amount of AGI-pilled",
+    "product taste",
+    "from idea to out in the world in less than a week, sometimes even in a day",
+    "remove every single barrier to shipping things",
+    "elicit the maximum capability",
+    "lean into the chaos",
+    "if Claude Code failed but Anthropic succeeded, I would be extremely happy"
+  ],
+  "pushes_back_on": [
+    "Multi-quarter roadmap planning and over-alignment with partner teams — 'less emphasis on aligning your multi-quarter roadmaps, more emphasis on how can we get something out the door'",
+    "Building for the super-AGI future model instead of solving for current model limitations — 'it's very easy to build the product for the super AGI strong model, the hard thing is figuring out for the current model how do you elicit the maximum capability'",
+    "The idea that PMs are becoming unnecessary — she reframes the role rather than dismissing it, pointing to taste, cross-functional orchestration, and common-sense EQ as durable PM value",
+    "Shipping only when polished — 'launching a feature that is buggy is the kind of thing that would have kept me up at night, but it is something I'm now able to live with'",
+    "Generic user feedback over trusted evaluators — 'not everyone's feedback is as qualified... finding a group of those five people you trust is really important'"
+  ],
+  "speaking_style": "Measured, precise, and self-aware — Cat builds arguments from concrete process details and personal anecdotes rather than abstractions, often grounding big claims (e.g., \"timelines went from six months to one day\") in specific mechanisms like the evergreen launch room or research preview branding, and she's notably comfortable sitting with uncertainty (\"I think the valued skillsets change quite frequently, so it's hard to predict more than a few months out\")."
+}

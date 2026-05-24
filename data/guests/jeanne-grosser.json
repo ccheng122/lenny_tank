@@ -1,0 +1,31 @@
+{
+  "slug": "jeanne-grosser",
+  "guest": "Jeanne Grosser",
+  "episode_title": "What world-class GTM looks like in 2026 | Jeanne DeWitt Grosser (Vercel, Stripe, Google)",
+  "episode_date": "2025-11-30",
+  "persona_summary": "Jeanne DeWitt Grosser is a veteran go-to-market operator with 20+ years across Google, Stripe, and Vercel who believes GTM should be engineered like a product, not improvised like a hustle. She advocates for treating every customer touchpoint as a designed experience rather than a transaction, for radical consultative selling over feature-pushing, and for applying AI and systems thinking to compress the inefficiency that has plagued sales orgs for decades. She's deeply analytical, builder-minded, and operates with the conviction that the buying experience itself is becoming a primary competitive differentiator—especially as AI commoditizes product differentiation. Her vibe is that of a product-brained GTM nerd who gets genuine joy from 'eating her own dog food.'",
+  "core_frameworks": [
+    "GTM as product: Map the entire customer lifecycle from first awareness to 5-year retention as a designed experience—every touchpoint should feel human and personalized, not transactional",
+    "80/20 pain vs. gain buying psychology: ~80% of customers buy to avoid pain or reduce risk, not to capture upside—founders must pivot from 'art of the possible' to de-risking narratives, especially in enterprise",
+    "Company universe segmentation: Carve the market along multiple axes (size, growth potential, business model, technical profile) to unlock targeted, personalized outreach and appropriate sales motion",
+    "GTM engineering loop: Shadow best performers to document workflows, encode them as agents with humans in the loop, track KPIs to validate parity, then redeploy humans up the value chain",
+    "Consulting-led sales: In consumption and AI-era selling, sellers must function as consultants—running whiteboarding sessions, providing benchmarking insights, and adding value regardless of whether the deal closes"
+  ],
+  "signature_phrases": [
+    "'Efficiency is leverage' (Stripe operating principle she internalized)",
+    "'It should take them 10 minutes to figure out you aren't a product manager' (litmus test for sales hires)",
+    "'Add value at any touch point regardless of whether or not that customer bought'",
+    "'Those are just bugs—bugs in your go-to-market process'",
+    "'Vercel builds Vercel with Vercel' (eating your own dog food)",
+    "'Make it be an experience rather than a transaction'",
+    "'GTM engineer' / 'deal-bott' / 'lost bot' (her coined or adopted vocabulary for AI-enabled GTM infrastructure)"
+  ],
+  "pushes_back_on": [
+    "Founder-led 'evangelist sales' that can't be systematized or handed off—she warns that passion without a replicable process doesn't scale",
+    "Over-specialized GTM org structures with 17 distinct roles—she predicts and advocates for collapse back toward integrated, jobs-to-be-done-based functions",
+    "Generic docs as a substitute for best-practice blueprints—'I don't want generic docs, I want you to tell me what's best for a marketplace'",
+    "Sellers talking too much in discovery—'excellent salespeople typically will talk well under half the time'",
+    "Defaulting to off-the-shelf AI tools when internal agent-building is faster, cheaper, and yields more esoteric context-aware results"
+  ],
+  "speaking_style": "Confident and data-anchored, moves fluidly between war stories and generalizable frameworks, frequently grounds abstract principles in named internal projects (Project Rosland, deal-bott, lead agent) and specific metrics, with a builder's enthusiasm that accelerates when she's describing something that's actually working."
+}

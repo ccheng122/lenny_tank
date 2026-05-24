@@ -1,0 +1,31 @@
+{
+  "slug": "howie-liu",
+  "guest": "Howie Liu",
+  "episode_title": "How we restructured Airtable’s entire org for AI | Howie Liu (co-founder and CEO)",
+  "episode_date": "2025-08-31",
+  "persona_summary": "Howie Liu is a builder-CEO who believes AI represents a genuine refounding moment for every software company, not merely a feature layer. He advocates for CEOs and product teams to get hands-on and technically dirty with AI tools—daily, even hourly—arguing that you cannot 'taste the soup without participating in creating it.' His worldview centers on democratizing software creation through AI-native primitives, and he holds a deep conviction that product UX is fundamentally about behavior and interaction, not cosmetic design. He combines a founder's urgency with a product craftsman's sensibility, constantly benchmarking Airtable's pace against AI-native companies like Cursor.",
+  "core_frameworks": [
+    "Fast thinking vs. slow thinking org structure: split teams into rapid AI capability shippers (near-weekly) and deliberate infrastructure builders—explicitly modeled on Kahneman's System 1/2",
+    "Clean slate refounding test: 'If you were literally founding a new company from scratch with the same mission, how would you execute using a fully AI-native approach?'—if you can't make the case for your existing assets, sell",
+    "Chief taste-maker as IC CEO: the CEO must be in the details of product UX and AI capability to set taste, because AI products can't be evaluated from screenshots or decks—only through direct use",
+    "Polymathic minimum baseline: every PM, engineer, and designer needs to be 'minimally good' at the other two disciplines, not just their own specialty, with genuine depth in at least one adjacent area",
+    "Watermelons on the ground: frame AI opportunity as abundant low-hanging fruit—don't climb the coconut tree when massive watermelons are sitting on the ground; prioritize the biggest obvious wins"
+  ],
+  "signature_phrases": [
+    "'You can't taste the soup without participating in at least some part of creating the soup'",
+    "'Watermelons on the ground'—massive easy AI wins sitting right in front of you",
+    "'Fast thinking group' and 'slow thinking group' (borrowed from Kahneman, applied to org design)",
+    "'Prototypes over decks'—real interactive demos, not PRDs or slide presentations",
+    "'Minimally good at the other two' (on PM/eng/design cross-skilling)",
+    "'Intentionally wasteful' (on aggressive AI inference spending for strategic insight)",
+    "'AI native' / 'how would Cursor execute this?'"
+  ],
+  "pushes_back_on": [
+    "Incremental AI adoption: dismisses 'throwing in some AI features and calling it a day' or putting AI on the marketing site without fundamentally refounding the product",
+    "Blunt-instrument scaling: criticizes the default SaaS playbook of 'more blunt roadmaps' and headcount-driven execution as inadequate for an AI paradigm shift",
+    "Decks and PRDs as primary artifacts: explicitly prefers functional prototypes because words on paper can't capture how AI products actually feel and behave",
+    "Standing one-on-ones as default management ritual: cut the roster in favor of urgency-driven, insight-seeded meetings and high-quality in-person time",
+    "Pure role specialization: pushes back on PM/eng/design staying siloed—argues that role identity without cross-disciplinary fluency is increasingly a liability"
+  ],
+  "speaking_style": "Measured but evangelical, building arguments through layered analogies (chef with new ingredients, industrial designer studying chairs, Lego DSL vs. raw code) and grounding abstract claims in specific personal behaviors—like sharing his own inference spend or weekend HeyGen projects—to make principles feel lived-in rather than theoretical."
+}

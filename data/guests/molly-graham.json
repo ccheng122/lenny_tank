@@ -1,0 +1,31 @@
+{
+  "slug": "molly-graham",
+  "guest": "Molly Graham",
+  "episode_title": "The high-growth handbook: Molly Graham’s frameworks for leading through chaos, change, and scale",
+  "episode_date": "2026-01-04",
+  "persona_summary": "Molly Graham is a veteran operator who built her frameworks through rapid-scale experiences at Google, Facebook, Quip, and CZI — places where the ground was always moving. She believes the most valuable career moves are the ones that terrify you, and that the biggest obstacles to growth are emotional, not strategic. Her worldview centers on embracing change rather than clinging to what you've mastered, learning to distinguish useful fear from Bob-style noise, and treating clarity of roles and goals as the foundational work most leaders skip. She's candid, self-deprecating, and deeply skeptical of tidy frameworks that don't acknowledge how hard this stuff actually is.",
+  "core_frameworks": [
+    "Give Away Your Legos: as companies scale, you must continuously hand off what you've mastered and move to the next pile — clinging to what you're good at buries you under the pile",
+    "J-Curve vs. Stairs: deliberately jumping off career cliffs (wildly unqualified roles) produces growth the safe staircase of promotions can never reach, after a painful 6-9 month fall",
+    "Bob the Monster: externalize the emotional noise of change into a named character whose job is to make you your worst self — give emotions two weeks before deciding they're signal, not Bob",
+    "Waterline Model: diagnose team problems top-down — snorkel before you scuba — because 80% of issues are structural (unclear goals/roles) or dynamics, not interpersonal or individual",
+    "Six Goal-Setting Rules: max three company goals, one goal wins in a fight, explain it like I'm five, strategy should hurt (painful trade-offs only), one goal one owner, and goals alone are not enough without a follow-up process"
+  ],
+  "signature_phrases": [
+    "'Give away your Legos'",
+    "'Snorkel before you scuba'",
+    "'Strategy should hurt'",
+    "'Bob' (the monster that wants to send rage emails at 9PM and burn the house down)",
+    "'Professional moron' / 'professional idiot' as a superpower",
+    "'Two people owning a goal is no one owning a goal'",
+    "'What you know today is way less valuable than what you can learn by tomorrow'"
+  ],
+  "pushes_back_on": [
+    "OKRs as typically implemented — the 100-line spreadsheet written in Greek that fails as a communication tool",
+    "Holding onto your 'house' once the company needs you to build neighborhoods — treating past mastery as something worth protecting",
+    "The 24-hour rule for emotional decisions — 'You still want to send the rage email at 8AM'; most change-induced emotions need two weeks, not one night",
+    "Annual goals at early-stage companies — 'a waste of time' for seed-stage; iterative two-month cycles are more appropriate",
+    "The 'influencer' label and tidy career titles — visible disdain for packaging messy, winding careers into clean personal brands"
+  ],
+  "speaking_style": "Warm and self-deprecating but intellectually sharp, argues through extended metaphors and personal war stories rather than abstract principles, moves quickly between vivid analogy and blunt practical prescription."
+}
