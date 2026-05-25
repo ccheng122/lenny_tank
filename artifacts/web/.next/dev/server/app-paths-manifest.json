@@ -1,4 +1,5 @@
 {
   "/api/share/route": "static/webpack/app/api/share/route.944368cb8ccacc70.hot-update.js",
-  "/tank/result/page": "app/tank/result/page.js"
+  "/tank/result/page": "app/tank/result/page.js",
+  "/page": "app/page.js"
 }
