@@ -105,21 +105,45 @@ So we re-embedded everything with OpenAI inside Replit and threw away the Ollama
 
 **Why "random 3 from 5" rather than always-same-3:** Replay value. Different panel each time keeps repeat plays fresh without needing more scenarios.
 
-### 9. Share cards are ALWAYS positive — no score, no move shown
+### 9. Share card is "I Got Tanked by [judges]" — name-drop, no quotes, no scores, single variant
 
-**Choice:** The shareable PNG shows either (a) a quote you received with the panel names, or (b) your "spirit judge" personality result. The private summary screen shows your score and move; nothing about your performance gets exported publicly.
+**Final choice (after two revisions — see "What we tried first" below):**
 
-**Alternatives considered:** Wordle-style share card with score + move. Score + spirit emoji.
+A single share-card design. Format:
+```
+THE LENNY TANK
 
-**Why:** People don't share their losses. A 4/10 with "You decided to pivot to enterprise" on the card means only 9+ scorers ever post. Sharing volume collapses, the viral hook dies. Always-positive shares mean every user has a shareable artifact regardless of their round outcome.
+I just got tanked by
+ERIC RIES
+CAT WU
+BEN HOROWITZ
 
-**This was a late revision** — the original spec had a score+move share card. User pushed back hard, and the revision is materially better.
+Wanna play? → lennytank.app
+```
 
-### 10. Two share-card variants, not one
+Three judge names (large, stacked), zero scores, zero quotes, zero scenario text. Brand styling.
 
-**Choice:** "Best advice I got" (quote-based) AND "Your spirit judge" (personality-quiz).
+**Why this beats the alternatives:**
+- **Name-drop = curiosity hook.** Famous product-world names stop the scroll. Readers don't even need to know what The Lenny Tank is — they recognize Eric Ries and click.
+- **"Tanked" is the right tone.** Double-meaning: "got beat up" + "was in The Tank." Self-deprecating disarms bragginess; mystery makes people ask "what happened?"
+- **Neutral on outcome.** Whether you scored 9 or 3, you "got tanked" by the same set of famous people. Every user has the same shareable artifact regardless of round result. No score → no shame → no suppression of low-scorer sharing.
+- **Single variant beats two.** Originally proposed two (quote + spirit-judge); user correctly pointed out both felt earnest/self-helpy. Cutting to one card halves implementation surface and removes "which one should I share?" friction at the point of share.
 
-**Why two:** Different appeal axes. The quote card frames you as someone learning ("look at this wisdom I just received"). The spirit-judge card frames you as someone interesting ("you're a Cat Wu type"). Together they catch both LinkedIn-style and BuzzFeed-style sharers. Spirit-judge is the first nice-to-have to cut if scope tightens.
+**What's deliberately NOT on the card:**
+- Score — neutral on performance
+- Scenario title — preserves the "what did they react to?" mystery hook
+- Quote or reaction text — keeps it visually digestible, not a wall of words
+- Spirit-judge personality result — was too quiz-y, doesn't fit the panel-disagreement core mechanic
+
+### What we tried first (and why we corrected, twice)
+
+**v1 (rejected during brainstorming):** Wordle-style card showing score + the user's move. User flagged: nobody shares their 4/10 round; sharing volume collapses.
+
+**v2 (rejected at Phase 4 planning):** Dual-card approach — "Best Advice I Got" (a verbatim quote attributed to the highest-scoring judge) + "Your Spirit Judge" (personality-quiz format). User flagged after thinking about real share behavior: both feel earnest/self-helpy, neither feels like "fun thing to share." Quote-card reads like an inspirational LinkedIn post; spirit-judge reads like a BuzzFeed quiz.
+
+**v3 (current — "I Got Tanked"):** Name-drop the judges, drop the quotes, drop the scoring, single variant. Fun, neutral, mysterious. Hooks credibility (famous names) and curiosity ("what happened?").
+
+**Easy to revisit if:** real social testing shows the card doesn't drive clicks (no curiosity → no click-throughs). At that point, try adding the scenario title back as a one-line hook ("got tanked over The Retention Cliff"), or layer in a meme-format Hot Take variant as a secondary card.
 
 ---
 
