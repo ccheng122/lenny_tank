@@ -333,12 +333,6 @@ export default function ResultClient() {
             Share a quote
           </button>
           <button
-            onClick={() => console.log("TODO: share spirit judge", data)}
-            className="result-btn result-btn--secondary"
-          >
-            Share your spirit judge
-          </button>
-          <button
             onClick={() => router.push("/")}
             className="result-btn result-btn--ghost"
           >

@@ -1,5 +1,4 @@
 {
   "/api/share/quote/route": "app/api/share/quote/route.js",
-  "/api/tank/route": "app/api/tank/route.js",
   "/tank/result/page": "app/tank/result/page.js"
 }
