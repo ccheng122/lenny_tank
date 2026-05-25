@@ -325,7 +325,7 @@ export default function ResultClient() {
             onClick={openShareModal}
             className="result-btn result-btn--primary"
           >
-            Share a quote
+            Share — I got tanked
           </button>
           <button
             onClick={() => router.push("/")}
@@ -396,7 +396,7 @@ function ShareModal({
             className="mt-1 text-sm"
             style={{ color: T.textSecondary }}
           >
-            Save it, post it — or just admire it.
+            Name-drop the panel that just tanked you.
           </p>
         </header>
 
