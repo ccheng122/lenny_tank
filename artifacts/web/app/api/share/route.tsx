@@ -116,6 +116,8 @@ export async function GET(req: NextRequest) {
                 key={`${name}-${i}`}
                 style={{
                   display: "flex",
+                  justifyContent: "center",
+                  textAlign: "center",
                   color: INK,
                   fontSize: nameSize,
                   lineHeight: 1.05,
