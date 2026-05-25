@@ -1,3 +1,4 @@
 {
+  "/api/tank/route": "app/api/tank/route.js",
   "/page": "app/page.js"
 }
