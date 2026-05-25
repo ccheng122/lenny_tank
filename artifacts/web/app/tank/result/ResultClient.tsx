@@ -61,14 +61,9 @@ export default function ResultClient() {
 
   function buildShareUrl() {
     if (!data) return null;
-    const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
-    const judges = data.reactions.map((r) => r.guest).join(", ");
-    const params = new URLSearchParams({
-      guest: top.guest,
-      quote: top.pull_quote,
-      judges,
-    });
-    return `/api/share/quote?${params.toString()}`;
+    const judges = data.reactions.map((r) => r.guest).join(",");
+    const params = new URLSearchParams({ judges });
+    return `/api/share?${params.toString()}`;
   }
 
   function openShareModal() {
@@ -426,7 +421,7 @@ function ShareModal({
         <footer className="share-modal__footer">
           <a
             href={imageUrl}
-            download="lenny-tank-share.png"
+            download="lenny-tank.png"
             className="result-btn result-btn--primary"
           >
             ↓ Download PNG

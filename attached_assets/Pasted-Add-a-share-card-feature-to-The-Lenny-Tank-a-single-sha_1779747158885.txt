@@ -1,0 +1,36 @@
+Add a share-card feature to The Lenny Tank — a single share image that name-drops the panel judges.
+
+PROJECT STRUCTURE:
+- Route lives at artifacts/web/app/api/share/route.tsx (single share endpoint; we deliberately only have one variant — see docs/decisions.md §9)
+- Uses @vercel/og for the image generation (well-supported in Next.js 16)
+- Style with the brand tokens — cream background, ink-colored type, yellow accent line. NO inline hex codes.
+
+CARD DESIGN — what's ON the card:
+- App name "THE LENNY TANK" — small uppercase at top, letter-spaced
+- The phrase "I just got tanked by" — medium-sized serif body text
+- The 3 judge names — LARGE, serif, stacked vertically, brand-ink color
+- Thin brand-yellow horizontal divider
+- "Wanna play? → lennytank.app" — small CTA text at bottom (use a placeholder URL or the actual Replit deploy URL once you have it)
+
+CARD DESIGN — what's deliberately NOT on the card:
+- NO score
+- NO scenario title
+- NO quote or reaction text
+- NO move text
+- NO personality/spirit-judge framing
+
+Layout: 1200x630 OG dimensions. Generous padding (~80px). Center-aligned text vertically and horizontally. Cream background (brand.cream from tailwind.config.ts, hex passed inline since OG renders outside React).
+
+ROUTE: /api/share takes query param `judges` (comma-separated names, URL-encoded). Example:
+/api/share?judges=Eric%20Ries,Cat%20Wu,Ben%20Horowitz
+
+On /tank/result, the existing [Share — I got tanked] button should:
+1. Extract the 3 judge names from the current round's reactions
+2. Build the URL with the judges param
+3. Trigger a download with filename "lenny-tank.png" (preferred) OR open in a new tab so the user can right-click → save (fallback if download is fussy)
+
+Edge cases:
+- Long judge names ("Hamel Husain & Shreya Shankar") — make sure they don't overflow; truncate to ~30 chars with "..." if needed
+- Use Inter or a similar clean sans-serif for the small text; use a serif (DM Serif, Lora, or system serif) for the judge names
+
+Make sure the brand-yellow divider visually anchors the card so the negative space doesn't feel empty.

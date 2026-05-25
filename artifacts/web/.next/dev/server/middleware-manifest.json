@@ -2,24 +2,24 @@
   "version": 3,
   "middleware": {},
   "functions": {
-    "/api/share/quote/route": {
+    "/api/share/route": {
       "files": [
         "server/server-reference-manifest.js",
-        "server/app/api/share/quote/route_client-reference-manifest.js",
+        "server/app/api/share/route_client-reference-manifest.js",
         "server/middleware-build-manifest.js",
         "server/middleware-react-loadable-manifest.js",
         "server/next-font-manifest.js",
         "server/interception-route-rewrite-manifest.js",
         "server/edge-runtime-webpack.js",
-        "server/app/api/share/quote/route.js"
+        "server/app/api/share/route.js"
       ],
-      "entrypoint": "server/app/api/share/quote/route.js",
-      "name": "app/api/share/quote/route",
-      "page": "/api/share/quote/route",
+      "entrypoint": "server/app/api/share/route.js",
+      "name": "app/api/share/route",
+      "page": "/api/share/route",
       "matchers": [
         {
-          "regexp": "^/api/share/quote$",
-          "originalSource": "/api/share/quote"
+          "regexp": "^/api/share$",
+          "originalSource": "/api/share"
         }
       ],
       "wasm": [
