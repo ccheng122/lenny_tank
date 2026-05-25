@@ -55,46 +55,54 @@ export default function ResultClient() {
   const [data, setData] = useState<TankResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
-  const [sharing, setSharing] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareUrl, setShareUrl] = useState<string | null>(null);
+  const [copyState, setCopyState] = useState<"idle" | "copied">("idle");
 
-  async function handleShareQuote() {
-    if (!data || sharing) return;
-    setSharing(true);
+  function buildShareUrl() {
+    if (!data) return null;
+    const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
+    const judges = data.reactions.map((r) => r.guest).join(", ");
+    const params = new URLSearchParams({
+      guest: top.guest,
+      quote: top.pull_quote,
+      judges,
+    });
+    return `/api/share/quote?${params.toString()}`;
+  }
+
+  function openShareModal() {
+    const url = buildShareUrl();
+    if (!url) return;
+    setShareUrl(url);
+    setShareOpen(true);
+    setCopyState("idle");
+  }
+
+  function closeShareModal() {
+    setShareOpen(false);
+  }
+
+  async function handleCopyLink() {
+    if (!shareUrl) return;
     try {
-      const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
-      const judges = data.reactions.map((r) => r.guest).join(", ");
-      const params = new URLSearchParams({
-        guest: top.guest,
-        quote: top.pull_quote,
-        judges,
-      });
-      const res = await fetch(`/api/share/quote?${params.toString()}`);
-      if (!res.ok) throw new Error("share image failed");
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "lenny-tank-share.png";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      await navigator.clipboard.writeText(window.location.origin + shareUrl);
+      setCopyState("copied");
+      setTimeout(() => setCopyState("idle"), 1800);
     } catch {
-      // open in a new tab as fallback so user can still grab it
-      if (data) {
-        const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
-        const judges = data.reactions.map((r) => r.guest).join(", ");
-        const params = new URLSearchParams({
-          guest: top.guest,
-          quote: top.pull_quote,
-          judges,
-        });
-        window.open(`/api/share/quote?${params.toString()}`, "_blank");
-      }
-    } finally {
-      setSharing(false);
+      // ignore — clipboard may be blocked
     }
   }
+
+  // Close modal on Escape
+  useEffect(() => {
+    if (!shareOpen) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setShareOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [shareOpen]);
 
   useEffect(() => {
     if (!scenarioId || !moveId) {
@@ -319,12 +327,10 @@ export default function ResultClient() {
           style={{ animationDelay: "500ms" }}
         >
           <button
-            onClick={handleShareQuote}
-            disabled={sharing}
+            onClick={openShareModal}
             className="result-btn result-btn--primary"
-            style={sharing ? { opacity: 0.7, cursor: "wait" } : undefined}
           >
-            {sharing ? "Generating…" : "Share a quote"}
+            Share a quote
           </button>
           <button
             onClick={() => console.log("TODO: share spirit judge", data)}
@@ -341,9 +347,113 @@ export default function ResultClient() {
         </section>
       </div>
 
+      {shareOpen && shareUrl && (
+        <ShareModal
+          imageUrl={shareUrl}
+          onClose={closeShareModal}
+          onCopy={handleCopyLink}
+          copyState={copyState}
+        />
+      )}
+
       <ButtonStyles />
       <CardStyles />
+      <ModalStyles />
     </Shell>
+  );
+}
+
+function ShareModal({
+  imageUrl,
+  onClose,
+  onCopy,
+  copyState,
+}: {
+  imageUrl: string;
+  onClose: () => void;
+  onCopy: () => void;
+  copyState: "idle" | "copied";
+}) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div
+      className="share-modal-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Share quote preview"
+    >
+      <div
+        className="share-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="share-modal__close"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <header className="share-modal__header">
+          <p
+            className="text-eyebrow"
+            style={{ color: T.textMuted, letterSpacing: "0.18em" }}
+          >
+            Your share card
+          </p>
+          <p
+            className="mt-1 text-sm"
+            style={{ color: T.textSecondary }}
+          >
+            Save it, post it — or just admire it.
+          </p>
+        </header>
+
+        <div className="share-modal__preview">
+          {!loaded && <div className="share-modal__skeleton" aria-hidden />}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={imageUrl}
+            alt="Share card preview"
+            onLoad={() => setLoaded(true)}
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              borderRadius: "0.75rem",
+              opacity: loaded ? 1 : 0,
+              transition: "opacity 200ms ease",
+            }}
+          />
+        </div>
+
+        <footer className="share-modal__footer">
+          <a
+            href={imageUrl}
+            download="lenny-tank-share.png"
+            className="result-btn result-btn--primary"
+          >
+            ↓ Download PNG
+          </a>
+          <button
+            type="button"
+            onClick={onCopy}
+            className="result-btn result-btn--secondary"
+          >
+            {copyState === "copied" ? "✓ Link copied" : "Copy link"}
+          </button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="result-btn result-btn--ghost"
+          >
+            Close
+          </button>
+        </footer>
+      </div>
+    </div>
   );
 }
 
@@ -518,6 +628,101 @@ function CardStyles() {
       @keyframes result-fade {
         from { opacity: 0; transform: translateY(6px); }
         to   { opacity: 1; transform: translateY(0); }
+      }
+    `}</style>
+  );
+}
+
+function ModalStyles() {
+  return (
+    <style jsx global>{`
+      .share-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        animation: share-fade 180ms ease-out both;
+      }
+      .share-modal {
+        position: relative;
+        width: 100%;
+        max-width: 760px;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        background-color: ${T.surfaceRaised};
+        border: 1.5px solid ${T.borderStrong};
+        border-radius: 1.25rem;
+        padding: 1.75rem;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+        animation: share-rise 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .share-modal__close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        border: 1px solid transparent;
+        background-color: transparent;
+        color: ${T.textSecondary};
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+      }
+      .share-modal__close:hover {
+        background-color: ${T.surface};
+        color: ${T.text};
+        border-color: ${T.border};
+      }
+      .share-modal__header {
+        margin-bottom: 1.25rem;
+        padding-right: 2.5rem;
+      }
+      .share-modal__preview {
+        position: relative;
+        aspect-ratio: 1200 / 630;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background-color: ${T.bg};
+        border: 1px solid ${T.border};
+        margin-bottom: 1.25rem;
+      }
+      .share-modal__skeleton {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          ${T.surface} 0%,
+          ${T.surfaceRaised} 50%,
+          ${T.surface} 100%
+        );
+        background-size: 200% 100%;
+        animation: result-shimmer 1.6s ease-in-out infinite;
+      }
+      .share-modal__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.625rem;
+      }
+      @keyframes share-fade {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @keyframes share-rise {
+        from { opacity: 0; transform: translateY(12px) scale(0.98); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
       }
     `}</style>
   );
