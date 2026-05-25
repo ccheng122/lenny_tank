@@ -55,6 +55,46 @@ export default function ResultClient() {
   const [data, setData] = useState<TankResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
+  const [sharing, setSharing] = useState(false);
+
+  async function handleShareQuote() {
+    if (!data || sharing) return;
+    setSharing(true);
+    try {
+      const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
+      const judges = data.reactions.map((r) => r.guest).join(", ");
+      const params = new URLSearchParams({
+        guest: top.guest,
+        quote: top.pull_quote,
+        judges,
+      });
+      const res = await fetch(`/api/share/quote?${params.toString()}`);
+      if (!res.ok) throw new Error("share image failed");
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "lenny-tank-share.png";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch {
+      // open in a new tab as fallback so user can still grab it
+      if (data) {
+        const top = [...data.reactions].sort((a, b) => b.score - a.score)[0];
+        const judges = data.reactions.map((r) => r.guest).join(", ");
+        const params = new URLSearchParams({
+          guest: top.guest,
+          quote: top.pull_quote,
+          judges,
+        });
+        window.open(`/api/share/quote?${params.toString()}`, "_blank");
+      }
+    } finally {
+      setSharing(false);
+    }
+  }
 
   useEffect(() => {
     if (!scenarioId || !moveId) {
@@ -279,10 +319,12 @@ export default function ResultClient() {
           style={{ animationDelay: "500ms" }}
         >
           <button
-            onClick={() => console.log("TODO: share quote", data)}
+            onClick={handleShareQuote}
+            disabled={sharing}
             className="result-btn result-btn--primary"
+            style={sharing ? { opacity: 0.7, cursor: "wait" } : undefined}
           >
-            Share a quote
+            {sharing ? "Generating…" : "Share a quote"}
           </button>
           <button
             onClick={() => console.log("TODO: share spirit judge", data)}

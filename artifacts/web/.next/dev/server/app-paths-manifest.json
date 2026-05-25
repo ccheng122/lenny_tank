@@ -1,5 +1,5 @@
 {
-  "/api/tank/route": "app/api/tank/route.js",
+  "/api/share/quote/route": "static/webpack/app/api/share/quote/route.d3a2424324631f82.hot-update.js",
   "/page": "app/page.js",
   "/bucket/[slug]/page": "app/bucket/[slug]/page.js",
   "/tank/page": "app/tank/page.js",
