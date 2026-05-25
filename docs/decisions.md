@@ -10,27 +10,42 @@ Companion docs:
 
 ## Architecture & stack
 
-### 1. Ollama (`nomic-embed-text`) for embeddings, Claude for everything voice-related
+### 1. OpenAI for embeddings, Anthropic Claude for everything voice-related
 
-**Choice:** Local Ollama (free, runs on your laptop) for one-time embedding of transcript chunks. Anthropic Claude (Sonnet 4.6 + Haiku 4.5) for character sheets and runtime judge reactions.
+**Final choice (after a course correction — see "What we actually tried" below):**
+- **Embeddings (both offline chunk-embedding and runtime query-embedding):** OpenAI `text-embedding-3-small` (1536-dim). Used everywhere — chunks in `data-runtime/chunks/` and the per-round query embed inside the API route.
+- **Character sheets and runtime judge reactions:** Anthropic Claude (Sonnet 4.6 for one-time character sheets, Haiku 4.5 for runtime reactions).
 
-**Alternatives considered:**
-- OpenAI for both embeddings + reactions (simpler, ~$5 total)
-- All-Anthropic with Voyage AI for embeddings (three accounts)
-- All-OpenAI with GPT-4o-mini for reactions (one account, slightly weaker personas)
-- All-local with Ollama for both (free, but persona quality drops sharply with 7B models)
+**Why this split:** Embeddings are a forgiving task; OpenAI's `text-embedding-3-small` is the de-facto industry default, cheap (~$0.03 to embed all 1,869 chunks), and works at Replit runtime. Personas are the demo's wow moment; Claude is meaningfully better than alternatives at in-character writing.
 
-**Why:** Embeddings are a forgiving task — cosine similarity over conversational text doesn't need a state-of-the-art model. Local Ollama is "good enough" and free. Personas are the *opposite* — they're the demo's wow moment, where voice distinctiveness compounds across every round. Claude is meaningfully better than GPT-4o-mini or 7B local models at writing in-character. So we spend money where quality matters and save it where it doesn't.
+### What we actually tried first (and why we corrected)
 
-**Easy to revisit if:** verification script (`verify-embeddings.ts`) shows Ollama retrieval is worse than expected — swap to OpenAI embeddings (~$0.03 one-time cost).
+Initially we used local Ollama (`nomic-embed-text`, 768-dim) for chunk embeddings to save the $0.03 OpenAI cost. The Ollama path worked end-to-end *offline* — verify-embeddings.ts showed solid quality (median top-1 cosine 0.721 after adding prefixes). But at Phase 3 (runtime) it became blocking: **Ollama can only be reached on the machine it's running on. Replit can't talk to a local Ollama instance.** And mixing models is worse than choosing one — comparing a 768-dim Ollama chunk vector to a 1536-dim OpenAI query vector with cosine similarity returns essentially random noise.
 
-### 2. Two-provider stack, not one
+So we re-embedded everything with OpenAI inside Replit and threw away the Ollama vectors. The chunk *text* and the chunking logic and the verification framework all survived; just the embedding column was regenerated.
 
-**Choice:** Use Ollama AND Anthropic. Two API surfaces to manage.
+### The lesson encoded here
 
-**Tradeoff:** Adds setup friction (install Ollama, pull a model, plus get an Anthropic key). Single-provider would be simpler operationally.
+**If you're deploying to a serverless platform, the local-only path doesn't apply at runtime — pick a runtime-compatible model from the start, even if a local model is "free."** Trading ~30 minutes of compute + iteration for $0.03 in API cost is a bad trade. Apply this lesson to any future Phase 0 choice: ask "does this also work at Replit runtime?" before committing.
 
-**Why we accepted the friction:** Anthropic doesn't have a first-party embeddings endpoint. Ollama can't run on Replit (it's local-only). Each provider does the thing it's best at. The friction is one-time during Phase 0; runtime only hits Anthropic.
+### Alternatives we considered (and ruled out)
+
+- **OpenAI for embeddings + GPT-4o-mini for reactions** — single account, but personas are noticeably less crisp in voice
+- **All-Anthropic with Voyage AI for embeddings** — three accounts, marginal quality gain
+- **Drop semantic retrieval entirely, use BM25** — keyword-only matching, works without any embedding API, but loses paraphrased-query relevance. Workable fallback if OpenAI ever becomes unviable.
+- **Run Ollama on Replit somehow** — possible but adds container setup; not worth it for $0.03/month savings.
+
+**Easy to revisit if:** retrieval feels off in the real demo — first try the `search_query:`-style prompt prefixing notes for OpenAI's API (it doesn't need them, but query-shaping helps), then consider Voyage AI's free tier (`voyage-3-lite`) as a swap.
+
+### 2. Two-provider stack for runtime: Anthropic + OpenAI
+
+**Choice:** The runtime app on Replit calls Anthropic (for judge reactions + verdict) and OpenAI (for query embeddings + the one-time chunk re-embed). Two API surfaces to manage in Replit Secrets.
+
+**Tradeoff:** Two accounts and two bills instead of one. Single-provider would be simpler operationally.
+
+**Why we accepted the friction:** Anthropic doesn't offer a first-party embeddings endpoint. OpenAI's persona generation is noticeably weaker than Claude's. Each provider does what it's best at. The cost across both is well under $1/month at expected demo volume.
+
+**Note:** Phase 0 originally also used Ollama (a third provider, locally) for embeddings — see Decision 1. That layer is now retired; only Anthropic + OpenAI matter for the deployed app.
 
 ### 3. Static JSON files in the repo, no database
 
