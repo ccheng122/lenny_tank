@@ -1357,7 +1357,7 @@ Requirements:
       - A "❝ ... ❞" block showing the verbatim pull_quote, visually distinct (italic, indented, bordered)
       - A score badge showing "<score> / 10" with color coding (1-4 red, 5-7 yellow, 8-10 green)
    d) Below the cards, the synthesized verdict ("THE PANEL HAS SPOKEN") with the aggregate score in large display.
-   e) Three action buttons: [Share quote] [Share spirit judge] [Try another scenario → / ]
+   e) Two action buttons: [Share — I got tanked] [Try another scenario → / ]
 
 5. Streaming reveal is a NICE-TO-HAVE. For MVP, render all 3 judges at once when the response arrives. Add a 200ms fade-in if easy.
 
@@ -1381,68 +1381,63 @@ If any step fails, give Replit Agent a targeted correction (e.g. "the score badg
 
 ---
 
-## Phase 4 — Share Cards
+## Phase 4 — Share Card
 
-### Task 4.1: "Best Advice I Got" share image
+Single share-card design (see `decisions.md` §9 and `spec` §7.1 for the "I Got Tanked" rationale). One task, no nice-to-have variants — the design went through two iterations before landing on this single neutral-and-fun format.
 
-- [ ] **Step 1: Paste this prompt into Replit Agent**
-
-```
-Add a share-card feature to The Lenny Tank.
-
-When the user clicks [Share quote] on /tank/result, generate a PNG image they can save/post.
-
-Use @vercel/og for the image generation (already supported in Next.js 16). Create an OG route at /app/api/share/quote/route.tsx that takes query params: guest, quote, judges (comma-separated names), and renders a 1200x630 image with this layout:
-
-- Dark background (slate-900 or near-black)
-- Top: small label "I just sat with The Lenny Tank"
-- Center: the verbatim quote in large quote marks ("❝ {quote} ❞") — limit to ~200 chars; truncate with "..." if longer
-- Below quote: the guest name in attribution style ("— {guest}")
-- Bottom: small text "Got tanked by: {judges}" and the app URL ("lennytank.app" — use a placeholder)
-- Use Inter or a similar clean sans-serif
-
-On /tank/result, the [Share quote] button:
-1. Picks the highest-scoring reaction
-2. Opens /api/share/quote?guest=...&quote=...&judges=... in a new tab so the user can right-click → save
-3. OR: fetches the image as a blob and triggers a download with filename "lenny-tank-share.png"
-
-Pick whichever pattern Replit Agent finds simpler.
-```
-
-- [ ] **Step 2: Verify**
-
-Complete a round. Click [Share quote]. Confirm:
-1. An image opens or downloads
-2. The image renders the quote correctly (text fits, no overflow)
-3. Long quotes are truncated gracefully
-4. The image is readable when posted at thumbnail size (e.g. 400px wide)
-
----
-
-### Task 4.2 (Nice-to-have): "Your Spirit Judge" share image
+### Task 4.1: "I Got Tanked" share image
 
 - [ ] **Step 1: Paste this prompt into Replit Agent**
 
 ```
-Add a second share card variant to The Lenny Tank: "Your Spirit Judge".
+Add a share-card feature to The Lenny Tank — a single share image that name-drops the panel judges.
 
-Create a route /app/api/share/spirit/route.tsx that takes guest, role (episode title), tagline (use the persona_summary first sentence). Render at 1200x630:
+PROJECT STRUCTURE:
+- Route lives at artifacts/web/app/api/share/route.tsx (single share endpoint; we deliberately only have one variant — see docs/decisions.md §9)
+- Uses @vercel/og for the image generation (well-supported in Next.js 16)
+- Style with the brand tokens — cream background, ink-colored type, yellow accent line. NO inline hex codes.
 
-- Dark background, slightly different accent color from the quote card
-- Top: "I think most like..."
-- Center, large: the guest name
-- Below: their role (smaller)
-- Below that, in italics: the tagline (truncate to ~120 chars)
-- Bottom: app URL
+CARD DESIGN — what's ON the card:
+- App name "THE LENNY TANK" — small uppercase at top, letter-spaced
+- The phrase "I just got tanked by" — medium-sized serif body text
+- The 3 judge names — LARGE, serif, stacked vertically, brand-ink color
+- Thin brand-yellow horizontal divider
+- "Wanna play? → lennytank.app" — small CTA text at bottom (use a placeholder URL or the actual Replit deploy URL once you have it)
 
-On /tank/result, the [Share spirit judge] button picks the highest-scoring reaction's judge (their "spirit judge") and links to /api/share/spirit?guest=...&role=...&tagline=...
+CARD DESIGN — what's deliberately NOT on the card:
+- NO score
+- NO scenario title
+- NO quote or reaction text
+- NO move text
+- NO personality/spirit-judge framing
 
-The persona_summary first sentence isn't in the API response yet — add it. Modify /lib/judges.ts to include the character sheet's persona_summary on each JudgeReaction. Update /app/api/tank/route.ts to pass it through.
+Layout: 1200x630 OG dimensions. Generous padding (~80px). Center-aligned text vertically and horizontally. Cream background (brand.cream from tailwind.config.ts, hex passed inline since OG renders outside React).
+
+ROUTE: /api/share takes query param `judges` (comma-separated names, URL-encoded). Example:
+/api/share?judges=Eric%20Ries,Cat%20Wu,Ben%20Horowitz
+
+On /tank/result, the existing [Share — I got tanked] button should:
+1. Extract the 3 judge names from the current round's reactions
+2. Build the URL with the judges param
+3. Trigger a download with filename "lenny-tank.png" (preferred) OR open in a new tab so the user can right-click → save (fallback if download is fussy)
+
+Edge cases:
+- Long judge names ("Hamel Husain & Shreya Shankar") — make sure they don't overflow; truncate to ~30 chars with "..." if needed
+- Use Inter or a similar clean sans-serif for the small text; use a serif (DM Serif, Lora, or system serif) for the judge names
+
+Make sure the brand-yellow divider visually anchors the card so the negative space doesn't feel empty.
 ```
 
 - [ ] **Step 2: Verify**
 
-Click [Share spirit judge] on /tank/result. An image opens/downloads with the highest-scoring judge as your "spirit judge."
+Complete a round. Click [Share — I got tanked]. Confirm:
+1. An image opens or downloads (filename "lenny-tank.png")
+2. The 3 judge names render correctly, stacked, large
+3. NO score, NO quote, NO scenario text appears anywhere on the card
+4. The card is readable when posted at thumbnail size (~400px wide) — judge names should still be legible
+5. Test a round with a long-named judge (e.g. Hamel & Shreya) to confirm truncation works
+
+If the layout looks awkward (e.g. text isn't vertically centered, padding too tight, divider misplaced), send Replit Agent a targeted correction screenshot.
 
 ---
 

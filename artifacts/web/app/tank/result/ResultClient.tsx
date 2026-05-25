@@ -61,7 +61,12 @@ export default function ResultClient() {
 
   function buildShareUrl() {
     if (!data) return null;
-    const judges = data.reactions.map((r) => r.guest).join(",");
+    // Strip any ", title" suffix from each guest name before sending.
+    // Use `|` as the separator so commas inside names (titles) don't split.
+    const judges = data.reactions
+      .map((r) => r.guest.split(",")[0].trim())
+      .filter(Boolean)
+      .join("|");
     const params = new URLSearchParams({ judges });
     return `/api/share?${params.toString()}`;
   }

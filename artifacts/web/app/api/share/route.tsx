@@ -19,11 +19,22 @@ function truncate(s: string, max: number) {
   return s.slice(0, max - 1).trimEnd() + "…";
 }
 
+/**
+ * Judges arrive as one query-param value; individual judges are separated by `|`
+ * so we don't collide with commas embedded in titles ("Eric Ries, Lean Startup author").
+ * We also defensively strip any trailing comma-clause, in case a caller forgot to clean.
+ */
+function cleanName(s: string): string {
+  const beforeComma = s.split(",")[0];
+  return beforeComma.replace(/\s+/g, " ").trim();
+}
+
 function parseJudges(raw: string | null): string[] {
   if (!raw) return [];
-  return raw
-    .split(",")
-    .map((s) => s.replace(/\s+/g, " ").trim())
+  // Prefer `|` as the separator; fall back to `,` if the caller used the old shape.
+  const parts = raw.includes("|") ? raw.split("|") : raw.split(",");
+  return parts
+    .map(cleanName)
     .filter(Boolean)
     .slice(0, 3)
     .map((s) => truncate(s, MAX_NAME_CHARS));
@@ -110,7 +121,8 @@ export async function GET(req: NextRequest) {
                   lineHeight: 1.05,
                   fontWeight: 700,
                   fontFamily: "Georgia, 'Times New Roman', Times, serif",
-                  letterSpacing: "-0.01em",
+                  letterSpacing: "0.01em",
+                  textTransform: "uppercase",
                 }}
               >
                 {name}

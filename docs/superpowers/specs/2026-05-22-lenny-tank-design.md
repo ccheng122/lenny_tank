@@ -129,31 +129,33 @@ Each bucket ships with **5 curated scenario cards** for MVP (25 total). Each car
 
 ## 7. Share Cards
 
-The shareable artifact is **never the score or the move**, because people don't post their mediocre rounds. Two always-positive options:
+The shareable artifact is **never the score, the move, the scenario, or any quote** — just a name-drop of the three judges. Single design, single variant. See `docs/decisions.md` §9 for the rationale (the design went through two revisions before landing here).
 
-### 7.1 Primary — "The Best Advice I Got"
+### 7.1 The "I Got Tanked" Card
 ```
-Today, Eric Ries told me:
-"Validated learning is the unit of progress. Anything that doesn't get you closer to that is waste."
+THE LENNY TANK
 
-Got tanked by: Eric Ries · Cat Wu · Ben Horowitz
-lennytank.example.com
-```
-A verbatim guest quote, the 3 judge names, and the app URL. Always positive. Frames the user as someone who learned something. Shareable regardless of round outcome.
-
-### 7.2 Secondary — "Your Spirit Judge"
-```
-I think most like...
+I just got tanked by
+ERIC RIES
 CAT WU
-Head of Product, Claude Code
+BEN HOROWITZ
 
-"Velocity-first. Ship to learn. Trust the team to course-correct."
-
-lennytank.example.com
+Wanna play? → lennytank.app
 ```
-Personality-quiz format. Derived from which judge scored the user's move highest (or whose reasoning most aligned). Always flattering. Heavy viral precedent.
 
-### 7.3 Private summary
+Three judge names (large, stacked, serif headline font). App name at top, "wanna play?" CTA at bottom. Brand styling (cream background, yellow accent, ink-colored type — see `decisions.md` §16).
+
+**What's on the card:** app name, the phrase "I just got tanked by," the three judge names, app URL.
+
+**What's deliberately NOT on the card:**
+- Score (neutral on performance, no shame for low scorers)
+- Scenario title (preserves "what did they react to?" mystery)
+- Quote or reaction text (digestible, not text-heavy)
+- Personality / spirit-judge result (too quiz-y)
+
+**Why it works:** Name-drop = credibility magnet. "Got tanked" = self-deprecating, fun, double-meaning. Mystery = engagement driver ("what happened?"). Every user has the same artifact regardless of round outcome, so sharing volume isn't suppressed by losses.
+
+### 7.2 Private summary
 
 The post-round summary screen — visible only to the user — shows the full round detail: aggregate score, the user's move, all 3 full reactions, all citations, and links into the source episodes. The score and move never leave the app unless the user explicitly takes a screenshot.
 
