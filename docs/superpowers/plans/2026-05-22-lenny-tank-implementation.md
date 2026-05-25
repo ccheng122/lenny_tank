@@ -28,6 +28,10 @@
 
 All Phase 0 tasks run in the working directory `/Users/claracheng/Documents/Projects/lennys_podcast/lennys-newsletterpodcastdata`. Outputs land in `data/`. Commit after each task.
 
+> **⚠️ Important context (added after course correction — see decisions.md §1):** Task 0.3 below produces **local-only Ollama embeddings** that are NOT used by the deployed app. They live in `data/chunks/*.json` and were used to validate the retrieval approach offline, but Replit can't reach a local Ollama instance at runtime. The runtime embeddings are regenerated with OpenAI inside Replit during Phase 3 (Task 3.1) via `artifacts/web/scripts/reembed-with-openai.ts`, and land in `artifacts/web/data-runtime/chunks/`.
+>
+> Keep this Task 0.3 section as a historical reference. If you're starting fresh today, skip Task 0.3 entirely — go straight from Task 0.2 (chunking) to Task 0.4 (character sheets), then handle embeddings inside Replit during Phase 3.
+
 ### Task 0.1: Scaffold the data-prep environment
 
 **Files:**
