@@ -48,3 +48,33 @@ id = "B9353AaNSqCg7enJZAHtd"
 uri = "file://attached_assets/generated_images/bucket-career.png"
 type = "image"
 title = "bucket icon career"
+
+[[generated]]
+id = "-ROdFv61msrfXllSP-Q0n"
+uri = "file://attached_assets/generated_images/bucket-growth-color.png"
+type = "image"
+title = "bucket icon color growth"
+
+[[generated]]
+id = "AhdGHsJuHa2nJ6SPsZAt3"
+uri = "file://attached_assets/generated_images/bucket-shipping-ai-color.png"
+type = "image"
+title = "bucket icon color shipping-ai"
+
+[[generated]]
+id = "Pth02Bv5b5JEEEJmxmSbL"
+uri = "file://attached_assets/generated_images/bucket-leadership-color.png"
+type = "image"
+title = "bucket icon color leadership"
+
+[[generated]]
+id = "ebiEUlCN30IsjeSrOiUFp"
+uri = "file://attached_assets/generated_images/bucket-zerotoone-color.png"
+type = "image"
+title = "bucket icon color zerotoone"
+
+[[generated]]
+id = "8nWoQXIZA3lS-i5C2NWGW"
+uri = "file://attached_assets/generated_images/bucket-career-color.png"
+type = "image"
+title = "bucket icon color career"
