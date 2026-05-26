@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "8cNSQOYoaf8vtIZHzjjlW"
+uri = "file://artifacts/mockup-sandbox/public/images/shark-fin-waterline.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "_KXzRLpPFtAdUdBKamtzu"
+uri = "file://artifacts/mockup-sandbox/public/images/shark-circling.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "3iz1rPQtLMGiuGuKKVmuQ"
+uri = "file://artifacts/mockup-sandbox/public/images/shark-from-below.png"
+type = "image"
+title = "generated_image"
