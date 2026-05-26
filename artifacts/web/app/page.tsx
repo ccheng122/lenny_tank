@@ -57,10 +57,19 @@ export default function Home() {
         </p>
       </div>
 
-      {/* Hero visual: lone fin slicing through the waterline */}
+      {/* Hero visual: lone fin slicing through the waterline.
+          Mask fades the image's cream into the page cream at the top + edges so there's no hard rectangle. */}
       <div
         className="relative mx-auto mt-12 w-full max-w-6xl overflow-hidden"
-        style={{ aspectRatio: "16 / 5" }}
+        style={{
+          aspectRatio: "16 / 5",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%), linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%), linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+          WebkitMaskComposite: "source-in",
+          maskComposite: "intersect",
+        }}
       >
         <Image
           src="/images/shark-fin-waterline.png"
