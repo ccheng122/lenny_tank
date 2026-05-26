@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BUCKET_LABELS, type Bucket } from "@data";
 
@@ -33,10 +34,10 @@ export default function Home() {
       <div className="mx-auto max-w-3xl text-center">
         {/* Eyebrow */}
         <p className="text-eyebrow mb-4">
-          🦈&ensp;Shark-tank-style scenario practice
+          Shark-tank-style scenario practice
         </p>
 
-        {/* Title — Caveat script via --font-display token */}
+        {/* Title — Caveat script via --font-caveat token */}
         <h1
           className="mt-2 text-6xl font-bold leading-tight sm:text-8xl"
           style={{ fontFamily: "var(--font-caveat)", color: "var(--color-text-primary)" }}
@@ -54,16 +55,25 @@ export default function Home() {
             Get feedback from people who've already lived them.
           </span>
         </p>
+      </div>
 
-        {/* Divider */}
-        <div
-          className="mx-auto mt-10 h-px w-16"
-          style={{ backgroundColor: "var(--color-border-strong)" }}
+      {/* Hero visual: lone fin slicing through the waterline */}
+      <div
+        className="relative mx-auto mt-12 w-full max-w-6xl overflow-hidden"
+        style={{ aspectRatio: "16 / 5" }}
+      >
+        <Image
+          src="/images/shark-fin-waterline.png"
+          alt="An orange shark fin slicing through the water's surface"
+          fill
+          priority
+          sizes="(min-width: 1280px) 1152px, 100vw"
+          className="object-cover object-center"
         />
       </div>
 
       {/* Bucket grid */}
-      <div className="mx-auto mt-12 max-w-5xl">
+      <div className="mx-auto mt-14 max-w-5xl">
         <p className="text-eyebrow mb-8 text-center">Pick your arena</p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
