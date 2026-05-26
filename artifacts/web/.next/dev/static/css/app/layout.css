@@ -396,6 +396,9 @@
       max-width: 96rem;
     }
   }
+  .-mx-6 {
+    margin-inline: calc(var(--spacing) * -6);
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -580,6 +583,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -826,6 +832,11 @@
   .disabled\:opacity-40 {
     &:disabled {
       opacity: 40%;
+    }
+  }
+  .sm\:-mx-10 {
+    @media (width >= 40rem) {
+      margin-inline: calc(var(--spacing) * -10);
     }
   }
   .sm\:grid-cols-2 {

@@ -29,7 +29,7 @@ const buckets = Object.keys(BUCKET_LABELS) as Bucket[];
 
 export default function Home() {
   return (
-    <main className="min-h-screen px-6 pb-24 pt-16 sm:px-10">
+    <main className="min-h-screen overflow-x-hidden px-6 pb-24 pt-16 sm:px-10">
       {/* Hero */}
       <div className="mx-auto max-w-3xl text-center">
         {/* Eyebrow */}
@@ -58,17 +58,15 @@ export default function Home() {
       </div>
 
       {/* Hero visual: lone fin slicing through the waterline.
-          Mask fades the image's cream into the page cream at the top + edges so there's no hard rectangle. */}
+          Bleeds edge-to-edge (negative margins escape main's padding); mask fades cream into page cream at the top. */}
       <div
-        className="relative mx-auto mt-12 w-full max-w-6xl overflow-hidden"
+        className="relative mt-12 -mx-6 overflow-hidden sm:-mx-10"
         style={{
           aspectRatio: "16 / 5",
           WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%), linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%)",
           maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%), linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
-          WebkitMaskComposite: "source-in",
-          maskComposite: "intersect",
+            "linear-gradient(to bottom, transparent 0%, black 28%, black 100%)",
         }}
       >
         <Image
@@ -76,7 +74,7 @@ export default function Home() {
           alt="An orange shark fin slicing through the water's surface"
           fill
           priority
-          sizes="(min-width: 1280px) 1152px, 100vw"
+          sizes="100vw"
           className="object-cover object-center"
         />
       </div>
