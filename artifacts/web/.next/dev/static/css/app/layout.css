@@ -486,6 +486,9 @@
   .h-3\.5 {
     height: calc(var(--spacing) * 3.5);
   }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
   .h-px {
     height: 1px;
   }
@@ -596,6 +599,9 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .object-contain {
+    object-fit: contain;
   }
   .object-cover {
     object-fit: cover;

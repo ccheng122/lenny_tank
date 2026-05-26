@@ -2,25 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { BUCKET_LABELS, type Bucket } from "@data";
 
-const BUCKET_META: Record<Bucket, { emoji: string; description: string }> = {
+const BUCKET_META: Record<Bucket, { image: string; description: string }> = {
   growth: {
-    emoji: "📈",
+    image: "bucket-growth",
     description: "For PMs obsessed with moving the needle on activation and retention",
   },
   "shipping-ai": {
-    emoji: "🤖",
+    image: "bucket-shipping-ai",
     description: "For builders navigating real tradeoffs in AI product development",
   },
   leadership: {
-    emoji: "🧭",
+    image: "bucket-leadership",
     description: "For leads who must make the call when there's no playbook",
   },
   "zero-to-one": {
-    emoji: "🚀",
+    image: "bucket-zerotoone",
     description: "For founders and PMs building something from nothing",
   },
   career: {
-    emoji: "🎯",
+    image: "bucket-career",
     description: "For anyone at a career inflection point who needs a real sounding board",
   },
 };
@@ -85,18 +85,25 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {buckets.map((key) => {
-            const { emoji, description } = BUCKET_META[key];
+            const { image, description } = BUCKET_META[key];
             const label = BUCKET_LABELS[key];
 
             return (
               <Link
                 key={key}
                 href={`/bucket/${key}`}
-                className="card card-interactive group relative flex flex-col gap-4 p-6 transition-all duration-200 hover:-translate-y-0.5"
+                className="card card-interactive group relative flex flex-col items-center gap-3 p-6 transition-all duration-200 hover:-translate-y-0.5"
               >
-                <span className="text-4xl">{emoji}</span>
+                <Image
+                  src={`/images/${image}.png`}
+                  alt={`${label} icon`}
+                  width={80}
+                  height={80}
+                  className="h-16 w-16 object-contain"
+                  unoptimized
+                />
 
-                <div>
+                <div className="w-full text-center">
                   <h2
                     className="text-base font-semibold"
                     style={{ color: "var(--color-text-primary)" }}
