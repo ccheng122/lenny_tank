@@ -8,5 +8,8 @@ export const modules: ModuleMap = {
   "./components/mockups/badge-variants/DotSeparator.tsx": () => import("../components/mockups/badge-variants/DotSeparator.tsx"),
   "./components/mockups/badge-variants/Eyebrow.tsx": () => import("../components/mockups/badge-variants/Eyebrow.tsx"),
   "./components/mockups/badge-variants/Stamp.tsx": () => import("../components/mockups/badge-variants/Stamp.tsx"),
-  "./components/mockups/badge-variants/Underline.tsx": () => import("../components/mockups/badge-variants/Underline.tsx")
+  "./components/mockups/badge-variants/Underline.tsx": () => import("../components/mockups/badge-variants/Underline.tsx"),
+  "./components/mockups/shark-hero/CirclingShark.tsx": () => import("../components/mockups/shark-hero/CirclingShark.tsx"),
+  "./components/mockups/shark-hero/FinWaterline.tsx": () => import("../components/mockups/shark-hero/FinWaterline.tsx"),
+  "./components/mockups/shark-hero/SharkFromBelow.tsx": () => import("../components/mockups/shark-hero/SharkFromBelow.tsx")
 };
