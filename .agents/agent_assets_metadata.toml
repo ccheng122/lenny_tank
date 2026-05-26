@@ -18,3 +18,33 @@ id = "3iz1rPQtLMGiuGuKKVmuQ"
 uri = "file://artifacts/mockup-sandbox/public/images/shark-from-below.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "cajL7NPqfddGhMcUYfJrb"
+uri = "file://attached_assets/generated_images/bucket-growth.png"
+type = "image"
+title = "bucket icon growth"
+
+[[generated]]
+id = "MAWWFsLGtVPTzQoYg7-1i"
+uri = "file://attached_assets/generated_images/bucket-shipping-ai.png"
+type = "image"
+title = "bucket icon shipping-ai"
+
+[[generated]]
+id = "YDOKBKnceBbqE8MwZltd-"
+uri = "file://attached_assets/generated_images/bucket-leadership.png"
+type = "image"
+title = "bucket icon leadership"
+
+[[generated]]
+id = "75MDOoKrz2CUZM63gVECs"
+uri = "file://attached_assets/generated_images/bucket-zerotoone.png"
+type = "image"
+title = "bucket icon zerotoone"
+
+[[generated]]
+id = "B9353AaNSqCg7enJZAHtd"
+uri = "file://attached_assets/generated_images/bucket-career.png"
+type = "image"
+title = "bucket icon career"
