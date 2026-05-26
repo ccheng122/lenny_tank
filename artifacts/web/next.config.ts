@@ -14,6 +14,11 @@ const allowedDevOrigins = [
 const nextConfig: NextConfig = {
   output: "standalone",
   allowedDevOrigins,
+  turbopack: {
+    resolveAlias: {
+      "@data": path.resolve(__dirname, "../../data/index.ts"),
+    },
+  },
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
