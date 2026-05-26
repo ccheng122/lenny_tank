@@ -8,6 +8,33 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 // Re-embedded chunks live INSIDE artifacts/web/ so Next.js dev cwd resolves correctly.
 // Original Ollama-embedded chunks at workspace data/chunks/ are not used at runtime.
 const CHUNKS_ROOT = path.join(process.cwd(), "data-runtime", "chunks");
+const MOVE_EMBEDDINGS_PATH = path.join(
+  process.cwd(),
+  "data-runtime",
+  "move-embeddings.json",
+);
+
+type MoveEmbeddings = Record<string, Record<number, number[]>>;
+let moveEmbeddingsCache: MoveEmbeddings | null = null;
+
+async function getMoveEmbeddings(): Promise<MoveEmbeddings> {
+  if (moveEmbeddingsCache) return moveEmbeddingsCache;
+  try {
+    const raw = await fs.readFile(MOVE_EMBEDDINGS_PATH, "utf-8");
+    moveEmbeddingsCache = JSON.parse(raw) as MoveEmbeddings;
+  } catch {
+    moveEmbeddingsCache = {};
+  }
+  return moveEmbeddingsCache;
+}
+
+export async function loadPrecomputedMoveEmbedding(
+  scenarioId: string,
+  moveIdx: number,
+): Promise<number[] | null> {
+  const all = await getMoveEmbeddings();
+  return all[scenarioId]?.[moveIdx] ?? null;
+}
 
 function cosine(a: number[], b: number[]): number {
   let dot = 0;
