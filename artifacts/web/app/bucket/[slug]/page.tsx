@@ -1,16 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { BUCKET_LABELS, type Bucket, type ScenarioDeck } from "@data";
-
-const BUCKET_EMOJI: Record<Bucket, string> = {
-  growth: "📈",
-  "shipping-ai": "🤖",
-  leadership: "🧭",
-  "zero-to-one": "🚀",
-  career: "🎯",
-};
+import { BUCKET_META } from "@/lib/buckets-meta";
 
 const VALID_BUCKETS = new Set<string>(Object.keys(BUCKET_LABELS));
 
@@ -35,10 +29,10 @@ export default async function BucketPage({
   const deck = loadDeck();
   const cards = deck[bucket];
   const label = BUCKET_LABELS[bucket];
-  const emoji = BUCKET_EMOJI[bucket];
+  const { image, description } = BUCKET_META[bucket];
 
   return (
-    <main className="min-h-screen px-6 pb-32 pt-10 sm:px-10">
+    <main className="min-h-screen px-6 pb-24 pt-10 sm:px-10">
       <div className="mx-auto max-w-2xl">
         {/* Back link */}
         <div className="mb-10">
@@ -50,56 +44,55 @@ export default async function BucketPage({
           </Link>
         </div>
 
-        {/* Page header */}
-        <header className="mb-10 flex items-center gap-3">
-          <span className="text-4xl">{emoji}</span>
-          <h1
-            className="text-3xl font-bold sm:text-4xl"
-            style={{ color: "var(--color-text-primary)" }}
-          >
-            {label}
-          </h1>
+        {/* Page header — illustration beside title, description below */}
+        <header className="mb-10">
+          <div className="flex items-start gap-5">
+            <Image
+              src={`/images/${image}.png`}
+              alt=""
+              width={112}
+              height={112}
+              className="mt-0.5 h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20"
+              unoptimized
+            />
+            <div>
+              <h1
+                className="text-3xl font-bold sm:text-4xl"
+                style={{ color: "var(--color-text-primary)" }}
+              >
+                {label}
+              </h1>
+              <p
+                className="mt-2 text-base leading-relaxed"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
+                {description}
+              </p>
+            </div>
+          </div>
         </header>
 
+        {/* Scenario count */}
+        <p className="text-eyebrow mb-5">
+          {cards.length} scenario{cards.length !== 1 ? "s" : ""}
+        </p>
+
         {/* Scenario cards — entire card is a link to /tank?scenarioId=<id> */}
-        <ol className="flex flex-col gap-5">
+        <ol className="scenario-list flex flex-col gap-5">
           {cards.map((card) => (
             <li key={card.id}>
               <Link
                 href={`/tank?scenarioId=${encodeURIComponent(card.id)}`}
-                className="card card-interactive group block p-7 transition-all duration-200 hover:-translate-y-0.5"
+                className="scenario-card-link group"
               >
-                <h2
-                  className="text-xl font-bold mb-3"
-                  style={{ color: "var(--color-text-primary)" }}
-                >
-                  {card.title}
-                </h2>
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: "var(--color-text-secondary)" }}
-                >
-                  {card.setup}
-                </p>
-
-                {/* Click affordance — appears on hover */}
-                <div
-                  className="mt-5 flex items-center gap-1 text-xs font-semibold opacity-0 transition-opacity group-hover:opacity-100"
-                  style={{ color: "var(--color-brand-orange)" }}
-                >
-                  Step into the tank
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <span className="scenario-card-num" aria-hidden="true" />
+                <div className="scenario-card-body">
+                  <h2 className="scenario-card-title">{card.title}</h2>
+                  <p className="scenario-card-setup">{card.setup}</p>
+                  <div className="scenario-card-cta">
+                    Step into the tank
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style={{ width: 14, height: 14 }}><path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd" /></svg>
+                  </div>
                 </div>
               </Link>
             </li>
@@ -107,10 +100,10 @@ export default async function BucketPage({
         </ol>
 
         {/* Write your own scenario */}
-        <div className="mt-14 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <Link
             href={`/tank?scenarioId=custom&from=${encodeURIComponent(`/bucket/${bucket}`)}`}
-            className="btn-ghost rounded-xl px-6 py-3.5"
+            className="btn-ghost px-6 py-3.5"
           >
             <span>✏️</span>
             Write your own scenario

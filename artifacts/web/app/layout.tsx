@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "The Lenny Tank",
   description:
     "Practice the high-stakes decisions of your craft. Get feedback from people who've already lived them.",
+  icons: {
+    icon: "/favicon_fin.svg.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +32,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.variable} ${caveat.variable} antialiased`}>
         {children}
-      </body>
+      {/* impeccable-live-start */}
+<script src="http://localhost:8400/live.js"></script>
+{/* impeccable-live-end */}
+</body>
     </html>
   );
 }

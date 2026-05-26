@@ -150,27 +150,66 @@ Now respond as ${args.sheet.guest} reacting to the user's move. Output JSON only
   };
 }
 
+export interface VerdictTake {
+  name: string;
+  text: string;
+}
+
+function firstSentence(s: string): string {
+  const m = s.match(/^.+?[.!?](?:\s|$)/);
+  return m ? m[0].trim() : s.slice(0, 160).trim();
+}
+
+function fallbackTakes(reactions: JudgeReaction[]): VerdictTake[] {
+  return reactions.map((r) => ({
+    name: r.guest.split(" ")[0],
+    text: firstSentence(r.reaction),
+  }));
+}
+
 export async function synthesizeVerdict(
   reactions: JudgeReaction[],
-): Promise<{ verdict: string; score: number }> {
+): Promise<{ takes: VerdictTake[]; score: number }> {
   const avgScore =
     reactions.reduce((s, r) => s + r.score, 0) / reactions.length;
-  const res = await anthropic.messages.create({
-    model: MODEL,
-    max_tokens: 200,
-    system:
-      "Synthesize 3 judge reactions into ONE sentence capturing the panel's overall stance. If they disagree, note the split. Be concise. Output a single sentence, no quotes around it.",
-    messages: [
-      {
-        role: "user",
-        content: reactions.map((r) => `${r.guest}: ${r.reaction}`).join("\n\n"),
-      },
-    ],
-  });
-  const block = res.content[0];
-  const text =
-    block && block.type === "text"
-      ? block.text.trim()
-      : "The panel has weighed in.";
-  return { verdict: text, score: Math.round(avgScore * 10) / 10 };
+  const score = Math.round(avgScore * 10) / 10;
+
+  try {
+    const res = await anthropic.messages.create({
+      model: MODEL,
+      max_tokens: 300,
+      system: `Summarize each judge's reaction in one tight sentence. Output STRICT JSON only — an array, nothing else:
+[{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"}]`,
+      messages: [
+        {
+          role: "user",
+          content: reactions.map((r) => `${r.guest}: ${r.reaction}`).join("\n\n"),
+        },
+      ],
+    });
+
+    const block = res.content[0];
+    const raw = block && block.type === "text" ? block.text.trim() : "";
+    const arrayMatch = raw.match(/\[[\s\S]*\]/);
+    if (arrayMatch) {
+      const parsed = JSON.parse(arrayMatch[0]) as unknown;
+      if (
+        Array.isArray(parsed) &&
+        parsed.length > 0 &&
+        parsed.every(
+          (t) =>
+            typeof t === "object" &&
+            t !== null &&
+            typeof (t as Record<string, unknown>).name === "string" &&
+            typeof (t as Record<string, unknown>).text === "string",
+        )
+      ) {
+        return { takes: parsed as VerdictTake[], score };
+      }
+    }
+  } catch {
+    // fall through to deterministic fallback
+  }
+
+  return { takes: fallbackTakes(reactions), score };
 }

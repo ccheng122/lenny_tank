@@ -15,9 +15,11 @@ type Reaction = {
   score: number;
 };
 
+type VerdictTake = { name: string; text: string };
+
 type TankResponse = {
   reactions: Reaction[];
-  verdict: string;
+  takes: VerdictTake[];
   score: number;
   scenarioSetup: string;
   move: string;
@@ -113,6 +115,25 @@ export default function ResultClient() {
     setData(null);
     setError(null);
 
+    // Cache canonical (scenarioId, moveId) pairs in localStorage. Custom
+    // scenarios/moves carry unique text so they're not cacheable. Retries
+    // (attempt > 0) skip the cache and re-fetch fresh.
+    const cacheable =
+      scenarioId !== "custom" && moveId !== "custom" && attempt === 0;
+    const cacheKey = cacheable ? `tank:v2:${scenarioId}:${moveId}` : null;
+
+    if (cacheKey) {
+      try {
+        const raw = localStorage.getItem(cacheKey);
+        if (raw) {
+          setData(JSON.parse(raw) as TankResponse);
+          return;
+        }
+      } catch {
+        // bad/blocked storage — fall through to fetch
+      }
+    }
+
     (async () => {
       try {
         const body: Record<string, string> = { scenarioId, moveId };
@@ -130,6 +151,13 @@ export default function ResultClient() {
           return;
         }
         setData(json as TankResponse);
+        if (cacheKey) {
+          try {
+            localStorage.setItem(cacheKey, JSON.stringify(json));
+          } catch {
+            // quota exceeded or blocked — ignore
+          }
+        }
       } catch {
         if (!cancelled) setError("Couldn't reach The Tank. Check your connection and try again.");
       }
@@ -175,22 +203,30 @@ export default function ResultClient() {
   if (!data) {
     return (
       <Shell>
-        <div className="mx-auto max-w-5xl pt-16">
-          <div className="text-center mb-12">
-            <div className="result-spinner" aria-hidden />
+        <div className="mx-auto max-w-4xl pt-10">
+          <div className="text-center mb-14">
+            <div className="shark-swim-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/shark-fin-waterline.png"
+                alt=""
+                aria-hidden
+                className="shark-swim-img"
+              />
+            </div>
             <p
-              className="mt-6 text-lg"
+              className="mt-2 text-lg"
               style={{ color: T.textSecondary, fontStyle: "italic" }}
             >
               The panel is convening…
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="flex flex-col gap-3">
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
-                className="result-card result-card--skeleton"
-                style={{ animationDelay: `${i * 150}ms` }}
+                className="result-card--skeleton"
+                style={{ animationDelay: `${i * 150}ms`, height: "110px", borderRadius: "1rem" }}
               />
             ))}
           </div>
@@ -203,141 +239,68 @@ export default function ResultClient() {
   // ── Success state ──────────────────────────────────────────────────────
   return (
     <Shell>
-      <div className="mx-auto max-w-5xl">
-        {/* Context header: scenario + move */}
+      <div className="mx-auto max-w-4xl">
         <header className="mb-10 fade-in">
-          <p
-            className="text-eyebrow mb-2"
-            style={{ color: T.textMuted, letterSpacing: "0.18em" }}
-          >
-            The scenario
-          </p>
-          <p
-            className="text-base leading-relaxed mb-5"
-            style={{ color: T.textSecondary }}
-          >
-            {data.scenarioSetup}
-          </p>
-          <p
-            className="text-eyebrow mb-2"
-            style={{ color: T.textMuted, letterSpacing: "0.18em" }}
-          >
-            Your move
-          </p>
-          <p className="text-base leading-relaxed" style={{ color: T.text }}>
-            {data.move}
-          </p>
+          <div className="ctx-card">
+            <div className="ctx-scenario">
+              <p className="ctx-scenario-label">The scenario</p>
+              <p className="ctx-scenario-text">{data.scenarioSetup}</p>
+            </div>
+            <hr className="ctx-divider" />
+            <div className="ctx-move">
+              <span className="ctx-move-label">Your move</span>
+              <p className="ctx-move-text">{data.move}</p>
+            </div>
+          </div>
         </header>
 
-        {/* Judge cards */}
-        <section className="grid gap-6 md:grid-cols-3 mb-14">
+        <ul className="judge-cards">
           {data.reactions.map((r, i) => (
-            <article
-              key={r.slug}
-              className="result-card fade-in"
-              style={{ animationDelay: `${i * 120}ms` }}
-            >
-              <header className="mb-4">
-                <h2
-                  className="text-2xl font-bold leading-tight"
-                  style={{ color: T.text }}
-                >
-                  {r.guest}
-                </h2>
-                <p
-                  className="mt-1 text-sm"
-                  style={{ color: T.textMuted, lineHeight: 1.4 }}
-                >
-                  {r.post_url ? (
-                    <a
-                      href={r.post_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: T.textSecondary, textDecoration: "underline", textDecorationColor: T.border }}
-                    >
-                      {r.episode_title}
-                    </a>
-                  ) : (
-                    <span style={{ color: T.textSecondary }}>{r.episode_title}</span>
-                  )}
-                  {r.episode_date ? ` · ${r.episode_date}` : ""}
-                </p>
-              </header>
-
-              <p
-                className="text-lg leading-relaxed mb-5"
-                style={{ color: T.text }}
-              >
-                {r.reaction}
-              </p>
-
-              <blockquote className="result-pull">
-                <span className="result-pull__mark" aria-hidden>❝</span>
-                <p>{r.pull_quote}</p>
-                <span className="result-pull__mark result-pull__mark--end" aria-hidden>❞</span>
-              </blockquote>
-
-              <div className="mt-5 flex justify-end">
+            <li key={r.slug} className="judge-card fade-in" style={{ animationDelay: `${i * 120}ms` }}>
+              <div className="judge-meta">
+                <p className="judge-name">{r.guest}</p>
                 <ScoreBadge score={r.score} />
+                <p className="judge-episode">
+                  <a
+                    href={r.post_url ?? `https://www.lennysnewsletter.com/p/${r.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: T.textMuted, textDecoration: "underline" }}
+                  >
+                    {r.episode_title}
+                  </a>
+                  {r.episode_date ? <><br />{r.episode_date}</> : ""}
+                </p>
               </div>
-            </article>
+              <div className="judge-body">
+                <p className="judge-reaction">{r.reaction}</p>
+                <blockquote className="judge-pull"><p>❝ {r.pull_quote} ❞</p></blockquote>
+              </div>
+            </li>
           ))}
-        </section>
+        </ul>
 
-        {/* Verdict */}
-        <section
-          className="result-verdict fade-in"
-          style={{ animationDelay: "400ms" }}
-        >
-          <p
-            className="text-eyebrow mb-3"
-            style={{ color: T.orangeLight, letterSpacing: "0.22em" }}
-          >
-            The panel has spoken
-          </p>
-          <p
-            className="text-xl leading-relaxed mb-8"
-            style={{ color: T.text }}
-          >
-            {data.verdict}
-          </p>
-          <div className="flex items-baseline gap-4">
-            <span style={{ color: T.textMuted, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              Aggregate score
-            </span>
-            <span
-              style={{
-                fontSize: "3.5rem",
-                fontWeight: 800,
-                lineHeight: 1,
-                color: T.orange,
-              }}
-            >
-              {data.score.toFixed(1)}
-            </span>
-            <span style={{ color: T.textMuted, fontSize: "1.25rem" }}>
-              / 10
-            </span>
+        <section className="result-verdict fade-in" style={{ animationDelay: "400ms" }}>
+          <div className="flex items-center justify-between gap-6 mb-5 flex-wrap">
+            <p className="text-eyebrow" style={{ color: T.orangeLight, letterSpacing: "0.22em" }}>The panel has spoken</p>
+            <div className="flex items-baseline gap-1.5">
+              <span style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, color: T.orange }}>{data.score.toFixed(1)}</span>
+              <span style={{ color: T.textMuted, fontSize: "1rem" }}>/ 10</span>
+            </div>
+          </div>
+          <div className="vd-takes">
+            {(data.takes ?? []).map((t, i) => (
+              <div key={i} className="vd-take">
+                <span className="vd-take-name">{t.name}</span>
+                <p className="vd-take-text">{t.text}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Actions */}
-        <section
-          className="mt-12 flex flex-wrap justify-center gap-3 fade-in"
-          style={{ animationDelay: "500ms" }}
-        >
-          <button
-            onClick={openShareModal}
-            className="result-btn result-btn--primary"
-          >
-            Share — I got tanked
-          </button>
-          <button
-            onClick={() => router.push("/")}
-            className="result-btn result-btn--ghost"
-          >
-            Try another scenario →
-          </button>
+        <section className="mt-12 flex flex-wrap justify-center gap-3 fade-in" style={{ animationDelay: "500ms" }}>
+          <button onClick={openShareModal} className="result-btn result-btn--primary">Share: I got tanked</button>
+          <button onClick={() => router.push("/")} className="result-btn result-btn--ghost">Try another scenario →</button>
         </section>
       </div>
 
@@ -373,12 +336,13 @@ function ShareModal({
     <div
       className="share-modal-backdrop"
       onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Share quote preview"
+      aria-hidden="true"
     >
       <div
         className="share-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Share quote preview"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -533,6 +497,10 @@ function ButtonStyles() {
         color: ${T.text};
         border-color: ${T.borderStrong};
       }
+      .result-btn:focus-visible {
+        outline: 2px solid ${T.orange};
+        outline-offset: 3px;
+      }
     `}</style>
   );
 }
@@ -540,20 +508,29 @@ function ButtonStyles() {
 function SpinnerStyles() {
   return (
     <style jsx global>{`
-      .result-spinner {
-        display: inline-block;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 3px solid ${T.border};
-        border-top-color: ${T.orange};
-        animation: result-spin 0.9s linear infinite;
+      .shark-swim-wrap {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        overflow: hidden;
+        -webkit-mask-image: radial-gradient(ellipse 68% 88% at 50% 54%, black 38%, transparent 70%);
+        mask-image: radial-gradient(ellipse 68% 88% at 50% 54%, black 38%, transparent 70%);
       }
-      @keyframes result-spin {
-        to { transform: rotate(360deg); }
+      .shark-swim-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        animation: shark-swim 4.5s ease-in-out infinite;
+        transform-origin: center 70%;
+      }
+      @keyframes shark-swim {
+        0%   { transform: translateX(-30px) translateY(0px)  rotate(-2.5deg); }
+        25%  { transform: translateX(-8px)  translateY(-6px) rotate(-0.5deg); }
+        50%  { transform: translateX(30px)  translateY(0px)  rotate(2.5deg);  }
+        75%  { transform: translateX(8px)   translateY(-6px) rotate(0.5deg);  }
+        100% { transform: translateX(-30px) translateY(0px)  rotate(-2.5deg); }
       }
       .result-card--skeleton {
-        height: 320px;
         border: 1.5px solid ${T.border};
         background: linear-gradient(
           90deg,
@@ -568,8 +545,9 @@ function SpinnerStyles() {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
-      .result-card {
-        border-radius: 1rem;
+      @media (prefers-reduced-motion: reduce) {
+        .shark-swim-img { animation: none; }
+        .result-card--skeleton { animation: none; }
       }
     `}</style>
   );
@@ -578,50 +556,71 @@ function SpinnerStyles() {
 function CardStyles() {
   return (
     <style jsx global>{`
-      .result-card {
+      /* Context card (cream brief at top of results) */
+      .ctx-card { background-color: rgba(245, 237, 228, 0.82); border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.45); }
+      .ctx-scenario { padding: 1.25rem 1.5rem; }
+      .ctx-scenario-label { font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #a08070; margin: 0 0 0.4rem; }
+      .ctx-scenario-text { font-size: 0.9375rem; line-height: 1.65; color: #5a4538; margin: 0; }
+      .ctx-divider { height: 1px; background-color: #d9cdc4; margin: 0; border: none; }
+      .ctx-move { padding: 1.25rem 1.5rem; background-color: rgba(237, 228, 216, 0.82); }
+      .ctx-move-label { display: block; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: ${T.orange}; margin-bottom: 0.35rem; font-weight: 700; }
+      .ctx-move-text { font-size: 1.0625rem; line-height: 1.55; color: #1e1410; font-weight: 600; margin: 0; }
+
+      /* Judge cards */
+      .judge-cards { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 3.5rem; list-style: none; padding: 0; margin-top: 0; }
+      .judge-card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 0 2rem;
         background-color: ${T.surface};
-        border: 1.5px solid ${T.border};
+        border: 1.5px solid ${T.borderStrong};
         border-radius: 1rem;
-        padding: 1.75rem;
-        display: flex;
-        flex-direction: column;
+        padding: 1.5rem 1.75rem;
+        align-items: start;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.35);
       }
-      .result-pull {
-        position: relative;
-        margin: 0;
-        padding: 0.5rem 0 0.5rem 1.25rem;
-        border-left: 3px solid ${T.orange};
-        font-style: italic;
-        color: ${T.textSecondary};
-        line-height: 1.6;
+      .judge-meta { padding-right: 2rem; border-right: 1px solid ${T.border}; }
+      .judge-body { min-width: 0; }
+      .judge-name { font-size: 1rem; font-weight: 700; color: ${T.text}; line-height: 1.3; margin: 0 0 0.5rem; }
+      .judge-episode { font-size: 0.75rem; color: ${T.textMuted}; line-height: 1.5; margin: 0.625rem 0 0; }
+      .judge-reaction { font-size: 0.9375rem; line-height: 1.65; color: ${T.textSecondary}; margin: 0 0 1rem; }
+      .judge-pull {
+        margin: 0; padding: 0.75rem 1rem;
+        background-color: ${T.surfaceRaised}; border: 1px solid ${T.border};
+        border-radius: 0.5rem; font-style: italic;
+        color: ${T.textMuted}; font-size: 0.875rem; line-height: 1.6;
       }
-      .result-pull p {
-        margin: 0;
-        font-size: 0.95rem;
+      .judge-pull p { margin: 0; }
+      @media (max-width: 640px) {
+        .judge-card { grid-template-columns: 1fr; gap: 1rem 0; }
+        .judge-meta { padding-right: 0; border-right: none; border-bottom: 1px solid ${T.border}; padding-bottom: 1rem; }
       }
-      .result-pull__mark {
-        color: ${T.orange};
-        font-size: 1.25rem;
-        font-style: normal;
-        margin-right: 0.25rem;
-        opacity: 0.85;
-      }
-      .result-pull__mark--end {
-        margin-left: 0.25rem;
-        margin-right: 0;
-      }
+
+      /* Verdict */
       .result-verdict {
         background-color: ${T.surfaceRaised};
         border: 1.5px solid ${T.borderStrong};
         border-radius: 1.25rem;
         padding: 2.25rem 2rem;
       }
-      .fade-in {
-        animation: result-fade 280ms ease-out both;
+      .vd-takes { display: flex; flex-direction: column; gap: 0; }
+      .vd-take { display: grid; grid-template-columns: 140px 1fr; gap: 0 1.25rem; padding: 0.875rem 0; border-top: 1px solid ${T.border}; align-items: baseline; }
+      .vd-take:last-child { border-bottom: 1px solid ${T.border}; }
+      .vd-take-name { font-size: 0.8125rem; font-weight: 600; color: ${T.orange}; opacity: 0.8; }
+      .vd-take-text { font-size: 0.9375rem; line-height: 1.6; color: ${T.text}; margin: 0; min-width: 0; }
+      @media (max-width: 480px) {
+        .vd-take { grid-template-columns: 1fr; gap: 0.2rem 0; padding: 0.75rem 0; }
+        .vd-take-name { opacity: 1; }
       }
+
+      /* Animations */
+      .fade-in { animation: result-fade 280ms ease-out both; }
       @keyframes result-fade {
         from { opacity: 0; transform: translateY(6px); }
         to   { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fade-in { animation: none; }
       }
     `}</style>
   );

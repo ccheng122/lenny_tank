@@ -163,18 +163,11 @@ export default async function TankPage({
   const backHref = await getBackHref(`/bucket/${bucket}`, from);
 
   return (
-    <main className="min-h-screen px-6 pb-32 pt-10 sm:px-10">
+    <main className="min-h-screen px-6 pb-24 pt-10 sm:px-10">
       <div className="mx-auto max-w-2xl">
         <BackLink href={backHref} />
-
-        {/* Scenario block */}
-        <section className="card p-7 mb-12">
-          <p
-            className="text-eyebrow mb-3"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            The scenario
-          </p>
+        <section className="card p-7 mb-10">
+          <p className="text-eyebrow mb-3">The scenario</p>
           <h1
             className="text-3xl font-bold sm:text-4xl mb-4"
             style={{ color: "var(--color-text-primary)" }}
@@ -188,45 +181,20 @@ export default async function TankPage({
             {card.setup}
           </p>
         </section>
-
-        {/* Moves */}
-        <h2
-          className="text-2xl font-bold mb-5"
-          style={{ color: "var(--color-text-primary)" }}
-        >
-          Your move
-        </h2>
-
-        <ol className="flex flex-col gap-4 mb-6">
-          {card.suggested_moves.map((move, i) => {
-            const letter = String.fromCharCode(65 + i); // A, B, C
-            return (
-              <li key={i}>
-                <Link
-                  href={`/tank/result?scenarioId=${encodeURIComponent(card.id)}&moveId=${i}`}
-                  className="btn-secondary group block w-full text-left px-6 py-5"
-                >
-                  <div className="flex items-start gap-4">
-                    <span
-                      className="text-lg font-bold leading-7 shrink-0"
-                      style={{ color: "var(--color-brand-orange)" }}
-                    >
-                      {letter}
-                    </span>
-                    <span
-                      className="text-base leading-7"
-                      style={{ color: "var(--color-text-primary)" }}
-                    >
-                      {move}
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
+        <p className="text-eyebrow mb-4">Your move</p>
+        <ol className="flex flex-col gap-3 mb-5">
+          {card.suggested_moves.map((move, i) => (
+            <li key={i}>
+              <Link
+                href={`/tank/result?scenarioId=${encodeURIComponent(card.id)}&moveId=${i}`}
+                className="tank-move"
+              >
+                <span className="tank-move-letter">{String.fromCharCode(65 + i)}</span>
+                <span>{move}</span>
+              </Link>
+            </li>
+          ))}
         </ol>
-
-        {/* Write your own move */}
         <CustomMoveForm scenarioId={card.id} />
       </div>
     </main>

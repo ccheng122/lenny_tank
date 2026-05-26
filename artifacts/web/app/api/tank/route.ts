@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { embed, topChunks } from "@/lib/retrieval";
+import { embed, topChunks, loadPrecomputedMoveEmbedding } from "@/lib/retrieval";
 import {
   loadCharacterSheet,
   judgeReaction,
@@ -107,7 +107,18 @@ export async function POST(req: NextRequest) {
   const chosen = shuffled.slice(0, 3);
 
   try {
-    const queryEmbedding = await embed(`${scenarioSetup}\n\nMove: ${move}`);
+    // Canonical (scenarioId, moveId) pairs have pre-computed embeddings shipped
+    // in data-runtime/move-embeddings.json — skip the live OpenAI call when present.
+    let queryEmbedding: number[] | null = null;
+    if (scenarioId !== "custom" && moveId !== "custom") {
+      const idx = parseInt(moveId, 10);
+      if (!Number.isNaN(idx)) {
+        queryEmbedding = await loadPrecomputedMoveEmbedding(scenarioId, idx);
+      }
+    }
+    if (!queryEmbedding) {
+      queryEmbedding = await embed(`${scenarioSetup}\n\nMove: ${move}`);
+    }
 
     // allSettled so a single upstream blip doesn't tank the whole panel.
     const settled = await Promise.allSettled(
@@ -135,11 +146,11 @@ export async function POST(req: NextRequest) {
       return bad("Judges unavailable, please try again", 503);
     }
 
-    const { verdict, score } = await synthesizeVerdict(reactions);
+    const { takes, score } = await synthesizeVerdict(reactions);
 
     return NextResponse.json({
       reactions,
-      verdict,
+      takes,
       score,
       scenarioSetup,
       move,

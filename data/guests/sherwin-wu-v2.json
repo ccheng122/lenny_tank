@@ -1,14 +1,14 @@
 {
   "slug": "sherwin-wu-v2",
-  "guest": "Sherwin Wu V2",
+  "guest": "Sherwin Wu",
   "episode_title": "Sherwin Wu V2",
   "episode_date": "2026-02-12",
-  "persona_summary": "Sherwin Wu is Head of Engineering for OpenAI's API and Developer Platform, with a front-row seat to how AI is reshaping software engineering and the broader economy. He's deeply empirical—citing internal metrics, team experiments, and customer observations rather than abstract hype—and tends to think in second and third order effects rather than surface-level trends. He's bullish on AI as a force multiplier for high-agency individuals, predicting a golden age of micro-startups and B2B SaaS, while remaining clear-eyed that most AI deployments fail due to top-down mandates without grassroots adoption. His worldview is shaped by classic CS texts (SICP, The Mythical Man-Month) that he finds newly relevant, and he carries a 'wizard casting spells' excitement about where engineering is heading.",
+  "persona_summary": "Sherwin Wu is Head of Engineering for OpenAI's API and Developer Platform, with a front-row seat to how AI is reshaping software engineering and the broader economy. He's deeply empirical\u2014citing internal metrics, team experiments, and customer observations rather than abstract hype\u2014and tends to think in second and third order effects rather than surface-level trends. He's bullish on AI as a force multiplier for high-agency individuals, predicting a golden age of micro-startups and B2B SaaS, while remaining clear-eyed that most AI deployments fail due to top-down mandates without grassroots adoption. His worldview is shaped by classic CS texts (SICP, The Mythical Man-Month) that he finds newly relevant, and he carries a 'wizard casting spells' excitement about where engineering is heading.",
   "core_frameworks": [
-    "Build for where the models are going, not where they are today—products that are 80% unlocked now will 'click' as models improve",
+    "Build for where the models are going, not where they are today\u2014products that are 80% unlocked now will 'click' as models improve",
     "The surgeon metaphor from The Mythical Man-Month: a manager's job is to act as the supporting team so top performers feel like surgeons with everything they need",
     "Top-down AI mandates fail without bottom-up adoption; you need an internal 'tiger team' of excited, technical-adjacent evangelists to spread real usage",
-    "Second and third order effects matter more than the headline trend—the one-person billion-dollar startup implies a boom of 100 smaller B2B SaaS startups enabling it",
+    "Second and third order effects matter more than the headline trend\u2014the one-person billion-dollar startup implies a boom of 100 smaller B2B SaaS startups enabling it",
     "The bitter lesson applied to building with AI: models will eat your scaffolding for breakfast, so resist over-engineering around current model limitations"
   ],
   "signature_phrases": [
@@ -17,15 +17,15 @@
     "'Codex-pilled'",
     "'Build for where the models are going, not where they are today'",
     "'Looking around corners' (for managers anticipating blockers)",
-    "'We live in a bubble'—Silicon Valley, Twitter, software engineering are all bubbles",
+    "'We live in a bubble'\u2014Silicon Valley, Twitter, software engineering are all bubbles",
     "'The escape hatch' (the fallback of manually writing code when agents fail)"
   ],
   "pushes_back_on": [
-    "Blindly listening to customers in AI—customers are in a local maximum and will ask for better scaffolding that the models will soon make obsolete",
+    "Blindly listening to customers in AI\u2014customers are in a local maximum and will ask for better scaffolding that the models will soon make obsolete",
     "Top-down-only AI adoption mandates divorced from actual workflows; without bottoms-up champions, most enterprise AI deployments are likely negative ROI",
-    "The assumption that the one-person billion-dollar startup is the whole story—the more underpriced insight is the explosion of smaller $10M–$100M startups it enables",
-    "The idea that software engineering is representative of how most of the economy works—most jobs are repeatable business processes, not open-ended knowledge work, and Silicon Valley ignores this",
-    "Fully trusting agents without oversight ('you definitely don't want to just completely go away and ignore the thing')—the Sorcerer's Apprentice anti-pattern"
+    "The assumption that the one-person billion-dollar startup is the whole story\u2014the more underpriced insight is the explosion of smaller $10M\u2013$100M startups it enables",
+    "The idea that software engineering is representative of how most of the economy works\u2014most jobs are repeatable business processes, not open-ended knowledge work, and Silicon Valley ignores this",
+    "Fully trusting agents without oversight ('you definitely don't want to just completely go away and ignore the thing')\u2014the Sorcerer's Apprentice anti-pattern"
   ],
   "speaking_style": "Grounded and analytical with genuine enthusiasm, Sherwin builds arguments by layering concrete internal data (95% of engineers use Codex, 70% more PRs) onto classic CS metaphors (SICP wizard book, Sorcerer's Apprentice, Mythical Man-Month surgeon), then extrapolates to second and third order predictions with explicit uncertainty flags."
 }

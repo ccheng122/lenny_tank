@@ -187,6 +187,19 @@
     line-height: 1;
   }
 
+  /* ── Scenario card title — thick underline, orange on parent .group hover ── */
+
+  .scenario-title {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-border-strong);
+    text-underline-offset: 6px;
+    transition: text-decoration-color 0.15s ease;
+  }
+  .group:hover .scenario-title {
+    text-decoration-color: var(--color-brand-orange);
+  }
+
   /* ── Move buttons (bucket scenario page) ── */
 
   .move-btn {
@@ -233,5 +246,142 @@
   .move-letter--own {
     color: inherit;
     font-weight: 400;
+  }
+
+  /* ── CTA label — muted at rest, orange on parent .group hover ── */
+
+  .cta-label {
+    color: var(--color-text-muted);
+    transition: color 0.15s;
+  }
+  .group:hover .cta-label {
+    color: var(--color-brand-orange);
+  }
+
+  /* ── Tank move options — card + pill-letter ── */
+
+  .tank-move {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 1.375rem 1.5rem;
+    border-radius: var(--radius-card);
+    border: 1.5px solid var(--color-border);
+    background-color: var(--color-card);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.45;
+    transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s, transform 0.18s;
+  }
+  .tank-move:hover {
+    border-color: var(--color-brand-orange);
+    background-color: var(--color-surface-tint);
+    box-shadow: 0 4px 16px rgba(224, 116, 50, 0.10);
+    transform: translateY(-1px);
+  }
+
+  .tank-move-letter {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: var(--color-brand-orange-light);
+    color: var(--color-brand-orange);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .tank-move:hover .tank-move-letter {
+    background-color: var(--color-brand-orange);
+    color: #ffffff;
+  }
+
+  /* ── Scenario card list — numbered two-column layout ── */
+
+  .scenario-list {
+    counter-reset: scenario-card;
+  }
+  .scenario-list > li {
+    counter-increment: scenario-card;
+  }
+
+  .scenario-card-link {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 1.25rem;
+    align-items: start;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius-card);
+    background: var(--color-card);
+    border: 1.5px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(180, 130, 90, 0.06);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .scenario-card-link:hover {
+    border-color: var(--color-brand-orange);
+    box-shadow: 0 4px 16px rgba(224, 116, 50, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .scenario-card-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-border-strong);
+    transition: color 0.15s;
+    padding-top: 1px;
+  }
+  .scenario-card-num::before {
+    content: counter(scenario-card, decimal-leading-zero);
+  }
+  .scenario-card-link:hover .scenario-card-num {
+    color: var(--color-brand-orange);
+  }
+
+  .scenario-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .scenario-card-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .scenario-card-setup {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .scenario-card-cta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+    margin-top: 0.25rem;
+  }
+  .scenario-card-link:hover .scenario-card-cta {
+    color: var(--color-brand-orange);
   }
 }
