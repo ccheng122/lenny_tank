@@ -134,7 +134,7 @@ export default function Home() {
           </span>
         </p>
         <div className="flex items-center gap-3">
-          <Link href="/about" className="btn-secondary">
+          <Link href="/about" className="btn-primary">
             About
           </Link>
           <a
