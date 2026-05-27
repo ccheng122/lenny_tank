@@ -1,4 +1,4 @@
-// File: /home/runner/workspace/artifacts/web/app/bucket/[slug]/page.tsx
+// File: /Users/claracheng/Documents/Projects/lennys_podcast/lenny_tank_app/artifacts/web/app/bucket/[slug]/page.tsx
 import * as entry from '../../../../../../app/bucket/[slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

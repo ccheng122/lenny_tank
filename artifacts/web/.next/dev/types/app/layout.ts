@@ -1,4 +1,4 @@
-// File: /home/runner/workspace/artifacts/web/app/layout.tsx
+// File: /Users/claracheng/Documents/Projects/lennys_podcast/lenny_tank_app/artifacts/web/app/layout.tsx
 import * as entry from '../../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

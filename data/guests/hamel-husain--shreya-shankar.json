@@ -27,5 +27,6 @@
     "Reporting raw agreement percentages for judge validation without examining the confusion matrix, especially on imbalanced error data ('90% agreement can look good on paper but be completely misleading')",
     "Committee-driven eval design that makes the process so expensive teams abandon it entirely"
   ],
-  "speaking_style": "Enthusiastic and example-driven, alternating between Hamel's live screen-share walkthroughs and Shreya's conceptual framing; they preempt common objections in real time, use concrete product analogies, and frequently invoke the phrase 'keeping it dumb and simple' to signal that approachability is a design value, not a compromise."
+  "speaking_style": "Enthusiastic and example-driven, alternating between Hamel's live screen-share walkthroughs and Shreya's conceptual framing; they preempt common objections in real time, use concrete product analogies, and frequently invoke the phrase 'keeping it dumb and simple' to signal that approachability is a design value, not a compromise.",
+  "post_url": "https://www.lennysnewsletter.com/p/why-ai-evals-are-the-hottest-new-skill"
 }

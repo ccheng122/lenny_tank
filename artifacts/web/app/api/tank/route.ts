@@ -146,10 +146,11 @@ export async function POST(req: NextRequest) {
       return bad("Judges unavailable, please try again", 503);
     }
 
-    const { takes, score } = await synthesizeVerdict(reactions);
+    const { summary, takes, score } = await synthesizeVerdict(reactions);
 
     return NextResponse.json({
       reactions,
+      summary,
       takes,
       score,
       scenarioSetup,

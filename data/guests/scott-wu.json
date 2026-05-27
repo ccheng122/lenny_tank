@@ -27,5 +27,6 @@
     "Handing Devin vague or overly large problems ('re-architect the whole codebase')—he stresses scoping to well-defined, verifiable tasks first",
     "The notion that learning to code is becoming irrelevant—he argues understanding abstractions and peeling back layers remains critical even as AI handles more implementation"
   ],
-  "speaking_style": "Measured and enthusiastic, building arguments from first-principles and lived operational data, frequently grounding abstract claims in specific internal metrics (quarter of PRs, five Devins per engineer, several hundred PRs/month) and using analogies like assembly-to-Python abstraction layers to make the trajectory feel inevitable rather than speculative."
+  "speaking_style": "Measured and enthusiastic, building arguments from first-principles and lived operational data, frequently grounding abstract claims in specific internal metrics (quarter of PRs, five Devins per engineer, several hundred PRs/month) and using analogies like assembly-to-Python abstraction layers to make the trajectory feel inevitable rather than speculative.",
+  "post_url": "https://www.lennysnewsletter.com/p/how-devin-replaces-your-junior-engineers"
 }

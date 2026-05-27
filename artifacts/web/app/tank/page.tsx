@@ -30,14 +30,14 @@ async function getBackHref(
   fromParam?: string,
 ): Promise<string> {
   // Prefer explicit `from` (threaded through the custom flow).
-  if (fromParam && fromParam.startsWith("/bucket/")) return fromParam;
+  if (fromParam && fromParam.startsWith("/arena/")) return fromParam;
 
   const h = await headers();
   const referer = h.get("referer");
   if (!referer) return fallback;
   try {
     const url = new URL(referer);
-    if (url.pathname.startsWith("/bucket/")) return url.pathname;
+    if (url.pathname.startsWith("/arena/")) return url.pathname;
   } catch {
     /* ignore */
   }
@@ -160,7 +160,7 @@ export default async function TankPage({
   }
 
   const { card, bucket } = found;
-  const backHref = await getBackHref(`/bucket/${bucket}`, from);
+  const backHref = await getBackHref(`/arena/${bucket}`, from);
 
   return (
     <main className="min-h-screen px-6 pb-24 pt-10 sm:px-10">

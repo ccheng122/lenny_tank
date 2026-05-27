@@ -19,6 +19,7 @@ type VerdictTake = { name: string; text: string };
 
 type TankResponse = {
   reactions: Reaction[];
+  summary: string;
   takes: VerdictTake[];
   score: number;
   scenarioSetup: string;
@@ -260,17 +261,17 @@ export default function ResultClient() {
               <div className="judge-meta">
                 <p className="judge-name">{r.guest}</p>
                 <ScoreBadge score={r.score} />
-                <p className="judge-episode">
+                {r.post_url && (
                   <a
-                    href={r.post_url ?? `https://www.lennysnewsletter.com/p/${r.slug}`}
+                    href={r.post_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: T.textMuted, textDecoration: "underline" }}
+                    className="judge-ep-pill"
                   >
-                    {r.episode_title}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor" width="10" height="10" aria-hidden="true"><path d="M3.5 3a.5.5 0 0 0 0 1H7.3L3.14 8.15a.5.5 0 1 0 .71.71L8 4.71V8.5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5h-5Z"/></svg>
+                    Open episode
                   </a>
-                  {r.episode_date ? <><br />{r.episode_date}</> : ""}
-                </p>
+                )}
               </div>
               <div className="judge-body">
                 <p className="judge-reaction">{r.reaction}</p>
@@ -281,13 +282,18 @@ export default function ResultClient() {
         </ul>
 
         <section className="result-verdict fade-in" style={{ animationDelay: "400ms" }}>
-          <div className="flex items-center justify-between gap-6 mb-5 flex-wrap">
-            <p className="text-eyebrow" style={{ color: T.orangeLight, letterSpacing: "0.22em" }}>The panel has spoken</p>
+          <div className="flex items-center justify-between gap-6 mb-4 flex-wrap">
+            <p style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: T.orangeLight }}>The panel has spoken</p>
             <div className="flex items-baseline gap-1.5">
               <span style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, color: T.orange }}>{data.score.toFixed(1)}</span>
               <span style={{ color: T.textMuted, fontSize: "1rem" }}>/ 10</span>
             </div>
           </div>
+          {data.summary ? (
+            <p style={{ fontSize: "1.125rem", fontWeight: 600, lineHeight: 1.55, color: T.text, marginBottom: "1.5rem" }}>
+              {data.summary}
+            </p>
+          ) : null}
           <div className="vd-takes">
             {(data.takes ?? []).map((t, i) => (
               <div key={i} className="vd-take">
@@ -299,7 +305,7 @@ export default function ResultClient() {
         </section>
 
         <section className="mt-12 flex flex-wrap justify-center gap-3 fade-in" style={{ animationDelay: "500ms" }}>
-          <button onClick={openShareModal} className="result-btn result-btn--primary">Share: I got tanked</button>
+          <button onClick={openShareModal} className="result-btn result-btn--primary">Share → I got tanked</button>
           <button onClick={() => router.push("/")} className="result-btn result-btn--ghost">Try another scenario →</button>
         </section>
       </div>
@@ -581,8 +587,9 @@ function CardStyles() {
       }
       .judge-meta { padding-right: 2rem; border-right: 1px solid ${T.border}; }
       .judge-body { min-width: 0; }
-      .judge-name { font-size: 1rem; font-weight: 700; color: ${T.text}; line-height: 1.3; margin: 0 0 0.5rem; }
-      .judge-episode { font-size: 0.75rem; color: ${T.textMuted}; line-height: 1.5; margin: 0.625rem 0 0; }
+      .judge-name { font-size: 1.125rem; font-weight: 700; color: ${T.text}; line-height: 1.3; margin: 0 0 0.5rem; }
+      .judge-ep-pill { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.75rem; padding: 0.3rem 0.65rem; border-radius: 9999px; border: 1px solid ${T.borderStrong}; background: ${T.surfaceRaised}; color: ${T.textSecondary}; font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+      .judge-ep-pill:hover { border-color: ${T.orange}; color: ${T.orangeLight}; }
       .judge-reaction { font-size: 0.9375rem; line-height: 1.65; color: ${T.textSecondary}; margin: 0 0 1rem; }
       .judge-pull {
         margin: 0; padding: 0.75rem 1rem;
@@ -606,7 +613,7 @@ function CardStyles() {
       .vd-takes { display: flex; flex-direction: column; gap: 0; }
       .vd-take { display: grid; grid-template-columns: 140px 1fr; gap: 0 1.25rem; padding: 0.875rem 0; border-top: 1px solid ${T.border}; align-items: baseline; }
       .vd-take:last-child { border-bottom: 1px solid ${T.border}; }
-      .vd-take-name { font-size: 0.8125rem; font-weight: 600; color: ${T.orange}; opacity: 0.8; }
+      .vd-take-name { font-size: 0.9375rem; font-weight: 600; color: ${T.orange}; opacity: 0.8; }
       .vd-take-text { font-size: 0.9375rem; line-height: 1.6; color: ${T.text}; margin: 0; min-width: 0; }
       @media (max-width: 480px) {
         .vd-take { grid-template-columns: 1fr; gap: 0.2rem 0; padding: 0.75rem 0; }

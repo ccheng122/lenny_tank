@@ -1,0 +1,58 @@
+{
+  "id": "28b78e3b",
+  "phase": "generating",
+  "pageUrl": "/tank/result",
+  "sourceFile": null,
+  "expectedVariants": 3,
+  "arrivedVariants": 0,
+  "visibleVariant": 0,
+  "paramValues": {},
+  "pendingEventSeq": 2,
+  "pendingEvent": {
+    "type": "generate",
+    "id": "28b78e3b",
+    "action": "impeccable",
+    "count": 3,
+    "pageUrl": "/tank/result",
+    "element": {
+      "tagName": "div",
+      "id": null,
+      "classes": [],
+      "textContent": "",
+      "outerHTML": "<div aria-hidden=\"true\" style=\"position: relative; width: 100%; max-width: 580px; height: 280px; margin: 0px auto; overflow: hidden; background: rgb(240, 228, 210); mask-image: radial-gradient(84% 88% at 50% 54%, black 36%, transparent 72%);\"><div style=\"position: absolute; top: 0px; left: 0px; width: 130px; height: 130px; will-change: transform; pointer-events: none; transform: translate(132.6px, 114.5px) scaleX(-1); opacity: 0.08;\"><img alt=\"\" width=\"130\" height=\"130\" src=\"/images/single-fin.png\" style=\"display: block; width: 100%; height: 100%; object-fit: contain;\"></div><div style=\"position: absolute; top: 0px; left: 0px; width: 100px; height: 100px; will-change: transform; pointer-events: none; transform: translate(170.5px, 97.5px) scaleX(1); opacity: 0.08;\"><img alt=\"\" width=\"100\" height=\"100\" src=\"/images/single-fin.png\" style=\"display: block; width: 100%; height: 100%; object-fit: contain;\"></div><div style=\"position: absolute; top: 0px; left: 0px; width: 76px; height: 76px; will-change: transform; pointer-events: none; transform: translate(278px, 60.6px) scaleX(1); opacity: 1;\"><img alt=\"\" width=\"76\" height=\"76\" src=\"/images/single-fin.png\" style=\"display: block; width: 100%; height: 100%; object-fit: contain;\"></div></div>",
+      "computedStyles": {
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "24px",
+        "color": "rgb(245, 237, 228)",
+        "background": "rgb(240, 228, 210) none repeat scroll 0% 0% / auto padding-box border-box",
+        "background-color": "rgb(240, 228, 210)",
+        "padding": "0px",
+        "margin": "0px 158.003px 0px 157.995px",
+        "display": "block",
+        "position": "relative",
+        "gap": "normal",
+        "border-radius": "0px",
+        "box-shadow": "none"
+      },
+      "cssCustomProperties": {
+        "--font-geist": "'Geist', 'Geist Fallback'",
+        "--font-caveat": "'Caveat', 'Caveat Fallback'"
+      },
+      "parentContext": "<div class=\"text-center mb-14\">",
+      "boundingRect": {
+        "width": 580,
+        "height": 280
+      }
+    }
+  },
+  "deliveryLease": null,
+  "checkpointRevision": 2,
+  "activeOwner": "e61ab9a1",
+  "sourceMarkers": {},
+  "fallbackMode": null,
+  "annotationArtifacts": [],
+  "diagnostics": [],
+  "updatedAt": "2026-05-27T02:43:31.153Z"
+}

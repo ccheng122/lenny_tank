@@ -29,6 +29,7 @@ export default function Home() {
           style={{ color: "var(--color-text-secondary)" }}
         >
           Practice the high-stakes decisions of your craft.{" "}
+          <br></br>
           <span style={{ color: "var(--color-text-primary)", fontWeight: 500 }}>
             Get feedback from people who've already lived them.
           </span>
@@ -69,7 +70,7 @@ export default function Home() {
             return (
               <Link
                 key={key}
-                href={`/bucket/${key}`}
+                href={`/arena/${key}`}
                 className="card card-interactive group relative flex flex-col items-center gap-3 p-6 transition-all duration-200 hover:-translate-y-0.5"
               >
                 <Image
@@ -77,7 +78,7 @@ export default function Home() {
                   alt={`${label} icon`}
                   width={80}
                   height={80}
-                  className="h-16 w-16 object-contain"
+                  className="h-24 w-24 object-contain"
                   style={iconScale ? { transform: `scale(${iconScale})` } : undefined}
                   unoptimized
                 />

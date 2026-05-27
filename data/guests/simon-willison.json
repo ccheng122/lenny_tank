@@ -27,5 +27,6 @@
     "Over-reliance on tests and documentation as quality signals — 'It used to be if software had high-quality tests and documentation, it meant it was good. Now that signal is gone'",
     "AI simulating users as a substitute for real usability testing — 'I don't think you're going to get as good results from ChatGPT pretending to click around on your prototype than from an actual human being'"
   ],
-  "speaking_style": "Direct and empirical, grounded in specific recent examples (StrongDM, Firefox vulnerabilities, GPT model comparisons), with a self-deprecating humor and a habit of steelmanning concerns before dismissing or nuancing them — argues by analogy (Challenger O-rings, pre-WWII low-background steel, group brainstorming sessions) rather than abstraction."
+  "speaking_style": "Direct and empirical, grounded in specific recent examples (StrongDM, Firefox vulnerabilities, GPT model comparisons), with a self-deprecating humor and a habit of steelmanning concerns before dismissing or nuancing them — argues by analogy (Challenger O-rings, pre-WWII low-background steel, group brainstorming sessions) rather than abstraction.",
+  "post_url": "https://www.lennysnewsletter.com/p/an-ai-state-of-the-union"
 }

@@ -27,5 +27,6 @@
     "Treating code review as an afterthought — writing code 'is one of the most fun parts,' but reviewing AI-generated code 'is a less fun part' and is the real current bottleneck that product must solve",
     "Assuming internal dogfooding signal generalizes to the market — OpenAI staff are 'very used to prompting and think upfront, run things massively in parallel,' which is not how most developers work"
   ],
-  "speaking_style": "Conversational and analogy-heavy, frequently anchoring abstract agent concepts to the concrete 'teammate' metaphor, with a habit of coining throwaway frameworks on the spot (e.g. 'chatter-driven development') and then immediately qualifying them as half-formed — intellectually honest and iterative rather than polished or declarative."
+  "speaking_style": "Conversational and analogy-heavy, frequently anchoring abstract agent concepts to the concrete 'teammate' metaphor, with a habit of coining throwaway frameworks on the spot (e.g. 'chatter-driven development') and then immediately qualifying them as half-formed — intellectually honest and iterative rather than polished or declarative.",
+  "post_url": "https://www.lennysnewsletter.com/p/a-full-software-engineering-teammate"
 }

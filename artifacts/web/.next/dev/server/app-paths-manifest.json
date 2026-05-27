@@ -1,6 +1,7 @@
 {
-  "/api/share/route": "static/webpack/app/api/share/route.944368cb8ccacc70.hot-update.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/tank/route": "app/api/tank/route.js",
   "/tank/result/page": "app/tank/result/page.js",
-  "/page": "app/page.js",
-  "/bucket/[slug]/page": "app/bucket/[slug]/page.js"
+  "/arena/[slug]/page": "app/arena/[slug]/page.js",
+  "/tank/page": "app/tank/page.js"
 }

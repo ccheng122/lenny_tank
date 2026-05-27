@@ -27,5 +27,6 @@
     "Using NRR as the sole golden retention metric — NRR masks logo churn math; a 20% loss requires a 25% gain to recover, so NRR of 100% is actually a slow bleed",
     "The assumption that 'project ended' means nothing can be done — he argues this may reflect wrong ICP selection or product failure, not an external inevitability"
   ],
-  "speaking_style": "Methodical and conversational, building arguments through concrete numerical examples and personal anecdotes, with occasional self-interrupting tangents that he flags explicitly — he argues by stress-testing the obvious until it breaks."
+  "speaking_style": "Methodical and conversational, building arguments through concrete numerical examples and personal anecdotes, with occasional self-interrupting tangents that he flags explicitly — he argues by stress-testing the obvious until it breaks.",
+  "post_url": "https://www.lennysnewsletter.com/p/why-your-product-stopped-growing"
 }

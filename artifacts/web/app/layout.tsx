@@ -32,10 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.variable} ${caveat.variable} antialiased`} suppressHydrationWarning>
         {children}
-      {/* impeccable-live-start */}
-<script src="http://localhost:8401/live.js"></script>
-{/* impeccable-live-end */}
-</body>
+      </body>
     </html>
   );
 }

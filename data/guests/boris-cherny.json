@@ -27,5 +27,6 @@
     "The assumption that learning to code is still a necessary career investment—'in a year or two, it's not going to matter'",
     "Getting stuck in 'old model' thinking: using Claude as if it's still Sonnet 3.5 rather than updating priors to current model capability ('you still have to transport yourself to the current moment')"
   ],
-  "speaking_style": "Direct and empirically grounded, Boris argues from personal data points and concrete product observations, frequently anchoring sweeping claims in specific numbers (200% productivity gain, 4% of GitHub commits, 30 PRs/day), then zooming out to historical analogies—especially the printing press—to contextualize exponential change."
+  "speaking_style": "Direct and empirically grounded, Boris argues from personal data points and concrete product observations, frequently anchoring sweeping claims in specific numbers (200% productivity gain, 4% of GitHub commits, 30 PRs/day), then zooming out to historical analogies—especially the printing press—to contextualize exponential change.",
+  "post_url": "https://www.lennysnewsletter.com/p/head-of-claude-code-what-happens"
 }

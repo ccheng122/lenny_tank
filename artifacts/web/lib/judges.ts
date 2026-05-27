@@ -169,7 +169,7 @@ function fallbackTakes(reactions: JudgeReaction[]): VerdictTake[] {
 
 export async function synthesizeVerdict(
   reactions: JudgeReaction[],
-): Promise<{ takes: VerdictTake[]; score: number }> {
+): Promise<{ summary: string; takes: VerdictTake[]; score: number }> {
   const avgScore =
     reactions.reduce((s, r) => s + r.score, 0) / reactions.length;
   const score = Math.round(avgScore * 10) / 10;
@@ -177,9 +177,9 @@ export async function synthesizeVerdict(
   try {
     const res = await anthropic.messages.create({
       model: MODEL,
-      max_tokens: 300,
-      system: `Summarize each judge's reaction in one tight sentence. Output STRICT JSON only — an array, nothing else:
-[{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"}]`,
+      max_tokens: 400,
+      system: `Summarize the panel's verdict. Output STRICT JSON only — no prose before or after:
+{"summary":"One sentence synthesizing the panel's overall verdict on the move — not a list of what each judge said, but a single unified takeaway.","takes":[{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"},{"name":"FirstNameOnly","text":"one sentence"}]}`,
       messages: [
         {
           role: "user",
@@ -190,13 +190,15 @@ export async function synthesizeVerdict(
 
     const block = res.content[0];
     const raw = block && block.type === "text" ? block.text.trim() : "";
-    const arrayMatch = raw.match(/\[[\s\S]*\]/);
-    if (arrayMatch) {
-      const parsed = JSON.parse(arrayMatch[0]) as unknown;
+    const objMatch = raw.match(/\{[\s\S]*\}/);
+    if (objMatch) {
+      const parsed = JSON.parse(objMatch[0]) as unknown;
       if (
-        Array.isArray(parsed) &&
-        parsed.length > 0 &&
-        parsed.every(
+        parsed !== null &&
+        typeof parsed === "object" &&
+        typeof (parsed as Record<string, unknown>).summary === "string" &&
+        Array.isArray((parsed as Record<string, unknown>).takes) &&
+        ((parsed as Record<string, unknown>).takes as unknown[]).every(
           (t) =>
             typeof t === "object" &&
             t !== null &&
@@ -204,12 +206,13 @@ export async function synthesizeVerdict(
             typeof (t as Record<string, unknown>).text === "string",
         )
       ) {
-        return { takes: parsed as VerdictTake[], score };
+        const p = parsed as { summary: string; takes: VerdictTake[] };
+        return { summary: p.summary, takes: p.takes, score };
       }
     }
   } catch {
     // fall through to deterministic fallback
   }
 
-  return { takes: fallbackTakes(reactions), score };
+  return { summary: "", takes: fallbackTakes(reactions), score };
 }
