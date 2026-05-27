@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
+import { readFile } from "fs/promises";
+import path from "path";
 
 const CREAM     = "#f5ede4";
 const CREAM_DK  = "#e8ddd4";
@@ -37,16 +39,22 @@ export async function GET(req: NextRequest) {
   const longestName = Math.max(...displayJudges.map((n) => n.length));
   const nameSize = longestName > 20 ? 52 : longestName > 14 ? 62 : 72;
 
-  const origin = req.nextUrl.origin;
-  const finUrl = `${origin}/images/shark-fin-waterline.png`;
+  const publicDir = path.join(process.cwd(), "public");
 
-  // Load Geist from /public/fonts — a local fetch that works in the edge runtime.
-  // We only have the regular weight; Satori synthesizes bold from it.
   let fontData: ArrayBuffer | null = null;
   try {
-    fontData = await fetch(`${origin}/fonts/Geist-Regular.ttf`).then((r) => r.arrayBuffer());
+    const buf = await readFile(path.join(publicDir, "fonts", "Geist-Regular.ttf"));
+    fontData = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
   } catch {
     // fall through — render with Satori's default font
+  }
+
+  let finUrl: string;
+  try {
+    const buf = await readFile(path.join(publicDir, "images", "shark-fin-waterline.png"));
+    finUrl = `data:image/png;base64,${buf.toString("base64")}`;
+  } catch {
+    finUrl = "";
   }
 
   const fonts: { name: string; data: ArrayBuffer; weight: 400; style: "normal" }[] =
