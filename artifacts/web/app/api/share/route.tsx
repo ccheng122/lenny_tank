@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
-export const runtime = "edge";
-
 const CREAM     = "#f5ede4";
 const CREAM_DK  = "#e8ddd4";
 const INK       = "#1e1410";
