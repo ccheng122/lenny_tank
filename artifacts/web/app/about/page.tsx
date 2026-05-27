@@ -142,7 +142,7 @@ export default function AboutPage() {
           className="border-t pt-8 text-center text-xs"
           style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
         >
-          <p>Built by Clara Cheng for the Lenny&apos;s buildathon.</p>
+          <p>Built by <a href="https://www.linkedin.com/in/clara-cheng122/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-brand-orange)" }}>Clara Cheng</a> for the Lenny&apos;s buildathon.</p>
           <p className="mt-1">
             Fan-made project. Not officially affiliated with Lenny&apos;s Newsletter or Lenny Rachitsky.
           </p>
