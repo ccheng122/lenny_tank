@@ -1,7 +1,0 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/tank/route": "app/api/tank/route.js",
-  "/tank/result/page": "app/tank/result/page.js",
-  "/arena/[slug]/page": "app/arena/[slug]/page.js",
-  "/tank/page": "app/tank/page.js"
-}

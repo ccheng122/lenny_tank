@@ -1,1 +1,0 @@
-globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/share/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"/Users/claracheng/Documents/Projects/lennys_podcast/lenny_tank_app/artifacts/web/app/api/share/route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

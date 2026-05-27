@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/claracheng/Documents/Projects/lennys_podcast/lenny_tank_app/artifacts/web/app/layout\":[\"static/media/46bdd75a3ff56824-s.p.woff2\",\"static/media/22a5144ee8d83bca-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
