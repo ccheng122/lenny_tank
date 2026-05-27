@@ -12,7 +12,6 @@ const allowedDevOrigins = [
 ];
 
 const nextConfig: NextConfig = {
-  output: "standalone",
   allowedDevOrigins,
   turbopack: {
     resolveAlias: {
