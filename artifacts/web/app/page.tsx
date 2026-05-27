@@ -1,29 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BUCKET_LABELS, type Bucket } from "@data";
-
-const BUCKET_META: Record<Bucket, { image: string; description: string }> = {
-  growth: {
-    image: "bucket-growth",
-    description: "For PMs obsessed with moving the needle on activation and retention",
-  },
-  "shipping-ai": {
-    image: "bucket-shipping-ai",
-    description: "For builders navigating real tradeoffs in AI product development",
-  },
-  leadership: {
-    image: "bucket-leadership",
-    description: "For leads who must make the call when there's no playbook",
-  },
-  "zero-to-one": {
-    image: "bucket-zerotoone",
-    description: "For founders and PMs building something from nothing",
-  },
-  career: {
-    image: "bucket-career",
-    description: "For anyone at a career inflection point who needs a real sounding board",
-  },
-};
+import { BUCKET_META } from "@/lib/buckets-meta";
 
 const buckets = Object.keys(BUCKET_LABELS) as Bucket[];
 
@@ -85,7 +63,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {buckets.map((key) => {
-            const { image, description } = BUCKET_META[key];
+            const { image, description, iconScale } = BUCKET_META[key];
             const label = BUCKET_LABELS[key];
 
             return (
@@ -100,6 +78,7 @@ export default function Home() {
                   width={80}
                   height={80}
                   className="h-16 w-16 object-contain"
+                  style={iconScale ? { transform: `scale(${iconScale})` } : undefined}
                   unoptimized
                 />
 
@@ -143,15 +122,36 @@ export default function Home() {
       </div>
 
       {/* Footer note */}
-      <p
-        className="mt-16 text-center text-xs"
-        style={{ color: "var(--color-text-muted)" }}
-      >
-        Inspired by the guests of{" "}
-        <span style={{ color: "var(--color-brand-orange)" }}>
-          Lenny's Podcast
-        </span>
-      </p>
+      <div className="mt-16 flex flex-col items-center gap-4">
+        <p
+          className="text-center text-xs"
+          style={{ color: "var(--color-text-muted)" }}
+        >
+          Inspired by the guests of{" "}
+          <span style={{ color: "var(--color-brand-orange)" }}>
+            Lenny's Podcast
+          </span>
+        </p>
+        <a
+          href="https://www.lennysnewsletter.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary"
+        >
+          Lenny's Newsletter
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">
+            <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z" />
+            <path d="M3.5 6.75c0-.69.56-1.25 1.25-1.25H7A.75.75 0 0 0 7 4H4.75A2.75 2.75 0 0 0 2 6.75v4.5A2.75 2.75 0 0 0 4.75 14h4.5A2.75 2.75 0 0 0 12 11.25V9a.75.75 0 0 0-1.5 0v2.25c0 .69-.56 1.25-1.25 1.25h-4.5c-.69 0-1.25-.56-1.25-1.25v-4.5Z" />
+          </svg>
+        </a>
+        <Link
+          href="/about"
+          className="text-xs transition-colors hover:underline"
+          style={{ color: "var(--color-text-muted)" }}
+        >
+          About
+        </Link>
+      </div>
     </main>
   );
 }
