@@ -129,7 +129,7 @@ export async function GET(req: NextRequest) {
           <div style={{ display: "flex", alignItems: "center", gap: 10, backgroundColor: CREAM_DK, padding: "12px 20px", borderRadius: 999, alignSelf: "flex-start" }}>
             <span style={{ color: INK_MUTED, fontSize: 19, fontWeight: 500 }}>Wanna play?</span>
             <span style={{ color: ORANGE, fontSize: 19 }}>→</span>
-            <span style={{ color: INK, fontSize: 19, fontWeight: 700 }}>lennytank.app</span>
+            <span style={{ color: INK, fontSize: 19, fontWeight: 700 }}>lenny-tank.replit.app</span>
           </div>
         </div>
       </div>
